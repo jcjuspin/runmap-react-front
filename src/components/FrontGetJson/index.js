@@ -21,18 +21,21 @@ class FrontGetJson extends React.Component {
     console.log('valeur soumise : ', inputSearch )
     // https://api.github.com/search/repositories?q=${inputSearch}  pour se connecter à l'api de git pour tester...
 
-
+    // route home de Brice : http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/
+    // route home de Julien : http://julien-pillet.vpnuser.oclock.io/RunBack/public
+    // route search (préciser l'id de la ville): http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/search/1
+    // route place : http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/place/1
     /*
      * CHANGE LE LIEN HTTP CI-DESSOUS. C'est votre route!
      */
 
-    axios.get(`http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/place`)
+    axios.get('http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/place/1')
       .then((response) => {
-        console.log('réponse de mr API : ', response)
+        console.log('réponse de mr API : ', response);
         // eslint-disable-next-line arrow-body-style
       })
       .catch((error) => {
-        console.log('Apparement ça marche pas')
+        console.log('Apparement ça marche pas');
        
       })
       .finally(() => {
