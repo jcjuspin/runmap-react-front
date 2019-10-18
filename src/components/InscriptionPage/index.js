@@ -15,7 +15,7 @@ import {
 // == Import : local
 import './inscriptionPage.scss';
 
-// TODO: Ajouter le footer avec les liens ensuite git commit. Puis passer sur une autre page (formulaire de contact ?)
+// TODO: Ajouter un template footer plus tard. 
 
 // == Composant
 const InscriptionPage = () => (
@@ -25,13 +25,13 @@ const InscriptionPage = () => (
       <Menu>
         <Menu.Item
           name="RunMap"
-          onClick="#"
+          // onClick="#"
         />
         <Menu.Item position="right">
           <Button
             color="grey"
             content="Connexion"
-            onClick="#"
+            // onClick="#"
           />
         </Menu.Item>
       </Menu>
@@ -94,14 +94,15 @@ const InscriptionPage = () => (
                   <Grid.Column>
                     <Form.Field
                       fluid
-                      control={Select}
+                      control={Input}
+                      
                       label="AGE"
                     />
                   </Grid.Column>
                   <Grid.Column>
                     <Form.Field
                       fluid
-                      control={Select}
+                      control={Input}
                       label="SEXE"
                     />
                   </Grid.Column>
@@ -117,7 +118,7 @@ const InscriptionPage = () => (
               />
               <Form.Field
                 fluid
-                control={Select}
+                control={Input}
                 label="VILLE"
               />
             </Grid.Column>
