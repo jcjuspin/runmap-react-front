@@ -29,7 +29,7 @@ class FrontGetJson extends React.Component {
      * CHANGE LE LIEN HTTP CI-DESSOUS. C'est votre route!
      */
 
-    axios.get('http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/place/1', {
+    axios.post('http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/place/1', {
       firstName: 'Fred',
       lastName: 'Flintstone',
     }).then((response) => {
@@ -61,7 +61,7 @@ class FrontGetJson extends React.Component {
     return (
     <>
      <form onSubmit={handleSubmit}>
-       <input onChange={handleChange} placeholder="tappe entrée svp"></input>
+       <input onChange={handleChange} placeholder="tappe entrée dans l'input"></input>
      </form>
     </>
     )
