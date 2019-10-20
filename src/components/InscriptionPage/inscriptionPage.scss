@@ -1,0 +1,17 @@
+
+.inscription-page {
+  margin: 3rem 0;
+}
+
+a {
+  color: blue;
+}
+
+
+.form-inscription {
+  display: flex;
+  flex-direction: column;
+  &-ErrorMessage {
+    background-color: red;
+  }
+}
