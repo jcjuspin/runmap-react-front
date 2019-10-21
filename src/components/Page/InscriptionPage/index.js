@@ -4,33 +4,24 @@
 // on importe react ainsi que sa méthode useState. (toutes les méthodes qui commencent par use sont des "Hook")
 // en important useState on va pouvoir créer un state sans passer par une classe.
 // Le state est comme les propriétés d'une classe en php.
-import React, { useState } from 'react';
+import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 // on importe le fichier css typé pour ce composant.
 import './inscriptionPage.scss';
 
 // == Composant
-const InscriptionPage = () => {
+const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   // le state va contenir la valeur des inputs et un booléen pour l'affichage d'un message d'erreur
   // inscriptionForm va donc contenir le state.
   // setInscriptionForm va permettre de modifier la valeur des propriétés.
-  const [inscriptionFormData, setInscriptionFormData] = useState(
-    {
-      firstname: '',
-      lastname: '',
-      age: '',
-      gender: '',
-      email: '',
-      city: '',
-      password: '',
-      confirmationPassword: '',
-      displayPasswordErrorMessage: false,
-    },
-  );
+  
 
   // TODO: avoir la route pour le formulaire d'inscription
+  // TODO: completer toutes les proptypes
 
   // envoi du contenu du formulaire à l'api symfony
   // cf doc axios sur son fonctionnement https://github.com/axios/axios
@@ -72,8 +63,8 @@ const InscriptionPage = () => {
   // ici c'est du JSX. ça ressemble à du html et ça le deviendra par la suite dans le dom.
   return (
     <div className="inscription-page">
-      <h1>Inscription Page</h1>
-      <a href="#">retour à la page d'accueil</a>
+      <h1>Je suis la page d'inscription</h1>
+      <NavLink to="/" exact>retour à la page d'accueil</NavLink>
       {/* Formulaire d'inscription */}
       <form className="form-inscription" onSubmit={handleSubmit}>
 
@@ -192,6 +183,7 @@ const InscriptionPage = () => {
             id="email"
             name="email"
             placeholder="adresse e-mail"
+            value={inscriptionFormData.email}
             onChange={(event) => setInscriptionFormData({
               ...inscriptionFormData,
               email: event.target.value,
@@ -235,6 +227,7 @@ const InscriptionPage = () => {
             type="password"
             id="password"
             name="password"
+            value={inscriptionFormData.password}
             placeholder="mot de passe"
             onChange={(event) => setInscriptionFormData({
               ...inscriptionFormData,
@@ -289,6 +282,11 @@ const InscriptionPage = () => {
       </form>
     </div>
   );
+};
+
+InscriptionPage.propTypes = {
+  inscriptionFormData: PropTypes.object.isRequired,
+  setInscriptionFormData: PropTypes.func.isRequired,
 };
 
 // == Export
