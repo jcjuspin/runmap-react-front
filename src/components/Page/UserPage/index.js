@@ -2,7 +2,6 @@
 import React from 'react';
 
 // == Import : local
-import './userPage.scss';
 
 // == Composant
 const UserPage = () => (

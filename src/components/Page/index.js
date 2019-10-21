@@ -12,7 +12,7 @@ import InscriptionPage from 'src/components/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
 
 // == Composant
-const Page = ({ inscriptionFormData, setInscriptionFormData }) => {
+const Page = ({ inscriptionFormData, setInscriptionFormData, searchFormData, setSearchFormData }) => {
 
 
   return (
@@ -23,6 +23,8 @@ const Page = ({ inscriptionFormData, setInscriptionFormData }) => {
           <HomePage
             inscriptionFormData={inscriptionFormData}
             setInscriptionFormData={setInscriptionFormData}
+            searchFormData={searchFormData}
+            setSearchFormData={setSearchFormData}
           />
         </Route>
         <Route path="/inscription" exact>
@@ -33,7 +35,10 @@ const Page = ({ inscriptionFormData, setInscriptionFormData }) => {
         </Route>
         {/* TODO: mise en place statique */}
         <Route path="/search" exact>
-          <SearchPage />
+          <SearchPage
+            searchFormData={searchFormData}
+            setSearchFormData={setSearchFormData}
+          />
         </Route>
 
         <Route path="/user" exact>
@@ -51,6 +56,8 @@ const Page = ({ inscriptionFormData, setInscriptionFormData }) => {
 Page.propTypes = {
   inscriptionFormData: PropTypes.object.isRequired,
   setInscriptionFormData: PropTypes.func.isRequired,
+  searchFormData: PropTypes.object.isRequired,
+  setSearchFormData: PropTypes.func.isRequired,
 };
 
 // == Export

@@ -7,11 +7,14 @@ import HeaderSection from 'src/components/Page/HomePage/HeaderSection/';
 import PreInscriptionFormSection from 'src/components/Page/HomePage/PreInscriptionFormSection/';
 import SearchFormSection from 'src/components/Page/HomePage/SearchFormSection';
 import InscriptionAdSection from 'src/components/Page/HomePage/InscriptionAdSection/';
-import './homePage.scss';
-
 
 // == Composant
-const HomePage = ({ inscriptionFormData, setInscriptionFormData }) => (
+const HomePage = ({
+  inscriptionFormData,
+  setInscriptionFormData,
+  searchFormData,
+  setSearchFormData,
+}) => (
   <>
     <h1>Home Page</h1>
     <HeaderSection />
@@ -19,7 +22,10 @@ const HomePage = ({ inscriptionFormData, setInscriptionFormData }) => (
       inscriptionFormData={inscriptionFormData}
       setInscriptionFormData={setInscriptionFormData}
     />
-    <SearchFormSection />
+    <SearchFormSection
+      searchFormData={searchFormData}
+      setSearchFormData={setSearchFormData}
+    />
     <InscriptionAdSection />
     {/*
     <Footer />
@@ -31,6 +37,8 @@ const HomePage = ({ inscriptionFormData, setInscriptionFormData }) => (
 HomePage.propTypes = {
   inscriptionFormData: PropTypes.object.isRequired,
   setInscriptionFormData: PropTypes.func.isRequired,
+  searchFormData: PropTypes.object.isRequired,
+  setSearchFormData: PropTypes.func.isRequired,
 };
 
 // == Export

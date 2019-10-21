@@ -10,8 +10,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Import : local
-// on importe le fichier css typé pour ce composant.
-import './inscriptionPage.scss';
 
 // == Composant
 const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {

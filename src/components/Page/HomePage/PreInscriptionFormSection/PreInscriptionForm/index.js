@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 // composant
 const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => {
-
+  // console.log(inscriptionFormData);
   return (
     <>
     <form className="form-pre-inscription">

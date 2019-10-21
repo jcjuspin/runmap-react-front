@@ -24,13 +24,23 @@ const App = () => {
       displayPasswordErrorMessage: false,
     },
   );
-  
+
+  const [searchFormData, setSearchFormData] = useState(
+    {
+      sport: '',
+      place: '',
+    },
+  );
+  // console.log(inscriptionFormData);
+  // console.log(searchFormData);
   return (
     <div id="app">
       <FrontGetJson />
       <Page
         inscriptionFormData={inscriptionFormData}
         setInscriptionFormData={setInscriptionFormData}
+        searchFormData={searchFormData}
+        setSearchFormData={setSearchFormData}
       />
       <Footer />
     </div>
