@@ -24,8 +24,7 @@ const App = () => {
       displayPasswordErrorMessage: false,
     },
   );
-    // TODO: faire toutes les pages en statiques puis les routes
-    // faire les routes, link etc.
+  
   return (
     <div id="app">
       <FrontGetJson />

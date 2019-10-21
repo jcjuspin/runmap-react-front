@@ -19,8 +19,6 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   // inscriptionForm va donc contenir le state.
   // setInscriptionForm va permettre de modifier la valeur des propriétés.
   
-
-  // TODO: avoir la route pour le formulaire d'inscription
   // TODO: completer toutes les proptypes
 
   // envoi du contenu du formulaire à l'api symfony

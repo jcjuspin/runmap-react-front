@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import : local
-import HeaderHomePage from 'src/components/Page/HomePage/HeaderHomePage/';
+import HeaderSection from 'src/components/Page/HomePage/HeaderSection/';
 import PreInscriptionFormSection from 'src/components/Page/HomePage/PreInscriptionFormSection/';
 import SearchFormSection from 'src/components/Page/HomePage/SearchFormSection';
 import InscriptionAdSection from 'src/components/Page/HomePage/InscriptionAdSection/';
@@ -14,7 +14,7 @@ import './homePage.scss';
 const HomePage = ({ inscriptionFormData, setInscriptionFormData }) => (
   <>
     <h1>Home Page</h1>
-    <HeaderHomePage />
+    <HeaderSection />
     <PreInscriptionFormSection
       inscriptionFormData={inscriptionFormData}
       setInscriptionFormData={setInscriptionFormData}

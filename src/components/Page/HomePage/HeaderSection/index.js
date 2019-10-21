@@ -2,7 +2,7 @@
 import React from 'react';
 
 // == Composant
-const HeaderHomePage = () => (
+const HeaderSection = () => (
   <>
     <p>Je suis le header de la page d'accueil</p>
     <button type="button" style={{ display: 'block' }}>Connexion</button>
@@ -10,4 +10,4 @@ const HeaderHomePage = () => (
 );
 
 // == Export
-export default HeaderHomePage;
+export default HeaderSection;
