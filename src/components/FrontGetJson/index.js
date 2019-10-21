@@ -29,7 +29,7 @@ class FrontGetJson extends React.Component {
      * CHANGE LE LIEN HTTP CI-DESSOUS. C'est votre route!
      */
 
-    axios.post('http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/place/1', {
+    axios.post('http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/register', {
       firstName: 'Fred',
       lastName: 'Flintstone',
     }).then((response) => {
