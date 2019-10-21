@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 
@@ -52,8 +53,10 @@ const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => 
           })}
         />
       </label>
-      {/* TODO: ajouter une route qui emmène à la page d'inscription */}
-      <button type="button">Je m'inscris</button>
+      {/* boutton qui emmène à la page d'inscription emmène à la page d'inscription */}
+      <button type="button">
+        <NavLink to="/inscription" exact>Je m'inscris</NavLink>
+      </button>
     </form>
     </>
   )

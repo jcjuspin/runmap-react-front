@@ -3,10 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import : local
-import HeaderHomePage from 'src/components/HomePage/HeaderHomePage/';
-import PreInscriptionFormSection from 'src/components/HomePage/PreInscriptionFormSection/';
-import SearchFormSection from 'src/components/HomePage/SearchFormSection';
-import InscriptionAdSection from 'src/components/HomePage/InscriptionAdSection/';
+import HeaderHomePage from 'src/components/Page/HomePage/HeaderHomePage/';
+import PreInscriptionFormSection from 'src/components/Page/HomePage/PreInscriptionFormSection/';
+import SearchFormSection from 'src/components/Page/HomePage/SearchFormSection';
+import InscriptionAdSection from 'src/components/Page/HomePage/InscriptionAdSection/';
 import './homePage.scss';
 
 

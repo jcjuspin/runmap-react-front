@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchForm from 'src/components/HomePage/SearchFormSection/SearchForm/';
-import ArrowIcon from 'src/components/HomePage/SearchFormSection/ArrowIcon/';
+import SearchForm from 'src/components/Page/HomePage/SearchFormSection/SearchForm/';
+import ArrowIcon from 'src/components/Page/HomePage/SearchFormSection/ArrowIcon/';
 
 // == Import : local
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PreInscriptionForm from 'src/components/HomePage/PreInscriptionFormSection/PreInscriptionForm/';
-import Logo from 'src/components/HomePage/PreInscriptionFormSection/Logo/';
-import ArrowIcon from 'src/components/HomePage/PreInscriptionFormSection/ArrowIcon/';
+import PreInscriptionForm from 'src/components/Page/HomePage/PreInscriptionFormSection/PreInscriptionForm/';
+import Logo from 'src/components/Page/HomePage/PreInscriptionFormSection/Logo/';
+import ArrowIcon from 'src/components/Page/HomePage/PreInscriptionFormSection/ArrowIcon/';
 // == Import : local
 
 // composant

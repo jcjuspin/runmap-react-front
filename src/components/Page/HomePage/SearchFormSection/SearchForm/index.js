@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 
@@ -24,7 +25,7 @@ const SearchForm = () => {
         </select>
       </label>
       {/* boutton qui emmène vers la page de résultat */}
-      <button type="button">C'est aussi simple que ça</button>
+      <button type="button"><NavLink to="/search" exact>C'est aussi simple que ça</NavLink></button>
       {/* lien qui ouvre une pop-up "inscrit toi pour la découvrir" avec un lien d'inscription */}
       <a href="#">La selection de la communauté</a>
     </form>

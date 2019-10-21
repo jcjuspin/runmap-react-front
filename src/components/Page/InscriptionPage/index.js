@@ -7,6 +7,7 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 // == Import : local
 // on importe le fichier css typé pour ce composant.
@@ -63,7 +64,7 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   return (
     <div className="inscription-page">
       <h1>Je suis la page d'inscription</h1>
-      <a href="#">retour à la page d'accueil</a>
+      <NavLink to="/" exact>retour à la page d'accueil</NavLink>
       {/* Formulaire d'inscription */}
       <form className="form-inscription" onSubmit={handleSubmit}>
 
