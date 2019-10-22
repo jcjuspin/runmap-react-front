@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Import : local
-
+import './inscriptionpage.scss';
 // == Composant
 const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   // le state va contenir la valeur des inputs et un booléen pour l'affichage d'un message d'erreur

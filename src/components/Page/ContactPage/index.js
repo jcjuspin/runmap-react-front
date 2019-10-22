@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 // == Import : local
-
+import './contactpage.scss';
 // == Composant
 const ContactPage = () => (
   <>
