@@ -8,6 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 // == Import : local
 import App from 'src/components/App';
 import store from 'src/store';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // == Render
 const rootComponent = (
