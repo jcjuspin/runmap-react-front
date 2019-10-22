@@ -7,20 +7,15 @@ import ArrowIcon from 'src/components/Page/HomePage/SearchFormSection/ArrowIcon/
 
 
 // composant
-const SearchFormSection = ({ searchFormData, setSearchFormData }) => {
+const SearchFormSection = ({ searchFormData, setSearchFormData }) => (
 
-  return (
-    // classe pour mettre le background-image
-    <div className="search-form-section-container">
-      <h2>je suis le formulaire de recherche</h2>
-      <SearchForm
-        searchFormData={searchFormData}
-        setSearchFormData={setSearchFormData}
-      />
-      <ArrowIcon />
-    </div>
-  );
-};
+  <div>
+    <h2>je suis le formulaire de recherche</h2>
+    <SearchForm searchFormData={searchFormData} setSearchFormData={setSearchFormData} />
+    <ArrowIcon />
+  </div>
+
+);
 
 SearchFormSection.propTypes = {
   searchFormData: PropTypes.object.isRequired,

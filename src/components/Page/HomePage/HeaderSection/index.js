@@ -5,7 +5,7 @@ import React from 'react';
 const HeaderSection = () => (
   <>
     <p>Je suis le header de la page d'accueil</p>
-    <button type="button" style={{ display: 'block' }}>Connexion</button>
+    <button type="button">Connexion</button>
   </>
 );
 

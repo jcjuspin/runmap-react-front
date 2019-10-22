@@ -7,10 +7,10 @@ import { NavLink } from 'react-router-dom';
 // composant
 // const SearchForm = ({ searchFormData, setSearchFormData }) => {
 const SearchForm = ({ searchFormData, setSearchFormData }) => {
-  console.log(searchFormData.sport);
-  console.log(searchFormData.place);
+  // console.log(searchFormData.sport);
+  // console.log(searchFormData.place);
   return (
-    <form className="form-search">
+    <form>
       {/* label,input pour le choix du sport */}
       <label htmlFor="sport-select">
         sport
@@ -22,7 +22,7 @@ const SearchForm = ({ searchFormData, setSearchFormData }) => {
           name="sport"
           id="sport-select"
         >
-          <option value=""></option>
+          <option value="choisis ton sport">choisis ton sport</option>
           <option value="athlétisme">athlétisme</option>
           <option value="boxe">boxe</option>
         </select>
@@ -38,7 +38,7 @@ const SearchForm = ({ searchFormData, setSearchFormData }) => {
           name="place"
           id="place-select"
         >
-          <option value=""></option>
+          <option value="choisis ta ville">choisis ta ville</option>
           <option value="paris">paris</option>
           <option value="lille">lille</option>
         </select>

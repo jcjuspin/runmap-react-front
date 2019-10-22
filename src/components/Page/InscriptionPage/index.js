@@ -49,8 +49,8 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
 
       // on execute la fonction formSubmit qui soumet le formulaire en direction de l'api.
       formSubmit();
-
-    } else {
+    }
+    else {
       // on modifie l'état du booléen dans le state pour qu'il passe à true.
       console.log('Le mot de passe ne correspond pas. Veuillez corriger !');
       setInscriptionFormData({ ...inscriptionFormData, displayPasswordErrorMessage: true });
@@ -267,7 +267,8 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
           à l'initial il vaut false.
           Quand il passe à true la div s'affiche.
 
-          boolean && <div></div>  est une condtion qui veut dire que si boolean = true alors ce qui suit est pris en compte.
+          boolean && <div></div>  est une condtion qui veut dire que si boolean = true
+          alors ce qui suit est pris en compte.
           à l'inverse si boolean = false alors ce qui suit n'est pas pris en compte.
          */}
         {inscriptionFormData.displayPasswordErrorMessage && (
