@@ -10,17 +10,13 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Import : local
-// on importe le fichier css typé pour ce composant.
-import './inscriptionPage.scss';
-
+import './inscriptionpage.scss';
 // == Composant
 const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   // le state va contenir la valeur des inputs et un booléen pour l'affichage d'un message d'erreur
   // inscriptionForm va donc contenir le state.
   // setInscriptionForm va permettre de modifier la valeur des propriétés.
   
-
-  // TODO: avoir la route pour le formulaire d'inscription
   // TODO: completer toutes les proptypes
 
   // envoi du contenu du formulaire à l'api symfony
@@ -53,8 +49,8 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
 
       // on execute la fonction formSubmit qui soumet le formulaire en direction de l'api.
       formSubmit();
-
-    } else {
+    }
+    else {
       // on modifie l'état du booléen dans le state pour qu'il passe à true.
       console.log('Le mot de passe ne correspond pas. Veuillez corriger !');
       setInscriptionFormData({ ...inscriptionFormData, displayPasswordErrorMessage: true });
@@ -271,7 +267,8 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
           à l'initial il vaut false.
           Quand il passe à true la div s'affiche.
 
-          boolean && <div></div>  est une condtion qui veut dire que si boolean = true alors ce qui suit est pris en compte.
+          boolean && <div></div>  est une condtion qui veut dire que si boolean = true
+          alors ce qui suit est pris en compte.
           à l'inverse si boolean = false alors ce qui suit n'est pas pris en compte.
          */}
         {inscriptionFormData.displayPasswordErrorMessage && (

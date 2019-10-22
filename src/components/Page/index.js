@@ -1,5 +1,6 @@
 // == Import : npm
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 
@@ -11,53 +12,51 @@ import InscriptionPage from 'src/components/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
 
 // == Composant
-const Page = () => {
-  const [inscriptionFormData, setInscriptionFormData] = useState(
-    {
-      firstname: '',
-      lastname: '',
-      age: '',
-      gender: '',
-      email: '',
-      city: '',
-      password: '',
-      confirmationPassword: '',
-      displayPasswordErrorMessage: false,
-    },
-  );
-    // TODO: faire toutes les pages en statiques puis les routes
-    // faire les routes, link etc.
-  return (
-    <>
-      <Switch>
+const Page = ({
+  inscriptionFormData,
+  setInscriptionFormData,
+  searchFormData,
+  setSearchFormData,
+}) => (
+  <>
+    <Switch>
+      <Route path="/" exact>
+        <HomePage
+          inscriptionFormData={inscriptionFormData}
+          setInscriptionFormData={setInscriptionFormData}
+          searchFormData={searchFormData}
+          setSearchFormData={setSearchFormData}
+        />
+      </Route>
+      <Route path="/inscription" exact>
+        <InscriptionPage
+          inscriptionFormData={inscriptionFormData}
+          setInscriptionFormData={setInscriptionFormData}
+        />
+      </Route>
+      {/* TODO: mise en place statique */}
+      <Route path="/search" exact>
+        <SearchPage
+          searchFormData={searchFormData}
+          setSearchFormData={setSearchFormData}
+        />
+      </Route>
+      <Route path="/user" exact>
+        <UserPage />
+      </Route>
+      {/* TODO: mise en place statique */}
+      <Route path="/contact" exact>
+        <ContactPage />
+      </Route>
+    </Switch>
+  </>
+);
 
-        <Route path="/" exact>
-          <HomePage
-            inscriptionFormData={inscriptionFormData}
-            setInscriptionFormData={setInscriptionFormData}
-          />
-        </Route>
-        <Route path="/inscription" exact>
-          <InscriptionPage
-            inscriptionFormData={inscriptionFormData}
-            setInscriptionFormData={setInscriptionFormData}
-          />
-        </Route>
-        {/* TODO: mise en place statique */}
-        <Route path="/search" exact>
-          <SearchPage />
-        </Route>
-
-        <Route path="/user" exact>
-          <UserPage />
-        </Route>
-        {/* TODO: mise en place statique */}
-        <Route path="/contact" exact>
-          <ContactPage />
-        </Route>
-      </Switch>
-    </>
-  );
+Page.propTypes = {
+  inscriptionFormData: PropTypes.object.isRequired,
+  setInscriptionFormData: PropTypes.func.isRequired,
+  searchFormData: PropTypes.object.isRequired,
+  setSearchFormData: PropTypes.func.isRequired,
 };
 
 // == Export

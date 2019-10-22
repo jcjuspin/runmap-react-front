@@ -1,3 +1,5 @@
+// fichier de test pour faire des requêtes à l'api symfony
+
 // == Import : npm
 import React from 'react';
 import axios from 'axios';
@@ -18,7 +20,7 @@ class FrontGetJson extends React.Component {
 
   validateSearch = () => {
     const { inputSearch } = this.state;
-    console.log('valeur soumise : ', inputSearch )
+    console.log('valeur soumise : ', inputSearch);
     // https://api.github.com/search/repositories?q=${inputSearch}  pour se connecter à l'api de git pour tester...
 
     // route home de Brice : http://brice-ouaali.vpnuser.oclock.io/projet-Runmap/public/
@@ -33,7 +35,7 @@ class FrontGetJson extends React.Component {
       form: {
         firstName: 'Fred',
         lastName: 'Flintstone',
-      }
+      },
     }).then((response) => {
       console.log('réponse de mr API : ', response);
       // eslint-disable-next-line arrow-body-style
@@ -48,9 +50,9 @@ class FrontGetJson extends React.Component {
 
   render() {
     const handleChange = (event) => {
-    const { value } = event.target;
-    this.changeValue(value);
-    console.log('ce que tu es en train d\'écrire dans l\'input : ', value)
+      const { value } = event.target;
+      this.changeValue(value);
+      console.log('ce que tu es en train d\'écrire dans l\'input : ', value)
     };
 
     const handleSubmit = (event) => {
@@ -58,18 +60,17 @@ class FrontGetJson extends React.Component {
       this.validateSearch();
     };
 
-    console.log('valeur de inputSearch dans le state : ', this.state.inputSearch)
+    // console.log('valeur de inputSearch dans le state : ', this.state.inputSearch)
 
     return (
-    <>
-     <form onSubmit={handleSubmit}>
-       <input onChange={handleChange} placeholder="tappe entrée dans l'input"></input>
-     </form>
-    </>
-    )
-
+      <>
+        <form onSubmit={handleSubmit}>
+          <input onChange={handleChange} placeholder="tappe entrée dans l'input" />
+        </form>
+      </>
+    );
   }
-};
+}
 
 // == Export
 export default FrontGetJson;

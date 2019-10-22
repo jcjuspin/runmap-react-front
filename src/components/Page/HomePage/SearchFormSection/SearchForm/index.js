@@ -4,24 +4,43 @@ import { NavLink } from 'react-router-dom';
 
 // == Import : local
 
-
 // composant
-const SearchForm = () => {
-
+// const SearchForm = ({ searchFormData, setSearchFormData }) => {
+const SearchForm = ({ searchFormData, setSearchFormData }) => {
+  // console.log(searchFormData.sport);
+  // console.log(searchFormData.place);
   return (
-    <form className="form-search">
+    <form>
       {/* label,input pour le choix du sport */}
       <label htmlFor="sport-select">
         sport
-        <select name="sport" id="sport-select">
+        <select
+          onChange={(event) => setSearchFormData({
+            ...searchFormData,
+            sport: event.target.value,
+          })}
+          name="sport"
+          id="sport-select"
+        >
+          <option value="choisis ton sport">choisis ton sport</option>
           <option value="athlétisme">athlétisme</option>
+          <option value="boxe">boxe</option>
         </select>
       </label>
       {/* label,input pour le choix de la ville */}
       <label htmlFor="place-select">
         ou
-        <select name="place" id="place-select">
+        <select
+          onChange={(event) => setSearchFormData({
+            ...searchFormData,
+            place: event.target.value,
+          })}
+          name="place"
+          id="place-select"
+        >
+          <option value="choisis ta ville">choisis ta ville</option>
           <option value="paris">paris</option>
+          <option value="lille">lille</option>
         </select>
       </label>
       {/* boutton qui emmène vers la page de résultat */}
@@ -33,7 +52,8 @@ const SearchForm = () => {
 }
 
 SearchForm.propTypes = {
-  
+  searchFormData: PropTypes.object.isRequired,
+  setSearchFormData: PropTypes.func.isRequired,
 };
 
 // == Export

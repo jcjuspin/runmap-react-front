@@ -24,14 +24,23 @@ const App = () => {
       displayPasswordErrorMessage: false,
     },
   );
-    // TODO: faire toutes les pages en statiques puis les routes
-    // faire les routes, link etc.
+
+  const [searchFormData, setSearchFormData] = useState(
+    {
+      sport: '',
+      place: '',
+    },
+  );
+  // console.log(inscriptionFormData);
+  // console.log(searchFormData);
   return (
     <div id="app">
       <FrontGetJson />
       <Page
         inscriptionFormData={inscriptionFormData}
         setInscriptionFormData={setInscriptionFormData}
+        searchFormData={searchFormData}
+        setSearchFormData={setSearchFormData}
       />
       <Footer />
     </div>

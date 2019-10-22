@@ -1,25 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 // == Import : local
 import Steps from 'src/components/Page/HomePage/InscriptionAdSection/Steps/';
 import InscriptionLink from 'src/components/Page/HomePage/InscriptionAdSection/InscriptionLink/';
 
 // composant
-const InscriptionAdSection = ({  }) => {
-
-  return (
-    <>
+const InscriptionAdSection = () => (
+  <>
     <h2>Promotion</h2>
-      <Steps />
-      <InscriptionLink />
-    </>
-  )
-}
-
-InscriptionAdSection.propTypes = {
-  
-};
+    <Steps />
+    <InscriptionLink />
+  </>
+);
 
 // == Export
 export default InscriptionAdSection;
