@@ -9,7 +9,8 @@ const Logo = () => {
 
   return (
     <>
-      <img src="#" alt="je suis le logo" />
+      <h1 className="logo">RUNMAP</h1>
+      <div className="footer-copyright"> ©2019 - Project RunMap </div>
     </>
   )
 }

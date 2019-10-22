@@ -3,19 +3,46 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 // == Import : local
+import './PreInscriptionForm.scss';
 
 // composant
 const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => {
   // console.log(inscriptionFormData);
   return (
     <>
-      <form>
-        <h2>Je suis le formulaire de pré-inscription</h2>
-        <button type="button">S'inscrire avec Facebook</button>
-        <button type="button">S'inscrire avec Gmail</button>
+      <div className="signup-form-group">
+        <div className="sign-up-form">
+          <div className="sign-up-form">
+            {/* Bouton Facebook */}
+            <button
+              type="button"
+              className="signup-button-fb facebook-signup-button"
+              href="/register"
+            >
+              S'inscrire avec Facebook
+            </button>
+            
+            <div className="hr">
+              <div className="hr-text">OU</div>
+            </div>
+
+            <button
+              type="button"
+              className="signup-button email-signup-button"
+              href="/register"
+            >
+              Avec mon adresse Mail
+            </button>
+            <div className="disclaimer-text">
+              <p>En vous inscrivant sur <span>RunMap</span> vous acceptez les <a href="#">conditions d'utilisation</a>. Pour plus d'information <a href="#">contactez-nous</a> .</p>
+              <p>Vous este déjà membre ? <a href="#">Connectez-vous</a></p>
+            </div>
+          </div>
+        </div>
 
         {/* input,label pour l'e-mail */}
-        <label
+        {/*
+          <label
           htmlFor="pre-inscription-email"
         >
             Adresse e-mail
@@ -30,10 +57,13 @@ const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => 
               email: event.target.value,
             })}
           />
-        </label>
+          </label>
+        */}
 
         {/* input,label pour le mot de passe */}
-        <label htmlFor="pre-inscription-password">
+
+        {/*
+          <label htmlFor="pre-inscription-password">
             Mot de passe
           <input
             type="password"
@@ -47,11 +77,15 @@ const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => 
             })}
           />
         </label>
+        */}
+
         {/* boutton qui emmène à la page d'inscription emmène à la page d'inscription */}
-        <button type="button">
+        {/* 
+          <button type="button">
           <NavLink to="/inscription" exact>Je m'inscris</NavLink>
-        </button>
-      </form>
+          </button> 
+        */}
+      </div>
     </>
   );
 };

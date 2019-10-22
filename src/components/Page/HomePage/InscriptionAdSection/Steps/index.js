@@ -12,7 +12,7 @@ const Steps = () => (
     </div>
     <div>
       <h2>je trouve</h2>
-      <h3>ille-paris-lyon</h3>
+      <h3>Lille-paris-lyon</h3>
     </div>
     <div>
       <h2>je pratique</h2>

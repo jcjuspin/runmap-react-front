@@ -3,7 +3,7 @@ import React from 'react';
 // composant
 const Logo = () => (
 
-  <img className="logo" src="#" alt="Je suis le logo" />
+  <img alt="#" src="./src/components/PreInscriptionFormSection/Logo/RUNMAP.png" />
 
 );
 
