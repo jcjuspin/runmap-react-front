@@ -26,9 +26,9 @@ const HomePage = ({
       searchFormData={searchFormData}
       setSearchFormData={setSearchFormData}
     />
-    <InscriptionAdSection />
+    {/* <InscriptionAdSection /> */}
     {/*
-    <Footer />
+      <Footer />
     */}
 
   </>
