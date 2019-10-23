@@ -64,9 +64,11 @@ class FrontGetJson extends React.Component {
 
     return (
       <>
-        <form onSubmit={handleSubmit}>
+        {/*
+          <form onSubmit={handleSubmit}>
           <input onChange={handleChange} placeholder="tappe entrée dans l'input" />
         </form>
+        */}
       </>
     );
   }

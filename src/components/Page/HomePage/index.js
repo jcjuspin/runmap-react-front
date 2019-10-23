@@ -17,7 +17,6 @@ const HomePage = ({
   setSearchFormData,
 }) => (
   <>
-    <h1>Home Page</h1>
     <HeaderSection />
     <PreInscriptionFormSection
       inscriptionFormData={inscriptionFormData}

@@ -4,15 +4,19 @@ import SearchForm from 'src/components/Page/HomePage/SearchFormSection/SearchFor
 import ArrowIcon from 'src/components/Page/HomePage/SearchFormSection/ArrowIcon/';
 
 // == Import : local
-
+import './SearchFormSection.scss';
 
 // composant
 const SearchFormSection = ({ searchFormData, setSearchFormData }) => (
 
-  <div>
-    <h2>je suis le formulaire de recherche</h2>
-    <SearchForm searchFormData={searchFormData} setSearchFormData={setSearchFormData} />
-    <ArrowIcon />
+  <div className="search-main">
+    <div className="container">
+      <div className="title-search">
+        <h2>C'est aussi simple que ça ...</h2>
+      </div>
+      <SearchForm searchFormData={searchFormData} setSearchFormData={setSearchFormData} />
+      <ArrowIcon />
+    </div>
   </div>
 
 );

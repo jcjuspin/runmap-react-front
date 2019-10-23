@@ -1,0 +1,20 @@
+.search-main{
+    height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-image: url(https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/frFR/Images/running-fw19-evergreen-clp-crm-desktop_tcm196-328877.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.title-search h2{
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #FFC107;
+    margin-bottom: 20px;
+}
