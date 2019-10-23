@@ -23,7 +23,7 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   // cf doc axios sur son fonctionnement https://github.com/axios/axios
   const formSubmit = () => {
     console.log("je soumets en POST ce contenu à l'api symfony : ", inscriptionFormData);
-    axios.post('http://ec2-3-82-197-202.compute-1.amazonaws.com/RunBack/public/register', {
+    axios.post('ec2-3-82-197-202.compute-1.amazonaws.com/RunBack/public/register', {
       inscriptionFormData,
 
     }).then((response) => {
