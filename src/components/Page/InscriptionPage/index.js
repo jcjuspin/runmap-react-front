@@ -58,13 +58,223 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
   };
   // ici c'est du JSX. ça ressemble à du html et ça le deviendra par la suite dans le dom.
   return (
-    <div className="inscription-page">
-      <h1>Je suis la page d'inscription</h1>
-      <NavLink to="/" exact>retour à la page d'accueil</NavLink>
+    <div className="register-body">
+      <div className="page container">
+        <div className="panel registration-panel">
+          <h1 className="mb-0">
+            Inscrit toi sur Runmap, optimise tes séances !
+          </h1>
+
+          <div className="facebook">
+            <a className="btn btn-block fb-button" href="#">S'inscrire avec Facebook</a>
+          </div>
+          <div className="google">
+            <a className="btn btn-block google-button" href="#">S'inscrire avec Gmail</a>
+          </div>
+
+          <form className="order signup website">
+
+            <div className="text-caption light mt-md mb-md">
+              Tu préfères utiliser ton adresse mail ?
+            </div>
+            <fieldset className="user-inputs mt-0 mb-0">
+
+              {/* ADRESSE MAIL */}
+              <div className="form-group">
+
+                <input
+                  className="form-control"
+                  type="email"
+                  placeholder="Adresse mail"
+                  id="email"
+                  name="email"
+                  value={inscriptionFormData.email}
+                  onChange={(event) => setInscriptionFormData({
+                    ...inscriptionFormData,
+                    email: event.target.value,
+                  })}
+                  // required
+                />
+              </div>
+
+              {/* PRÉNOM - NOM */}
+              <div className="form-group">
+                <div className="row">
+
+                  {/* PRÉNOM */}
+                  <div className="col">
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="firstname"
+                      name="firstname"
+                      placeholder="Prénom"
+                      value={inscriptionFormData.firstname}
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        firstname: event.target.value,
+                      })}
+                      // required
+                    />
+                  </div>
+
+                  <div className="col">
+                    {/* NOM */}
+                    <input
+                      className="form-control"
+                      type="text"
+                      id="lastname"
+                      name="lastname"
+                      placeholder="Nom"
+                      // ( Cette ligne ne doit pas être mise ? Elle n'est pas dans ton code. Mais tu gère clairement plus que moi donc je te fais confiance, simple question ^^)
+                      // value={inscriptionFormData.lastname}
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        lastname: event.target.value,
+                      })}
+                      // required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* AGE  + VILLE */}
+              <div className="form-group">
+                <div className="row">
+                  {/* AGE */}
+                  <div className="col-3">
+                    <select
+                      className="form-control"
+                      type="text"
+                      id="age"
+                      name="age"
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        age: event.target.value,
+                      })}
+                     // required
+                    >
+                      <option value="">Age</option>
+                      <option value="18">18 ans</option>
+                      <option value="33">33 ans</option>
+                    </select>
+                  </div>
+
+                  <div className="col-3">
+                    <select
+                      className="form-control"
+                      type="text"
+                      id="gender"
+                      name="gender"
+                      placeholder="sexe"
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        gender: event.target.value,
+                      })}
+                      // required
+                    >
+                      <option value="">Sexe</option>
+                      <option value="homme">homme</option>
+                      <option value="femme">femme</option>
+                    </select>
+                    
+                  </div>
+
+                  {/* VILLE */}
+                  <div className="col">
+                    <select
+                      className="form-control"
+                      type="text"
+                      id="city"
+                      name="city"
+                      placeholder="Ville"
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        city: event.target.value,
+                      })}
+                      // required
+                    >
+                      <option value="ville 1">Ville</option>
+                      <option value="ville 1">ville 1</option>
+                      <option value="ville 2">ville 2</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* MOT DE PASSE */}
+              <div className="form-group">
+                <div className="row">
+                  <div className="col">
+          
+                    <input
+                      className="form-control"
+                      type="password"
+                      placeholder="Mot de passe"
+                      id="password"
+                      name="password"
+                      value={inscriptionFormData.password}
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        password: event.target.value,
+                      })}
+                      // required
+                    />
+                  </div>
+
+                  <div className="col">
+                    <input
+                      className="form-control"
+                      type="password"
+                      placeholder="Mot de passe"
+                      id="password"
+                      name="password"
+                      value={inscriptionFormData.password}
+                      onChange={(event) => setInscriptionFormData({
+                        ...inscriptionFormData,
+                        password: event.target.value,
+                      })}
+                    // required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Photo */}
+              <div className="form-group form-avatar">
+                <label
+                  className="avatar-label"
+                  htmlFor="avatar"
+                >
+                On termine par la photo ?
+                  <input
+                    className="form-control-file"
+                    type="file"
+                    id="avatar"
+                    name="avatar"
+                    accept="image/png, image/jpeg"
+                  />
+                </label>
+              </div>
+
+            </fieldset>
+
+            <div className="email">
+              <a className="btn btn-block signup-button" href="#">C'est parti</a>
+            </div>
+            <div className="disclaimer-text">
+              <p>Retour à la <a href="#"><NavLink to="/" exact>page d'accueil</NavLink></a>. 
+                <br />Pour plus d'information <a href="#">contactez-nous</a> .</p>
+            </div>
+          
+
       {/* Formulaire d'inscription */}
+      {/* 
       <form className="form-inscription" onSubmit={handleSubmit}>
+      */}
 
         {/* input,label pour l'avatar */}
+        {/*
         <label
           className="form-inscription-label avatar-label"
           htmlFor="avatar"
@@ -78,9 +288,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             accept="image/png, image/jpeg"
           />
         </label>
+        */}
 
         {/* input,label pour le prénom */}
-        <label
+        {/*
+          <label
           className="form-inscription-label firstname-label"
           htmlFor="firstname"
         >
@@ -99,9 +311,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             // required
           />
         </label>
+        */}
 
         {/* input,label pour le nom de famille */}
-        <label
+        {/*
+          <label
           className="form-inscription-label lastname-label"
           htmlFor="lastname"
         >
@@ -119,9 +333,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             // required
           />
         </label>
+        */}
 
         {/* input,label pour l'age' */}
-        <label
+        {/*
+          <label
           className="form-inscription-label age-label"
           htmlFor="age"
         >
@@ -142,9 +358,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             <option value="33">33 ans</option>
           </select>
         </label>
+        */}
 
         {/* input,label pour le sexe */}
-        <label
+        {/*
+          <label
           className="form-inscription-label gender-label"
           htmlFor="gender"
         >
@@ -166,9 +384,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             <option value="femme">femme</option>
           </select>
         </label>
+        */}
 
         {/* input,label pour l'e-mail */}
-        <label
+        {/*
+          <label
           className="form-inscription-label email-label"
           htmlFor="email"
         >
@@ -187,9 +407,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             // required
           />
         </label>
+        */}
    
         {/* input,label pour la ville */}
-        <label
+        {/*
+          <label
           className="form-inscription-label city-label"
           htmlFor="city"
         >
@@ -211,9 +433,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             <option value="ville 2">ville 2</option>
           </select>
         </label>
+        */}
 
         {/* input,label pour le mot de passe */}
-        <label
+        {/*
+          <label
           className="form-inscription-label password-label"
           htmlFor="password"
         >
@@ -232,9 +456,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             // required
           />
         </label>
+        */}
 
         {/* input,label pour la confirmation mot de passe */}
-        <label
+        {/*
+          <label
           className="form-inscription-label confirmation-password-label"
           htmlFor="confirmation-password"
         >
@@ -252,14 +478,16 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             // required
           />
         </label>
+        */}
 
         {/* input,label pour le bouton de soumission du formulaire */}
-        <button
+        {/* <button
           type="submit"
           className="form-inscription-button-submit"
         >
           bienvenue!
         </button>
+        */}
 
         {/* message d'erreur si le mot de passe n'est pas correct */}
         {/*
@@ -277,7 +505,10 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
           </div>
         )}
       </form>
+        </div>
+      </div>
     </div>
+  
   );
 };
 

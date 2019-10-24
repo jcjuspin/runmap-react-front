@@ -11,7 +11,7 @@ const NavigationFamily = () => {
   return (
     <>
       <ul className="list-nav">
-        <li> <NavLink to="/contact" exact>S'inscrire</NavLink> </li>
+        <li> <NavLink to="/inscription" exact>S'inscrire</NavLink> </li>
         <li> <NavLink to="/contact" exact>Se connecter</NavLink> </li>
         <li> <NavLink to="/contact" exact>Ajouter une ville</NavLink> </li>
         <li> <NavLink to="/contact" exact>Ajouter un lieu</NavLink> </li>
