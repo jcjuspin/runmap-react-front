@@ -9,7 +9,7 @@ const HeaderSection = () => (
       {/* Début - RUNMAP */}
       <a
         className="navbar-brand text-uppercase"
-        href="#"
+        href="/"
       >
       Run<b className="text-warning">map</b>
       </a>
