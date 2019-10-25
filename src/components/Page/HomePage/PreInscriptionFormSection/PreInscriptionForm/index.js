@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 // == Import : local
 import './PreInscriptionForm.scss';
@@ -25,14 +25,14 @@ const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => 
             <div className="hr">
               <div className="hr-text">OU</div>
             </div>
-
-            <button
-              type="button"
-              className="signup-button email-signup-button"
-              
-            >
+            <Link to="/inscription" exact>
+              <button
+                type="button"
+                className="signup-button email-signup-button"
+              >git m
               Avec mon adresse Mail
-            </button>
+              </button>
+            </Link>
             <div className="disclaimer-text">
               <p>En vous inscrivant sur <span>RunMap</span> vous acceptez les <a href="#">conditions d'utilisation</a>. Pour plus d'information <a href="#">contactez-nous</a> .</p>
               <p>Vous este déjà membre ? <a href="#">Connectez-vous</a></p>
