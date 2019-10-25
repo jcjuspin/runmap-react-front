@@ -43,18 +43,18 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
     event.preventDefault();
 
     // condition si le mot de passe et le mot de passe de confirmation ne corresponds pas.
-    if (inscriptionFormData.password === inscriptionFormData.confirmationPassword) {
-      console.log('les mots de passe correspondent. Execution de la fonction formSubmit');
-      setInscriptionFormData({ ...inscriptionFormData, displayPasswordErrorMessage: false });
+    // if (inscriptionFormData.password === inscriptionFormData.confirmationPassword) {
+    //   console.log('les mots de passe correspondent. Execution de la fonction formSubmit');
+    //   setInscriptionFormData({ ...inscriptionFormData, displayPasswordErrorMessage: false });
 
       // on execute la fonction formSubmit qui soumet le formulaire en direction de l'api.
       formSubmit();
-    }
-    else {
-      // on modifie l'état du booléen dans le state pour qu'il passe à true.
-      console.log('Le mot de passe ne correspond pas. Veuillez corriger !');
-      setInscriptionFormData({ ...inscriptionFormData, displayPasswordErrorMessage: true });
-    }
+    // }
+    // else {
+    //   // on modifie l'état du booléen dans le state pour qu'il passe à true.
+    //   console.log('Le mot de passe ne correspond pas. Veuillez corriger !');
+    //   setInscriptionFormData({ ...inscriptionFormData, displayPasswordErrorMessage: true });
+    // }
   };
   // ici c'est du JSX. ça ressemble à du html et ça le deviendra par la suite dans le dom.
   return (
@@ -64,7 +64,6 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
           <h1 className="mb-0">
             Inscrit toi sur Runmap, optimise tes séances !
           </h1>
-
           <div className="facebook">
             <a className="btn btn-block fb-button" href="#">S'inscrire avec Facebook</a>
           </div>
@@ -72,7 +71,7 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             <a className="btn btn-block google-button" href="#">S'inscrire avec Gmail</a>
           </div>
 
-          <form className="order signup website">
+          <form className="order signup website" onSubmit={handleSubmit}>
 
             <div className="text-caption light mt-md mb-md">
               Tu préfères utiliser ton adresse mail ?
@@ -227,13 +226,13 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
                       className="form-control"
                       type="password"
                       placeholder="Mot de passe"
-                      id="password"
-                      name="password"
-                      value={inscriptionFormData.password}
-                      onChange={(event) => setInscriptionFormData({
-                        ...inscriptionFormData,
-                        password: event.target.value,
-                      })}
+                      id="confirmation-password"
+                      name="confirmation-password"
+                      value={inscriptionFormData.confirmationPassword}
+                      // onChange={(event) => setInscriptionFormData({
+                      //  ...inscriptionFormData,
+                      //  confirmationPassword: event.target.value,
+                      // })}
                     // required
                     />
                   </div>
@@ -260,7 +259,7 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
             </fieldset>
 
             <div className="email">
-              <a className="btn btn-block signup-button" href="#">C'est parti</a>
+              <button type="submit" className="btn btn-block signup-button" href="#">C'est parti</button>
             </div>
             <div className="disclaimer-text">
               <p>Retour à la <a href="#"><NavLink to="/" exact>page d'accueil</NavLink></a>. 
@@ -499,11 +498,11 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
           alors ce qui suit est pris en compte.
           à l'inverse si boolean = false alors ce qui suit n'est pas pris en compte.
          */}
-        {inscriptionFormData.displayPasswordErrorMessage && (
+        {/* {inscriptionFormData.displayPasswordErrorMessage && (
           <div className="form-inscription-ErrorMessage">
             Le mot de passe ne correspond pas. Veuillez corriger!
           </div>
-        )}
+        )} */}
       </form>
         </div>
       </div>
