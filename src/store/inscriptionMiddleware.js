@@ -1,6 +1,8 @@
 import { SUBMIT_INSCRIPTION_FORM } from 'src/store/reducer';
 import axios from 'axios';
 
+import { baseUri, registerRoute } from 'src/store/vars_route';
+
 const inscriptionMiddleware = (store) => (next) => (action) => {
   console.log('Je suis le inscriptionMiddleware, et je laisse passer cette action: ', action);
   next(action);
@@ -23,7 +25,7 @@ const inscriptionMiddleware = (store) => (next) => (action) => {
 
       // envoi du contenu du formulaire à l'api symfony
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
-      axios.post('ec2-3-82-197-202.compute-1.amazonaws.com/RunBack/public/register', {
+      axios.post(`${baseUri}${registerRoute}`, {
         inscriptionFormData,
       })
         .then((response) => {
