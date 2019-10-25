@@ -1,6 +1,9 @@
 // == Import : npm
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+// == Imports FontAwesome > 4/ Importer React-FontAwesome dans le fichier.
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 // == Import : local
 import HeaderSection from 'src/components/Page/HomePage/HeaderSection';
@@ -29,92 +32,107 @@ const SearchPage = ({ searchFormData, setSearchFormData }) => {
         
           </div>
 
-        <div className="container-fluid container-results">
-          <div className="row justify-content-center container-row">
-
-            {/* CARD */}
-            <div className="col-result card">
-              <div className="background-card">
-                {/* Div pour background */}
+        {/* SEARCHBAR */}
+        <div className="container container-searchbar">
+          <div className="row justify-content-center">
+            <div className="col-3 col-search">
+              <div className="form-group">
+                <select className="form-control" id="exampleFormControlSelect1">
+                  <option>Course à pied</option>
+                  <option>Cyclisme</option>
+                  <option>Natation</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
-
-              {/* Nom du stade */}
-              <div className="title-card">
-                <h3 className="title-h3-card">
-                  Stade Du Dèv.
-                </h3>
-              </div>
-
-              {/* Buttons */}
-              <div className="butons-card">
-                <div className="row row-btn-card">
-                  <div className="col col-btn-card">
-                    <button>Site web</button>
-                  </div>
-                  <div className="col col-btn-card">
-                    <button>Itinéraire</button>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Informations */}
-              <div className="info-card">
-
-                <div className="adress-city-card">
-                  <p className="adress-p-city">
-                    <b>Adresse</b> : 1 rue de Paris, 75001 Paris
-                  </p>
-                </div>
-
-                <div className="acces-city-card">
-                  <div className="row row-acces">
-                    <div className="col col-acces col-car">
-                      <p className="acces-p-city acces-car">
-                        {/* vert : Ok - Orange : Conditions - Rouge : Not Ok */}
-                        V
-                      </p>
-                    </div>
-                    <div className="col col-acces col-bike">
-                      <p className="acces-p-city acces-bike">
-                        {/* vert : Ok - Orange : Conditions - Rouge : Not Ok */}
-                        B
-                      </p>
-                    </div>
-                    <div className="col col-acces col-bus">
-                      <p className="acces-p-city acces-bus">
-                        {/* vert : Ok - Orange : Conditions - Rouge : Not Ok */}
-                        Bu
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="time-city-card">
-                  <p className="time-p-city">
-                    <b>Horaires</b> : Aujourdui, 10h - 12h {/* dropdown */}
-                  </p>
-                </div>
-
-              </div>
-
-              {/* Footer card */}
-              <div className="card-footer">
-                <div className="text-card-footer">
-                  <div className="row row-btn-card">
-                  <div className="col col-btn-card">
-                    <button>Favoris</button>
-                  </div>
-                  <div className="col col-btn-card">
-                    <button>Modifier</button>
-                  </div>
-                </div>
-                </div>
-              </div>
-
             </div>
-          
+
+            <div className="col-3 col-search">
+              <div className="form-group">
+                <select className="form-control" id="exampleFormControlSelect1">
+                  <option>Lille</option>
+                  <option>Paris</option>
+                  <option>Lyon</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="col-3 col-button">
+              <div className="form-group">
+                <button type="button" className="btn btn-warning">Rechercher</button>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <div className="container container-results">
+          <ul className="list-cards">
+            <li className="result-card">
+              <article className="card city-card">
+                <a className="city-card-desc">
+                  <div className="city-card-bg">
+                    {/* image stade */}
+                  </div>
+      
+                  <div className="city-card-infos">
+
+                    <header className="city-card-info-header">
+                      <h4 className="info-header-adress">
+                        <span>Rue Pierre Mauroy - Villeneuve d'Ascq</span>
+                      </h4>
+                      <h3 className="info-header-name"> Stade Pierre Mauroy </h3>
+                      <ul className="city-card-infoClock">
+                        <li className="infoClock-week">
+                          <span>
+                            <FontAwesomeIcon
+                              icon="clock"
+                            />
+                          </span>
+                          <span>Lundi au Vendredi : 9h - 18h</span>
+                        </li>
+                        <li className="infoClock-weekend">
+                          <span>
+                            <FontAwesomeIcon
+                              icon="clock"
+                            />
+                          </span>
+                          <span>Week-end : 9h - 12h</span>
+                        </li>
+                        <li className="infoClock-close">
+                          <span>
+                            <FontAwesomeIcon
+                              icon="clock"
+                            />
+                          </span>
+                          <span>Fermé de : 12h - 14h</span>
+                        </li>
+                      </ul>
+                    </header>
+
+                    <div className="city-card-dashbord">
+                      <a href="#">
+                        <FontAwesomeIcon
+                          icon="comment"
+                        />
+                      </a>
+                      <a href="#">
+                        <FontAwesomeIcon
+                          icon="cog"
+                        />
+                      </a>
+                    </div>
+
+                  </div>
+
+                </a>
+              </article>
+            </li>
+          </ul>
+        </div>
+
 
         {/*
           Pas besoin, ici la navbar est là et en cliquant sur RUNMAP,

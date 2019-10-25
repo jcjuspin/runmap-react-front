@@ -10,7 +10,7 @@ const NavigationFamily = () => {
 
   return (
     <>
-      <ul className="list-nav">
+      <ul className="list-nav"> 
         <li> <NavLink to="/inscription" exact>S'inscrire</NavLink> </li>
         <li> <NavLink to="/contact" exact>Nous contacter</NavLink> </li>
         <li> <NavLink to="/contact" exact>Ajouter une ville</NavLink> </li>

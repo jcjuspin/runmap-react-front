@@ -76,7 +76,7 @@ const ContactPage = () => (
               <textarea
                 className="form-control"
                 id="Textarea"
-                placeholder="Plus votre message sera clair et détaillé, plus notre reponse vous sera intéréssante."
+                placeholder="Bonjour,"
                 rows="6"
               />
             </div>
