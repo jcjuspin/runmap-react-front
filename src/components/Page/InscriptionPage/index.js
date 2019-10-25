@@ -58,7 +58,6 @@ const InscriptionPage = ({
           <h1 className="mb-0">
             Inscrit toi sur Runmap, optimise tes séances !
           </h1>
-
           <div className="facebook">
             <a className="btn btn-block fb-button" href="#">S'inscrire avec Facebook</a>
           </div>
@@ -133,6 +132,7 @@ const InscriptionPage = ({
                       type="number"
                       id="age"
                       name="age"
+
                       placeholder="Age"
                       min="1"
                       value={inscriptionFormData.age}
@@ -193,6 +193,7 @@ const InscriptionPage = ({
                     <input
                       className="form-control"
                       type="password"
+
                       placeholder="Confirmation du mdp"
                       id="password-confirmation"
                       name="password-confirmation"
@@ -249,6 +250,7 @@ const InscriptionPage = ({
             </div>
             )}
           </form>
+
         </div>
       </div>
     </div>

@@ -11,6 +11,7 @@ import './app.scss';
 
 // == Composant
 const App = () => {
+=======
   // const [inscriptionFormData, setInscriptionFormData] = useState(
   //   {
   //     firstname: '',
@@ -24,6 +25,7 @@ const App = () => {
   //     displayPasswordErrorMessage: false,
   //   },
   // );
+
 
   const [searchFormData, setSearchFormData] = useState(
     {
