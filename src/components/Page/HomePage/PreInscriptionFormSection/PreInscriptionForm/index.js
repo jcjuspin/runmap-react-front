@@ -29,7 +29,7 @@ const PreInscriptionForm = ({ inscriptionFormData, setInscriptionFormData }) => 
               <button
                 type="button"
                 className="signup-button email-signup-button"
-              >git m
+              >
               Avec mon adresse Mail
               </button>
             </Link>
