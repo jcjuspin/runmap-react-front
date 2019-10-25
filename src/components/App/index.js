@@ -13,15 +13,17 @@ import './app.scss';
 const App = () => {
   const [inscriptionFormData, setInscriptionFormData] = useState(
     {
-      firstname: '',
-      lastname: '',
-      age: '',
-      gender: '',
-      email: '',
-      city: '',
-      password: '',
-      confirmationPassword: '',
-      displayPasswordErrorMessage: false,
+      'firstname': 'julien',
+      'lastname': 'pillet',
+      // age: '',
+      'age': 24,
+      // gender: '',
+      'gender': 'homme',
+      'email': 'bribri5.ouaal@gmail.com',
+      'city': 'cavaillon',
+      'password': '12345',
+      // confirmationPassword: '',
+      // displayPasswordErrorMessage: false,
     },
   );
 
