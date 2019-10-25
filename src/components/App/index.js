@@ -11,19 +11,19 @@ import './app.scss';
 
 // == Composant
 const App = () => {
-  const [inscriptionFormData, setInscriptionFormData] = useState(
-    {
-      firstname: '',
-      lastname: '',
-      age: '',
-      gender: '',
-      email: '',
-      city: '',
-      password: '',
-      confirmationPassword: '',
-      displayPasswordErrorMessage: false,
-    },
-  );
+  // const [inscriptionFormData, setInscriptionFormData] = useState(
+  //   {
+  //     firstname: '',
+  //     lastname: '',
+  //     age: '',
+  //     gender: '',
+  //     email: '',
+  //     city: '',
+  //     password: '',
+  //     confirmationPassword: '',
+  //     displayPasswordErrorMessage: false,
+  //   },
+  // );
 
   const [searchFormData, setSearchFormData] = useState(
     {
@@ -37,8 +37,8 @@ const App = () => {
     <div id="app">
       <FrontGetJson />
       <Page
-        inscriptionFormData={inscriptionFormData}
-        setInscriptionFormData={setInscriptionFormData}
+        // inscriptionFormData={inscriptionFormData}
+        // setInscriptionFormData={setInscriptionFormData}
         searchFormData={searchFormData}
         setSearchFormData={setSearchFormData}
       />
