@@ -147,10 +147,10 @@ const InscriptionPage = ({ inscriptionFormData, setInscriptionFormData }) => {
                       type="text"
                       id="age"
                       name="age"
-                      onChange={(event) => setInscriptionFormData({
-                        ...inscriptionFormData,
-                        age: event.target.value,
-                      })}
+                      //onChange={(event) => setInscriptionFormData({
+                      //  ...inscriptionFormData,
+                      //  age: event.target.value,
+                      // })}
                      // required
                     >
                       <option value="">Age</option>
