@@ -22,50 +22,10 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_INSCRIPTION_INPUT_VALUE:
       // eslint-disable-next-line default-case
-      switch (action.name) {
-        case 'email':
-          return {
-            ...state,
-            email: action.value,
-          };
-        case 'firstname':
-          return {
-            ...state,
-            firstname: action.value,
-          };
-        case 'lastname':
-          return {
-            ...state,
-            lastname: action.value,
-          };
-        case 'age':
-          return {
-            ...state,
-            age: action.value,
-          };
-        case 'gender':
-          return {
-            ...state,
-            gender: action.value,
-          };
-        case 'city':
-          return {
-            ...state,
-            city: action.value,
-          };
-        case 'password':
-          return {
-            ...state,
-            password: action.value,
-          };
-        case 'password-confirmation':
-          return {
-            ...state,
-            passwordConfirmation: action.value,
-          };
-        default:
-          return state;
-      }
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
     default:
       return state;
   }
