@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 
 
 // == Import : local
@@ -60,4 +60,4 @@ const Page = ({
 // };
 
 // == Export
-export default Page;
+export default withRouter(Page);

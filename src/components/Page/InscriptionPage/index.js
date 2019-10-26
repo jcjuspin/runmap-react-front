@@ -4,7 +4,7 @@
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 // == Import : local
 import './inscriptionpage.scss';
@@ -230,10 +230,16 @@ const InscriptionPage = ({
             </div>
             {/* LIENS CHANGEMENT DE PAGE */}
             <div className="disclaimer-text">
-              {/* <p>Retour à la <a href="#"><NavLink to="/" exact>page d'accueil</NavLink></a>
-                <br />Pour plus d'information <a href="#">contactez-nous</a> .
-              </p> */}
+              <Link exact to="/">
+                <p>Retour à la <a href="#">page d'accueil</a></p>
+              </Link>
             </div>
+            <div className="disclaimer-text">
+              <NavLink exact to="/contact">
+                <p>Pour plus d'information <a href="#">contactez-nous</a></p>
+              </NavLink>
+            </div>
+
             {/* message d'erreur si le mot de passe n'est pas correct */}
             {/*
                 inscriptionFormData.displayPasswordErrorMessage = le booléen dans le state
