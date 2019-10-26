@@ -1,7 +1,5 @@
 // == Import : npm
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-// == Imports FontAwesome > 4/ Importer React-FontAwesome dans le fichier.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
@@ -28,9 +26,7 @@ const SearchPage = ({ searchFormData, setSearchFormData }) => {
               {/* Ville en fonction de la recherche : */}
             </h2>
           </div>
-        
-        
-          </div>
+        </div>
 
         {/* SEARCHBAR */}
         <div className="container container-searchbar">
@@ -72,13 +68,12 @@ const SearchPage = ({ searchFormData, setSearchFormData }) => {
           <ul className="list-cards">
             <li className="result-card">
               <article className="card city-card">
-                <a className="city-card-desc">
+                <div className="city-card-desc">
                   <div className="city-card-bg">
                     {/* image stade */}
                   </div>
-      
-                  <div className="city-card-infos">
 
+                  <div className="city-card-infos">
                     <header className="city-card-info-header">
                       <h4 className="info-header-adress">
                         <span>Rue Pierre Mauroy - Villeneuve d'Ascq</span>
@@ -114,20 +109,14 @@ const SearchPage = ({ searchFormData, setSearchFormData }) => {
 
                     <div className="city-card-dashbord">
                       <a href="#">
-                        <FontAwesomeIcon
-                          icon="comment"
-                        />
+                        <FontAwesomeIcon icon="comment" />
                       </a>
                       <a href="#">
-                        <FontAwesomeIcon
-                          icon="cog"
-                        />
+                        <FontAwesomeIcon icon="cog" />
                       </a>
                     </div>
-
                   </div>
-
-                </a>
+                </div>
               </article>
             </li>
           </ul>

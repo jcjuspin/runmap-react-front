@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 // == Import : local
@@ -61,7 +62,7 @@ const SearchForm = ({ searchFormData, setSearchFormData }) => {
         type="button"
         className="search-button"
       >
-        <a><NavLink to="/search" exact>Rechercher</NavLink></a>
+        <Link to="/search">Rechercher</Link>
       </button>
 
     </div>
