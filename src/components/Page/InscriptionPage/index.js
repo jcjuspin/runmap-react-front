@@ -230,14 +230,8 @@ const InscriptionPage = ({
             </div>
             {/* LIENS CHANGEMENT DE PAGE */}
             <div className="disclaimer-text">
-              <Link exact to="/">
-                <p>Retour à la <a href="#">page d'accueil</a></p>
-              </Link>
-            </div>
-            <div className="disclaimer-text">
-              <NavLink exact to="/contact">
-                <p>Pour plus d'information <a href="#">contactez-nous</a></p>
-              </NavLink>
+              <p>Retour à la <Link to="/">page d'accueil</Link></p>
+              <p>Pour plus d'information <Link to="/contact">contactez-nous</Link></p>
             </div>
 
             {/* message d'erreur si le mot de passe n'est pas correct */}
