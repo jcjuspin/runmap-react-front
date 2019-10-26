@@ -11,32 +11,22 @@ import './homepage.scss';
 
 // == Composant
 const HomePage = ({
-  inscriptionFormData,
-  setInscriptionFormData,
   searchFormData,
   setSearchFormData,
 }) => (
   <>
     <HeaderSection />
-    <PreInscriptionFormSection
-      inscriptionFormData={inscriptionFormData}
-      setInscriptionFormData={setInscriptionFormData}
-    />
+    <PreInscriptionFormSection />
     <SearchFormSection
       searchFormData={searchFormData}
       setSearchFormData={setSearchFormData}
     />
     {/* <InscriptionAdSection /> */}
-    {/*
-      <Footer />
-    */}
 
   </>
 );
 
 HomePage.propTypes = {
-  inscriptionFormData: PropTypes.object.isRequired,
-  setInscriptionFormData: PropTypes.func.isRequired,
   searchFormData: PropTypes.object.isRequired,
   setSearchFormData: PropTypes.func.isRequired,
 };
