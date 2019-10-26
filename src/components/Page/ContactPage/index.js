@@ -72,7 +72,7 @@ const ContactPage = () => (
 
             {/* ZONE DE TEXTE */}
             <div className="form-group">
-              <label className="muted muted-textarea" for="Textarea"><b>Votre message</b></label>
+              <label className="muted muted-textarea" htmlFor="Textarea"><b>Votre message</b></label>
               <textarea
                 className="form-control"
                 id="Textarea"
@@ -95,9 +95,7 @@ const ContactPage = () => (
         {/* TEXTE EN "footer" */}
         <div className="disclaimer-text">
           <p>
-            <a href="#">
-              <NavLink to="/" exact>retour à l'accueil</NavLink>
-            </a>
+            <NavLink to="/" exact>retour à l'accueil</NavLink>
           </p>
         </div>
       </div>
