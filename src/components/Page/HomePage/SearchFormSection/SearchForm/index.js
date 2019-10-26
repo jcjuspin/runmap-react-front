@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+
 
 // == Import : local
 
@@ -29,8 +29,8 @@ const SearchForm = ({ searchFormData, setSearchFormData }) => {
         id="sport-select"
       >
         <option value="choisis ton sport">Choix du sport</option>
-        <option value="athlétisme">athlétisme</option>
-        <option value="boxe">boxe</option>
+        <option value="athlétisme">Athlétisme</option>
+        <option value="boxe">Boxe</option>
       </select>
       {/*
       </label>
@@ -61,7 +61,7 @@ const SearchForm = ({ searchFormData, setSearchFormData }) => {
         type="button"
         className="search-button"
       >
-        <NavLink to="/search" exact>Rechercher</NavLink>
+        <a><NavLink to="/search" exact>Rechercher</NavLink></a>
       </button>
 
     </div>
