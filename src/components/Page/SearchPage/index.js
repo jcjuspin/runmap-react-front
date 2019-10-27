@@ -1,15 +1,32 @@
 // == Import : npm
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { places } from 'src/data/places';
+import PropTypes from 'prop-types';
 
 // == Import : local
 import './searchpage.scss';
 // == Composant
-const SearchPage = ({ searchFormData, setSearchFormData }) => {
+const SearchPage = ({
+  places,
+  numberOfPlaces,
+  searchValue,
+  changeSearchFormValue,
+  submitSearchForm,
+}) => {
+  const handleChange = (event) => {
+    // récuperation de la valeur entrée dans l'input de recherche
+    const { value } = event.target;
+    // execution d'une action en vue de stockerdans le state la valeur de l'input . cf le reducer
+    changeSearchFormValue(value);
+  };
 
-  const numberOfPlaces = places.length;
-  console.log('data de recherche envoyé à la page search : ', searchFormData);
+  const handleSubmit = (event) => {
+    // annule l'action par défaut du formulaire
+    event.preventDefault();
+    // execution d'une action en vue de faire une requete à l'api symfony
+    submitSearchForm();
+  };
+
   return (
     <>
       <div className="container-fluid container-result-search">
@@ -27,39 +44,47 @@ const SearchPage = ({ searchFormData, setSearchFormData }) => {
         </div>
 
         {/* SEARCHBAR */}
-        <div className="container container-searchbar">
-          <div className="row justify-content-center">
-            <div className="col-3 col-search">
-              <div className="form-group">
-                <select className="form-control" id="exampleFormControlSelect1">
-                  <option>Course à pied</option>
-                </select>
+        <form
+          onSubmit={handleSubmit} /* écouteur d'evenement sur la soumission du formulaire */
+        >
+          <div className="container container-searchbar">
+            <div className="row justify-content-center">
+              <div className="col-3 col-search">
+                <div className="form-group">
+                  <select className="form-control" id="exampleFormControlSelect1">
+                    <option>Course à pied</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="col-3 col-search">
+                <div className="form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="exampleFormControlSelect1"
+                    value={searchValue} /* valeur du champ de recherche dans le state */
+                    onChange={handleChange} /* écouteur d'evenement qui récupère la valeur du champs de recherche */
+                  />
+                </div>
+              </div>
+
+              <div className="col-3 col-button">
+                <div className="form-group">
+                  <button type="submit" className="btn btn-warning">Rechercher</button>
+                </div>
               </div>
             </div>
-
-            <div className="col-3 col-search">
-              <div className="form-group">
-                <select className="form-control" id="exampleFormControlSelect1">
-                  <option>Lille</option>
-                  <option>Paris</option>
-                  <option>Lyon</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="col-3 col-button">
-              <div className="form-group">
-                <button type="button" className="btn btn-warning">Rechercher</button>
-              </div>
-            </div>
-
           </div>
-        </div>
+        </form>
 
         <div className="container container-results">
           <ul className="list-cards">
 
-            {/* on liste le contenu du tableau */}
+            {/*
+              création d'une liste de résultats,
+              en fonction des données récupérés suite à la requête
+            */}
             { places.map((place) => (
               <li key={place.id} className="result-card">
                 <article className="card city-card">
@@ -101,10 +126,23 @@ const SearchPage = ({ searchFormData, setSearchFormData }) => {
           </ul>
         </div>
       </div>
-
     </>
-
   );
+};
+
+// Validation de types des props du composant
+SearchPage.propTypes = {
+  places: PropTypes.arrayOf(PropTypes.object).isRequired,
+  numberOfPlaces: PropTypes.number.isRequired,
+  searchValue: PropTypes.string,
+  changeSearchFormValue: PropTypes.func.isRequired,
+  submitSearchForm: PropTypes.func.isRequired,
+};
+
+// la valeur du champs de recherche n'est pas obligatoire
+// cependant par défaut elle doit être undefined
+SearchPage.defaultProps = {
+  searchValue: '',
 };
 
 // == Export

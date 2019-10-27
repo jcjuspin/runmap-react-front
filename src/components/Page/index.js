@@ -7,7 +7,7 @@ import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 // == Import : local
 import HomePage from 'src/components/Page/HomePage';
 import UserPage from 'src/components/Page/UserPage';
-import SearchPage from 'src/components/Page/SearchPage';
+import SearchPage from 'src/containers/Page/SearchPage';
 import InscriptionPage from 'src/containers/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
 
