@@ -1,5 +1,7 @@
 // == Import : npm
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 // == Composant
 const HeaderSection = () => (
@@ -7,12 +9,12 @@ const HeaderSection = () => (
     <nav className="navbar navbar-expand-lg navbar-light">
 
       {/* Début - RUNMAP */}
-      <a
+      <Link
+        to="/"
         className="navbar-brand text-uppercase"
-        href="/"
       >
       Run<b className="text-warning">map</b>
-      </a>
+      </Link>
       {/* FIN - RUNMAP */}
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">

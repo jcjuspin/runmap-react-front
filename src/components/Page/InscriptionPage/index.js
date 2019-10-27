@@ -1,10 +1,7 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-// TODO: Régler le problème de la NavLink avec bootstrap.
-
 // == Import : npm
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // == Import : local
 import './inscriptionpage.scss';
