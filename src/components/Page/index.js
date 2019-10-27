@@ -1,7 +1,6 @@
 // == Import : npm
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 
 
 // == Import : local
@@ -13,8 +12,6 @@ import ContactPage from 'src/components/Page/ContactPage';
 
 // == Composant
 const Page = ({
-  // inscriptionFormData,
-  // setInscriptionFormData,
   searchFormData,
   setSearchFormData,
 }) => (
@@ -22,19 +19,15 @@ const Page = ({
     <Switch>
       <Route path="/" exact>
         <HomePage
-          // inscriptionFormData={inscriptionFormData}
-          // setInscriptionFormData={setInscriptionFormData}
           searchFormData={searchFormData}
           setSearchFormData={setSearchFormData}
         />
       </Route>
+
       <Route path="/inscription" exact>
-        <InscriptionPage
-          // inscriptionFormData={inscriptionFormData}
-          // setInscriptionFormData={setInscriptionFormData}
-        />
+        <InscriptionPage />
       </Route>
-      {/* TODO: mise en place statique */}
+
       <Route path="/search" exact>
         <SearchPage
           searchFormData={searchFormData}
@@ -44,20 +37,13 @@ const Page = ({
       <Route path="/user" exact>
         <UserPage />
       </Route>
-      {/* TODO: mise en place statique */}
+
       <Route path="/contact" exact>
         <ContactPage />
       </Route>
     </Switch>
   </>
 );
-
-// Page.propTypes = {
-//   inscriptionFormData: PropTypes.object.isRequired,
-//   setInscriptionFormData: PropTypes.func.isRequired,
-//   searchFormData: PropTypes.object.isRequired,
-//   setSearchFormData: PropTypes.func.isRequired,
-// };
 
 // == Export
 export default withRouter(Page);
