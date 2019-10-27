@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 // == Import : local
-import HeaderSection from 'src/components/Page/HomePage/HeaderSection/';
 import PreInscriptionFormSection from 'src/components/Page/HomePage/PreInscriptionFormSection/';
 import SearchFormSection from 'src/components/Page/HomePage/SearchFormSection';
 import InscriptionAdSection from 'src/components/Page/HomePage/InscriptionAdSection/';
@@ -15,7 +14,6 @@ const HomePage = ({
   setSearchFormData,
 }) => (
   <>
-    <HeaderSection />
     <PreInscriptionFormSection />
     <SearchFormSection
       searchFormData={searchFormData}

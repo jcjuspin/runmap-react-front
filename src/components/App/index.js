@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 // == Import : local
 import FrontGetJson from 'src/components/FrontGetJson';
+import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Page from 'src/components/Page';
 import './app.scss';
@@ -37,6 +38,7 @@ const App = () => {
   return (
     <div id="app">
       <FrontGetJson />
+      <Header />
       <Page
         // inscriptionFormData={inscriptionFormData}
         // setInscriptionFormData={setInscriptionFormData}
