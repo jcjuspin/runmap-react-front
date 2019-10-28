@@ -14,12 +14,14 @@ const PreInscriptionFormSection = ({
 }) => (
   <>
     <div className="main container">
-      <h2 className="text-slogant">Localise ton futur terrain de jeu !</h2>
+      <div className="container home-slogant">
+        <h2 className="text-slogant">Localise ton futur terrain de jeu !</h2>
+      </div>
       <div className="main-content row">
-        <div className="col-md-5">
+        <div className="col-sm-5">
           <Logo />
         </div>
-        <div className="col-md-5">
+        <div className="col-sm-5">
           <PreInscriptionForm
             // inscriptionFormData={inscriptionFormData}
             // setInscriptionFormData={setInscriptionFormData}

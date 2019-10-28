@@ -9,7 +9,7 @@ const Logo = () => {
 
   return (
     <>
-      <h1 className="logo">RUNMAP</h1>
+      <h1 className="logo" id="logo">RUNMAP</h1>
       <div className="footer-copyright"> ©2019 - Project RunMap </div>
     </>
   )

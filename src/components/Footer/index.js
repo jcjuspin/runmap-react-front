@@ -6,7 +6,6 @@ import Logo from 'src/components/Footer/Logo';
 import NavigationMenu from 'src/components/Footer/NavigationMenu';
 import NavigationFellow from 'src/components/Footer/NavigationFellow';
 import NavigationFamily from 'src/components/Footer/NavigationFamily';
-import NewsLetterInvitation from 'src/components/Footer/NewsLetterInvitation';
 
 import './footer.scss';
 

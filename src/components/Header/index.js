@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 // == Composant
 const HeaderSection = () => (
   <>
-    <nav className="navbar navbar-expand-lg navbar-light">
+    <nav
+      className="navbar navbar-expand-lg navbar-light bg-light"
+    >
 
       {/* Début - RUNMAP */}
       <Link
@@ -17,7 +19,7 @@ const HeaderSection = () => (
       </Link>
       {/* FIN - RUNMAP */}
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <div className="" id="">
 
         {/* Début - Bouton de connexion */}
         <form className="form-inline my-2 my-lg-0 ml-auto">

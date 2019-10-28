@@ -10,13 +10,13 @@ import './SearchFormSection.scss';
 const SearchFormSection = ({ searchFormData, setSearchFormData }) => (
 
   <div className="search-main">
-    <div className="container">
+    <div className="container container-search">
       <div className="title-search">
         <h2>C'est aussi simple que ça ...</h2>
       </div>
       <SearchForm searchFormData={searchFormData} setSearchFormData={setSearchFormData} />
-      <ArrowIcon />
     </div>
+    <ArrowIcon />
   </div>
 
 );
