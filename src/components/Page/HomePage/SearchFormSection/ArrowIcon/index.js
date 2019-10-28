@@ -1,9 +1,13 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // composant
 const ArrowIcon = () => (
-
-  <img className="arrow-icon" src="#" alt="Je suis l'autre invitation au scroll vertical" />
+  <div className="container">
+    <a href="">
+      <FontAwesomeIcon icon="angle-double-down" />
+    </a>
+  </div>
 
 );
 

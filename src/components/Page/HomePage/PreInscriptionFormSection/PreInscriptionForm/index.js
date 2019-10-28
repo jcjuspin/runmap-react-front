@@ -14,7 +14,7 @@ const PreInscriptionForm = () => (
           <button
             type="button"
             className="signup-button-fb facebook-signup-button"
-            href="/register"
+            href="##"
           >
             S'inscrire avec Facebook
           </button>
@@ -24,14 +24,14 @@ const PreInscriptionForm = () => (
           <Link to="/inscription">
             <button
               type="button"
-              className="signup-button email-signup-button"
+              className="signup-button-email email-signup-button"
             >
-            Avec mon adresse Mail
+              Avec mon adresse Mail
             </button>
           </Link>
           <div className="disclaimer-text">
             <p>En vous inscrivant sur <span>RunMap</span> vous acceptez les <a href="#">conditions d'utilisation</a>. Pour plus d'information <a href="#">contactez-nous</a> .</p>
-            <p>Vous este déjà membre ? <a href="#">Connectez-vous</a></p>
+            <p className="disclaimer-signup">Vous este déjà membre ? <a href="#">Connectez-vous</a></p>
           </div>
         </div>
       </div>
