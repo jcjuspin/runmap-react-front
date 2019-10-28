@@ -10,14 +10,23 @@ const InscriptionPage = ({
   changeInscriptionFormValue,
   inscriptionFormData,
   submitInscriptionForm,
+  errorMessageAlert,
+  validationMessage,
+  displayPasswordErrorMessage,
+  changeDisplayPasswordErrorMessage,
 }) => {
   // cette fonction éxecute la soumission du formulaire.
   const handleSubmit = (event) => {
     // annule le rafraichissement de la page
     event.preventDefault();
-
-    // execution de la fonction. Sa définition est visible dans le reducer.
-    submitInscriptionForm();
+    if (inscriptionFormData.password !== inscriptionFormData.passwordConfirmation) {
+      changeDisplayPasswordErrorMessage(true);
+    }
+    else {
+      // execution de la fonction. Sa définition est visible dans le reducer.
+      submitInscriptionForm();
+      changeDisplayPasswordErrorMessage(false);
+    }
   };
 
   // change la valeur d'une propriété dans le state pour le formulaire d'inscription.
@@ -43,8 +52,6 @@ const InscriptionPage = ({
         value = 'woman';
       }
     }
-
-    // on execute cette fonction. cf sa définition dans le reducer.
     changeInscriptionFormValue(value, name);
   };
 
@@ -64,7 +71,6 @@ const InscriptionPage = ({
 
           {/* ----------------- FORMULAIRE D'INSCRIPTION ------------------ */}
           <form onSubmit={handleSubmit} className="order signup website">
-
             <div className="text-caption light mt-md mb-md">
               Tu préfères utiliser ton adresse mail ?
             </div>
@@ -81,7 +87,7 @@ const InscriptionPage = ({
                   name="email"
                   value={inscriptionFormData.email}
                   onChange={handleChange}
-                  // required
+                  required
                 />
               </div>
 
@@ -99,7 +105,9 @@ const InscriptionPage = ({
                       placeholder="Prénom"
                       value={inscriptionFormData.firstname}
                       onChange={handleChange}
-                      // required
+                      required
+                      minLength="2"
+                      maxLength="64"
                     />
                   </div>
 
@@ -113,7 +121,9 @@ const InscriptionPage = ({
                       placeholder="Nom"
                       value={inscriptionFormData.lastname}
                       onChange={handleChange}
-                      // required
+                      required
+                      minLength="2"
+                      maxLength="64"
                     />
                   </div>
                 </div>
@@ -129,11 +139,12 @@ const InscriptionPage = ({
                       type="number"
                       id="age"
                       name="age"
-
                       placeholder="Age"
-                      min="1"
                       value={inscriptionFormData.age}
                       onChange={handleChange}
+                      min="1"
+                      max="100"
+                      required
                     />
                   </div>
 
@@ -145,7 +156,7 @@ const InscriptionPage = ({
                       name="gender"
                       placeholder="sexe"
                       onChange={handleChange}
-                      // required
+                      required
                     >
                       <option value="homme">homme</option>
                       <option value="woman">femme</option>
@@ -161,7 +172,7 @@ const InscriptionPage = ({
                       name="city"
                       placeholder="Ville"
                       onChange={handleChange}
-                      // required
+                      required
                     >
                       <option value="ville 1">Ville</option>
                       <option value="ville 1">ville 1</option>
@@ -183,7 +194,9 @@ const InscriptionPage = ({
                       name="password"
                       value={inscriptionFormData.password}
                       onChange={handleChange}
-                      // required
+                      required
+                      minLength="8"
+                      maxLength="16"
                     />
                   </div>
                   <div className="col">
@@ -192,11 +205,11 @@ const InscriptionPage = ({
                       type="password"
 
                       placeholder="Confirmation du mdp"
-                      id="password-confirmation"
-                      name="password-confirmation"
+                      id="passwordConfirmation"
+                      name="passwordConfirmation"
                       value={inscriptionFormData.passwordConfirmation}
                       onChange={handleChange}
-                    // required
+                      required
                     />
                   </div>
                 </div>
@@ -230,19 +243,19 @@ const InscriptionPage = ({
               <p>Retour à la <Link to="/">page d'accueil</Link></p>
               <p>Pour plus d'information <Link to="/contact">contactez-nous</Link></p>
             </div>
-
+            {validationMessage && (
+              <div className="alert alert-success" role="alert">
+                {validationMessage}
+              </div>
+            )}
+            { errorMessageAlert && (
+              <div className="alert alert-danger" role="alert">
+                {errorMessageAlert}
+              </div>
+            )}
             {/* message d'erreur si le mot de passe n'est pas correct */}
-            {/*
-                inscriptionFormData.displayPasswordErrorMessage = le booléen dans le state
-                à l'initial il vaut false.
-                Quand il passe à true la div s'affiche.
-
-                boolean && <div></div>  est une condtion qui veut dire que si boolean = true
-                alors ce qui suit est pris en compte.
-                à l'inverse si boolean = false alors ce qui suit n'est pas pris en compte.
-            */}
-            {inscriptionFormData.displayPasswordErrorMessage && (
-            <div className="form-inscription-ErrorMessage">
+            {displayPasswordErrorMessage && (
+            <div className="alert alert-danger" role="alert">
             Le mot de passe ne correspond pas. Veuillez corriger!
             </div>
             )}
@@ -258,6 +271,11 @@ InscriptionPage.propTypes = {
   inscriptionFormData: PropTypes.object.isRequired,
   changeInscriptionFormValue: PropTypes.func.isRequired,
   submitInscriptionForm: PropTypes.func.isRequired,
+  // errorMessageAlert: PropTypes.object.isRequired,
+  errorMessageAlert: PropTypes.string.isRequired,
+  validationMessage: PropTypes.string.isRequired,
+  displayPasswordErrorMessage: PropTypes.bool.isRequired,
+  changeDisplayPasswordErrorMessage: PropTypes.func.isRequired,
 };
 
 // == Export
