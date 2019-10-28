@@ -6,7 +6,7 @@
 | Page | Etape |
 | - | - |
 | /Home | ✅ |
-| /ResultSearch | ⚠️ |
-| /UserProfil | ⚠️ |
+| /ResultSearch | ✅ |
+| /UserPage | 🌀 |
 | /ModifStade | ⚠️ |
-| /Contact | ⚠️ |
+| /Contact | ✅ |
