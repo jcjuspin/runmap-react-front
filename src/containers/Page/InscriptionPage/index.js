@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import InscriptionPage from 'src/components/Page/InscriptionPage';
-import { changeInscriptionFormValue, submitInscriptionForm } from 'src/store/reducer';
+import { changeInscriptionFormValue, submitInscriptionForm, changeDisplayPasswordErrorMessage } from 'src/store/reducer';
 
 // Action Creators
 
@@ -16,6 +16,9 @@ import { changeInscriptionFormValue, submitInscriptionForm } from 'src/store/red
  */
 const mapStateToProps = (state, ownProps) => ({
   inscriptionFormData: state,
+  errorMessageAlert: state.errorMessage,
+  validationMessage: state.validationMessage,
+  displayPasswordErrorMessage: state.displayPasswordErrorMessage,
 });
 
 /* === Actions ===
@@ -32,6 +35,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
   submitInscriptionForm: () => {
     dispatch(submitInscriptionForm());
+  },
+
+  changeDisplayPasswordErrorMessage: (value) => {
+    dispatch(changeDisplayPasswordErrorMessage(value));
   },
 });
 
