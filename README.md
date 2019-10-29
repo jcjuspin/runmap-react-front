@@ -2,11 +2,11 @@
 
 ⚠️ EN ATTENTE - 🌀 EN COURS - 🛑 PROBLÈME - ✅ TERMINÉÉ
 
-## Intégrations statique
-| Page | Etape | Version Mobile |
-| - | - | - |
-| /Home | ✅ | ✅ |
-| /Inscription | ✅ | ✅ |
-| /Search | ✅ | ✅ |
-| /User | ⚠️ | ⚠️ |
-| /Contact | ✅ | 🌀 |
+## Intégrations
+| Page | Fixe | Pc | Mobile |
+| - | - | - | - |
+| /Home | ✅ | ✅ | ✅ |
+| /Inscription | ✅ | ✅ | ✅ |
+| /Search | ✅ | ✅ | ✅ |
+| /User | ⚠️ | ⚠️ | ⚠️ |
+| /Contact | ✅ | 🌀 | ⚠️ |
