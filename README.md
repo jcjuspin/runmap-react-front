@@ -4,7 +4,7 @@
 
 ## Intégrations
 | Page | Fixe | Dynamique | Pc | Mobile |
-| - | - | - | - |
+| - | - | - | - | - |
 | /Home | ✅ | ✅ | ✅ | ✅ |
 | /Inscription | ✅ | ✅ | ⚠️ | ✅ |
 | /Search | ✅ | ✅ | ⚠️ | ✅ |
