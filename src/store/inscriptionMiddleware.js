@@ -33,18 +33,11 @@ const inscriptionMiddleware = (store) => (next) => (action) => {
         ...inscriptionFormData,
       })
         .then((response) => {
-          console.log('réponse de mr API : ', response);
           console.log('réponse de mr API : ', response.data);
-
-          // réponse suite à la requête
-          // const responseData = response.data
-
-          // test avec de la donnée brut
-          const responseData = 'utilisateur créé';
 
           // si la réponse attendu correspond
           // alors on confirme la création du compte à l'utilisateur
-          if (typeof responseData === 'string') {
+          if (typeof response.data === 'string') {
             const registerMessage = 'votre compte est créé';
             const actionRegisterMessage = changeRegisterMessage(registerMessage);
             store.dispatch(actionRegisterMessage);
@@ -52,41 +45,18 @@ const inscriptionMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('Apparement ça marche pas', error.response);
-          console.log('contrainte(s) sur le formulaire : ', error.response);
-
-          // réponse d'erreur suite à la requête
-          // const errorResponse = error.response.data;
-
-          // test avec de la donnée brute
-          const errorResponse = {
-            email: "The email '{{ value }}' is not a valid email",
-          };
-          console.log('errorResponse', errorResponse);
+          console.log('contrainte(s) sur le formulaire : ', error.response.data);
 
           let errorMessageToDisplay = '';
           // on verifie le type de la réponse reçu
-          if (typeof errorResponse === 'object') {
-            if (typeof errorResponse.email === 'string') {
+          if (typeof error.response.data === 'object') {
+            if (typeof error.response.data.email === 'string') {
               // message à afficher
               errorMessageToDisplay = 'Cet adresse e-mail est déjà utilisée';
             }
           }
           const actionGetErrorMessage = changeRegisterErrorMessage(errorMessageToDisplay);
           store.dispatch(actionGetErrorMessage);
-
-          // les réponses préparées par le back sont présentes dans error.response.data.
-          // dans un objet contenant des propriétés (firstname, lastname, email, password),
-          // la réponse qui a du sens pour nous c'est l'adresse e-mail. 
-          /* 
-            error.response.datas = {
-              firstname : "Your last name must be at least {{ limit }} characters long" // min = 2, max = 64
-              lastname : "Your first name must be at least {{ limit }} characters long" // min = 2, max = 64
-              email : "The email '{{ value }}' is not a valid email",
-              city : "Your city must be at least {{ limit }} characters long" // min = 1
-              password: "Your password must be at least {{ limit }} characters long" // min = 8 carractère mini max = 16
-
-
-          */
         })
         .finally(() => {
         });

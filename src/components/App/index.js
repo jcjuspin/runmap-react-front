@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 
 // == Import : local
+import AutoComplete from 'src/components/AutoComplete';
 import FrontGetJson from 'src/components/FrontGetJson';
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
@@ -37,6 +38,7 @@ const App = () => {
   // console.log(searchFormData);
   return (
     <div id="app">
+      <AutoComplete />
       <FrontGetJson />
       <Header />
       <Page
