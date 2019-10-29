@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // == Import : local
 import './inscriptionpage.scss';
@@ -56,24 +57,16 @@ const InscriptionPage = ({
   };
 
   return (
-    <div className="register-body">
-      <div className="page container">
-        <div className="panel registration-panel">
-          <h1 className="mb-0">
-            Inscrit toi sur Runmap, optimise tes séances !
-          </h1>
-          <div className="facebook">
-            <a className="btn btn-block fb-button" href="#">S'inscrire avec Facebook</a>
-          </div>
-          <div className="google">
-            <a className="btn btn-block google-button" href="#">S'inscrire avec Gmail</a>
+    <div className="container-fluid register-body">
+      <div className="container-fluid container-page">
+        <div className="container container-panel registration-panel">
+
+          <div className="panel-title">
+            <span>Rejoindre la RunMap Family</span>
           </div>
 
           {/* ----------------- FORMULAIRE D'INSCRIPTION ------------------ */}
           <form onSubmit={handleSubmit} className="order signup website">
-            <div className="text-caption light mt-md mb-md">
-              Tu préfères utiliser ton adresse mail ?
-            </div>
             <fieldset className="user-inputs mt-0 mb-0">
 
               {/* ADRESSE MAIL */}
@@ -96,7 +89,7 @@ const InscriptionPage = ({
                 <div className="row">
 
                   {/* PRÉNOM */}
-                  <div className="col">
+                  <div className="col-6">
                     <input
                       className="form-control"
                       type="text"
@@ -112,7 +105,7 @@ const InscriptionPage = ({
                   </div>
 
                   {/* NOM */}
-                  <div className="col">
+                  <div className="col-6">
                     <input
                       className="form-control"
                       type="text"
@@ -134,12 +127,18 @@ const InscriptionPage = ({
                 <div className="row">
                   {/* AGE */}
                   <div className="col-3">
+                    <label for="age">
+                      <FontAwesomeIcon
+                        icon="birthday-cake"
+                        color="#FFC107"
+                      />
+                    </label>
                     <input
                       className="form-control"
                       type="number"
                       id="age"
                       name="age"
-                      placeholder="Age"
+                      placeholder="age"
                       value={inscriptionFormData.age}
                       onChange={handleChange}
                       min="1"
@@ -149,22 +148,34 @@ const InscriptionPage = ({
                   </div>
 
                   <div className="col-3">
+                    <label for="gender">
+                      <FontAwesomeIcon
+                        icon="venus-mars"
+                        color="#FFC107"
+                      />
+                    </label>
                     <select
                       className="form-control"
                       type="text"
                       id="gender"
                       name="gender"
-                      placeholder="sexe"
                       onChange={handleChange}
                       required
                     >
-                      <option value="homme">homme</option>
-                      <option value="woman">femme</option>
+                      <option value="">{/**/}</option>
+                      <option value="homme">Masculin</option>
+                      <option value="woman">Feminin</option>
                     </select>
                   </div>
 
                   {/* VILLE */}
                   <div className="col">
+                    <label for="city">
+                      <FontAwesomeIcon
+                        icon="map-marked-alt"
+                        color="#FFC107"
+                      />
+                    </label>
                     <select
                       className="form-control"
                       type="text"
@@ -204,7 +215,7 @@ const InscriptionPage = ({
                       className="form-control"
                       type="password"
 
-                      placeholder="Confirmation du mdp"
+                      placeholder="Confirmer le MdP"
                       id="passwordConfirmation"
                       name="passwordConfirmation"
                       value={inscriptionFormData.passwordConfirmation}
@@ -215,7 +226,7 @@ const InscriptionPage = ({
                 </div>
               </div>
 
-              {/* Photo */}
+              {/* Photo
               <div className="form-group form-avatar">
                 <label
                   className="avatar-label"
@@ -231,12 +242,13 @@ const InscriptionPage = ({
                   />
                 </label>
               </div>
+              */}
 
             </fieldset>
 
             {/* BOUTTON SUBMIT */}
-            <div className="email">
-              <button type="submit" className="btn btn-block signup-button">C'est parti</button>
+            <div className="btn-login">
+              <button type="submit" className="button-signup">C'est parti</button>
             </div>
             {/* LIENS CHANGEMENT DE PAGE */}
             <div className="disclaimer-text">

@@ -3,34 +3,62 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+}
+
+.container-page{
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.container{
-    padding-left: 16px;
-    padding-right: 16px;  
-}
 
 .registration-panel{
-    text-align: center;
     background-color: #2d2d32;
-    color: #fff;
-    margin: auto;
-    width: 600px;
-    height: 770px;
-    border-radius: 5px;
-    padding: 50px;
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
 
-        h1{
-            font-size: 34px;
-            font-weight: 700;
-            line-height: 41px;
-            padding-bottom: 30px;
+    text-align: center;
+    color: #fff;
+
+    border-radius: 5px;
+
+    padding: 1rem;
+
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+}
+
+.panel-title{
+    margin: 1rem;
+
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.button-signup{
+    background: #FFC107;
+
+    border-radius: 5px;
+    border-color: #FFC107;
+
+    padding: .5rem 2rem;
+
+    color: #fff;
+
+    margin: 1rem;
+}
+
+.disclaimer-text{
+    color: #606065;
+
+    font-size: .8rem;
+
+        a{
+            color: #FFC107;
         }
 }
 
+
+
+/*
 .form-group:focus{
 
     border: 1px solid #FFC107;
@@ -98,3 +126,4 @@
         color: #FFC107;
     }
 }
+*/

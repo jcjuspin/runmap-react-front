@@ -7,7 +7,15 @@ import { BrowserRouter } from 'react-router-dom';
 // == FontAwesome > 1/ Importer la librairie,
 import { library } from '@fortawesome/fontawesome-svg-core';
 // == FontAwesome > 2/ Importer les icons nécéssaire,
-import { faCog, faComment, faClock, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
+import { 
+  faCog,
+  faComment,
+  faClock,
+  faAngleDoubleDown,
+  faBirthdayCake,
+  faVenusMars,
+  faMapMarkedAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 
 // == Import : local
@@ -16,7 +24,15 @@ import store from 'src/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // == FontAwesome > 3/ Exporter pour utilisation dans tout le projet.
-library.add(faCog, faComment, faClock, faAngleDoubleDown);
+library.add(
+  faCog,
+  faComment,
+  faClock,
+  faAngleDoubleDown,
+  faBirthdayCake,
+  faVenusMars,
+  faMapMarkedAlt,
+);
 
 // == Render
 const rootComponent = (
