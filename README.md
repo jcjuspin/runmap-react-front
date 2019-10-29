@@ -3,10 +3,10 @@
 ⚠️ EN ATTENTE - 🌀 EN COURS - 🛑 PROBLÈME - ✅ TERMINÉÉ
 
 ## Intégrations statique
-| Page | Etape |
-| - | - |
-| /Home | ✅ |
-| /ResultSearch | ✅ |
-| /UserPage | 🌀 |
-| /ModifStade | ⚠️ |
-| /Contact | ✅ |
+| Page | Etape | Version Mobile |
+| - | - | - |
+| /Home | ✅ | ✅ |
+| /Inscription | ✅ | ✅ |
+| /Search | ✅ | ✅ |
+| /User | ⚠️ | ⚠️ |
+| /Contact | ✅ | 🌀 |
