@@ -1,9 +1,10 @@
 // == Import : npm
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
 // == Import : local
+import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
 import './searchpage.scss';
 // == Composant
 const SearchPage = ({
@@ -12,7 +13,14 @@ const SearchPage = ({
   searchValue,
   changeSearchFormValue,
   submitSearchForm,
+  collectCities,
 }) => {
+  useEffect(() => {
+    console.log('coucou');
+    collectCities();
+
+  });
+
   const handleChange = (event) => {
     // récuperation de la valeur entrée dans l'input de recherche
     const { value } = event.target;
@@ -59,13 +67,7 @@ const SearchPage = ({
 
               <div className="col-3 col-search">
                 <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="exampleFormControlSelect1"
-                    value={searchValue} /* valeur du champ de recherche dans le state */
-                    onChange={handleChange} /* écouteur d'evenement qui récupère la valeur du champs de recherche */
-                  />
+                  <AutoComplete />
                 </div>
               </div>
 

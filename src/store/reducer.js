@@ -16,7 +16,14 @@ const initialState = {
   errorMessage: '',
   validationMessage: '',
   places,
+
   searchValue: '',
+
+  suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],
+  activeSuggestion: 0,
+  filteredSuggestions: [],
+  showSuggestions: false,
+  userSearchInput: '',
 };
 
 // == Types
@@ -27,6 +34,14 @@ export const SUBMIT_SEARCH_FORM = 'SUBMIT_SEARCH_FORM';
 export const CHANGE_REGISTER_ERROR_MESSAGE = 'CHANGE_REGISTER_ERROR_MESSAGE';
 export const CHANGE_REGISTER_MESSAGE = 'CHANGE_REGISTER_MESSAGE';
 const CHANGE_PASSWORD_MESSAGE = 'CHANGE_PASSWORD_MESSAGE';
+const DISPLAY_SUGGESTION = 'DISPLAY_SUGGESTION';
+const CHOOSEN_SUGGESTION = 'CHOOSEN_SUGGESTION';
+const SELECT_SUGGESTION = 'SELECT_SUGGESTION';
+const REMOVE_ACTIVE_SUGGESTION = 'REMOVE_ACTIVE_SUGGESTION';
+const ADD_ACTIVE_SUGGESTION = 'ADD_ACTIVE_SUGGESTION';
+export const COLLECT_CITIES = 'COLLECT_CITIES';
+const CHANGE_SUGGESTIONS = 'CHANGE_SUGGESTIONS';
+const CHANGE_PLACES = 'CHANGE_PLACES';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -62,6 +77,56 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         displayPasswordErrorMessage: action.value,
       };
+    case DISPLAY_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        activeSuggestion: 0,
+        filteredSuggestions: action.filteredSuggestions,
+        showSuggestions: true,
+        userSearchInput: action.userInput,
+      };
+    case CHOOSEN_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        activeSuggestion: 0,
+        filteredSuggestions: [],
+        showSuggestions: false,
+        userSearchInput: action.suggestion,
+      };
+    case SELECT_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        activeSuggestion: 0,
+        showSuggestions: false,
+        userSearchInput: action.value,
+      };
+    case REMOVE_ACTIVE_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        activeSuggestion: action.value,
+      };
+    case ADD_ACTIVE_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        activeSuggestion: action.value,
+      };
+    case CHANGE_SUGGESTIONS:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        suggestions: action.value,
+      };
+    case CHANGE_PLACES:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        places: action.value,
+      };
     default:
       return state;
   }
@@ -95,14 +160,53 @@ export const changeRegisterErrorMessage = (value) => ({
 export const changeRegisterMessage = (value) => ({
   type: CHANGE_REGISTER_MESSAGE,
   value,
-
 });
 
 export const changeDisplayPasswordErrorMessage = (value) => ({
   type: CHANGE_PASSWORD_MESSAGE,
   value,
-
 });
+
+export const displaySuggestion = (userInput, filteredSuggestions) => ({
+  type: DISPLAY_SUGGESTION,
+  userInput,
+  filteredSuggestions,
+});
+
+export const choosenSuggestion = (suggestion) => ({
+  type: CHOOSEN_SUGGESTION,
+  suggestion,
+});
+
+export const selectSuggestion = (value) => ({
+  type: SELECT_SUGGESTION,
+  value,
+});
+
+export const activeSuggestionRemove = (value) => ({
+  type: REMOVE_ACTIVE_SUGGESTION,
+  value,
+});
+
+export const activeSuggestionAdd = (value) => ({
+  type: ADD_ACTIVE_SUGGESTION,
+  value,
+});
+
+export const collectCities = () => ({
+  type: COLLECT_CITIES,
+});
+
+
+export const changeSuggestions = (value) => ({
+  type: CHANGE_SUGGESTIONS,
+  value,
+});
+
+export const changePlaces = (value) => ({
+  type: CHANGE_PLACES,
+  value,
+})
 
 // == Selectors
 

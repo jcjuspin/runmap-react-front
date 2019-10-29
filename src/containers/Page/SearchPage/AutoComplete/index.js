@@ -2,8 +2,15 @@
 import { connect } from 'react-redux';
 
 // == Import : local
-import SearchPage from 'src/components/Page/SearchPage';
-import { changeSearchFormValue, submitSearchForm, collectCities, changePlaces } from 'src/store/reducer';
+import AutoComplete from 'src/components/Page/SearchPage/AutoComplete';
+import {
+  displaySuggestion,
+  choosenSuggestion,
+  selectSuggestion,
+  activeSuggestionRemove,
+  activeSuggestionAdd,
+  collectCities,
+} from 'src/store/reducer';
 
 // Action Creators
 
@@ -15,9 +22,12 @@ import { changeSearchFormValue, submitSearchForm, collectCities, changePlaces } 
  * Pas de data à transmettre ? const mapStateToProps = null;
  */
 const mapStateToProps = (state, ownProps) => ({
-  places: state.places,
-  numberOfPlaces: state.places.length,
   searchValue: state.searchValue,
+  suggestions: state.suggestions,
+  activeSuggestion: state.activeSuggestion,
+  filteredSuggestions: state.filteredSuggestions,
+  showSuggestions: state.showSuggestions,
+  userSearchInput: state.userSearchInput,
 });
 
 /* === Actions ===
@@ -28,24 +38,35 @@ const mapStateToProps = (state, ownProps) => ({
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  changeSearchFormValue: (value) => {
-    dispatch(changeSearchFormValue(value));
+  displaySuggestion: (userInput, filteredSuggestions) => {
+    dispatch(displaySuggestion(userInput, filteredSuggestions));
   },
-  submitSearchForm: (value) => {
-    dispatch(submitSearchForm(value));
+
+  choosenSuggestion: (suggestion) => {
+    dispatch(choosenSuggestion(suggestion));
+  },
+  selectSuggestion: (value) => {
+    dispatch(selectSuggestion(value));
+  },
+
+  activeSuggestionRemove: (value) => {
+    dispatch(activeSuggestionRemove(value));
+  },
+
+  activeSuggestionAdd: (value) => {
+    dispatch(activeSuggestionAdd(value));
   },
   collectCities: () => {
     dispatch(collectCities());
   },
-  changePlaces: (value) => {
-    dispatch(changePlaces(value));
-  },
+
 });
+
 // Container
-const SearchPageContainer = connect(
+const AutoCompleteContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SearchPage);
+)(AutoComplete);
 
 // == Export
-export default SearchPageContainer;
+export default AutoCompleteContainer;

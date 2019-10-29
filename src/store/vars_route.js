@@ -13,3 +13,5 @@ export const baseUri = 'http://julien-pillet.vpnuser.lan/Apotheose/RunBack/publi
 export const registerRoute = '/register';
 
 export const searchRoute = '/search/';
+
+export const citiesSearchRoute = '/search/cities';
