@@ -3,10 +3,10 @@
 ⚠️ EN ATTENTE - 🌀 EN COURS - 🛑 PROBLÈME - ✅ TERMINÉÉ
 
 ## Intégrations
-| Page | Fixe | Pc | Mobile |
+| Page | Fixe | Dynamique | Pc | Mobile |
 | - | - | - | - |
-| /Home | ✅ | ✅ | ✅ |
-| /Inscription | ✅ | ✅ | ✅ |
-| /Search | ✅ | ✅ | ✅ |
-| /User | ⚠️ | ⚠️ | ⚠️ |
+| /Home | ✅ | ✅ | ✅ | ✅ |
+| /Inscription | ✅ | ✅ | ⚠️ | ✅ |
+| /Search | ✅ | ✅ | ⚠️ | ✅ |
+| /User | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
 | /Contact | ✅ | 🌀 | ⚠️ |
