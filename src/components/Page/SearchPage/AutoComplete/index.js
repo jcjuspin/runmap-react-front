@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 export const Autocomplete = ({ 
   displaySuggestion,
-  searchValue,
   suggestions,
   activeSuggestion,
   filteredSuggestions,
   showSuggestions,
   userSearchInput,
   choosenSuggestion,
+  selectSuggestion,
+  activeSuggestionRemove,
+  activeSuggestionAdd,
 }) => {
 
   /* Initial state
@@ -41,7 +43,24 @@ export const Autocomplete = ({
     choosenSuggestion(varChosenSuggestion);
   };
 
-  
+  const onKeyDown = (event) => {
+    // en appuyant sur tab ça séléctionne la première énumération
+    if (event.keyCode === 9) {
+      selectSuggestion(filteredSuggestions[activeSuggestion]);
+    }
+    else if (event.keyCode === 38) { // 38 = up arrow
+      if (activeSuggestion === 0) {
+        return;
+      }
+      activeSuggestionRemove(activeSuggestion - 1);
+    }
+    else if (event.keyCode === 40) { // 40 = down arrow
+      if (activeSuggestion - 1 === filteredSuggestions.length) {
+        return;
+      }
+      activeSuggestionAdd(activeSuggestion + 1);
+    }
+  };
 
   let suggestionsListComponent = '';
   console.log('showSuggestions : ', showSuggestions);
@@ -49,14 +68,14 @@ export const Autocomplete = ({
   if (showSuggestions && userSearchInput) {
     if (filteredSuggestions.length) {
       suggestionsListComponent = (
-        <ul className="suggestions">
+        <ul className="suggestions list-group">
           {filteredSuggestions.map((suggestion, index) => {
             let className;
             if (index === activeSuggestion) {
               className = '';
             }
             return (
-              <li key={suggestion} onClick={onClick}>
+              <li className="search-list list-group-item list-group-item-action" key={suggestion} onClick={onClick}>
                 {suggestion}
               </li>
             );
@@ -67,7 +86,7 @@ export const Autocomplete = ({
     else {
       suggestionsListComponent = (
         <div className="no-suggestions">
-          <em>No suggestions</em>
+          <em>la ville n'est pas référencée ? <button type="button" className="btn btn-warning">ajoute là !</button></em>
         </div>
       );
     }
@@ -76,13 +95,14 @@ export const Autocomplete = ({
   return (
     <>
       <input
+        id="exampleFormControlSelect1"
         className="form-control"
         type="search"
-        placeholder="autoComplete"
+        placeholder="la ville, ex: Nice"
         aria-label="Search"
         onChange={onChange}
         value={userSearchInput}
-        // onKeyDown={onKeyDown}
+        onKeyDown={onKeyDown}
       />
       {suggestionsListComponent}
     </>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import SearchPage from 'src/components/Page/SearchPage';
-import { changeSearchFormValue, submitSearchForm } from 'src/store/reducer';
+import { changeSearchFormValue, submitSearchForm, collectCities, changePlaces } from 'src/store/reducer';
 
 // Action Creators
 
@@ -34,9 +34,13 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   submitSearchForm: (value) => {
     dispatch(submitSearchForm(value));
   },
-
+  collectCities: () => {
+    dispatch(collectCities());
+  },
+  changePlaces: (value) => {
+    dispatch(changePlaces(value));
+  },
 });
-
 // Container
 const SearchPageContainer = connect(
   mapStateToProps,
