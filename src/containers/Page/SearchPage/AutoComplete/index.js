@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import AutoComplete from 'src/components/Page/SearchPage/AutoComplete';
-import { displaySuggestion } from 'src/store/reducer';
+import { displaySuggestion, choosenSuggestion } from 'src/store/reducer';
 
 // Action Creators
 
@@ -20,7 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
   activeSuggestion: state.activeSuggestion,
   filteredSuggestions: state.filteredSuggestions,
   showSuggestions: state.showSuggestions,
-  userInput: state.userInput,
+  userSearchInput: state.userSearchInput,
 });
 
 /* === Actions ===
@@ -31,9 +31,14 @@ const mapStateToProps = (state, ownProps) => ({
  * Pas de disptach à transmettre ? const mapDispatchToProps = {};
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  displaySuggestion: (userInput) => {
-    dispatch(displaySuggestion(userInput));
+  displaySuggestion: (userInput, filteredSuggestions) => {
+    dispatch(displaySuggestion(userInput, filteredSuggestions));
   },
+
+  choosenSuggestion: (suggestion) => {
+    dispatch(choosenSuggestion(suggestion));
+  },
+
 });
 
 // Container

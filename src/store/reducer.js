@@ -23,7 +23,7 @@ const initialState = {
   activeSuggestion: 0,
   filteredSuggestions: [],
   showSuggestions: false,
-  userInput: '',
+  userSearchInput: '',
 };
 
 // == Types
@@ -35,6 +35,7 @@ export const CHANGE_REGISTER_ERROR_MESSAGE = 'CHANGE_REGISTER_ERROR_MESSAGE';
 export const CHANGE_REGISTER_MESSAGE = 'CHANGE_REGISTER_MESSAGE';
 const CHANGE_PASSWORD_MESSAGE = 'CHANGE_PASSWORD_MESSAGE';
 const DISPLAY_SUGGESTION = 'DISPLAY_SUGGESTION';
+const CHOOSEN_SUGGESTION = 'CHOOSEN_SUGGESTION';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -75,8 +76,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         showSuggestions: true,
-        filteredSuggestions: action.filter,
-        userInput: action.userInput,
+        filteredSuggestions: action.filteredSuggestions,
+        userSearchInput: action.userInput,
+      };
+    case CHOOSEN_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        filteredSuggestions: [],
+        howSuggestions: false,
+        userSearchInput: action.suggestion,
       };
     default:
       return state;
@@ -118,10 +127,15 @@ export const changeDisplayPasswordErrorMessage = (value) => ({
   value,
 });
 
-export const displaySuggestion = (userInput, filter) => ({
+export const displaySuggestion = (userInput, filteredSuggestions) => ({
   type: DISPLAY_SUGGESTION,
   userInput,
-  filter,
+  filteredSuggestions,
+});
+
+export const choosenSuggestion = (suggestion) => ({
+  type: CHOOSEN_SUGGESTION,
+  suggestion,
 });
 
 // == Selectors
