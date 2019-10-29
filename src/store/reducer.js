@@ -16,7 +16,14 @@ const initialState = {
   errorMessage: '',
   validationMessage: '',
   places,
+
   searchValue: '',
+
+  suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red'],
+  activeSuggestion: 0,
+  filteredSuggestions: [],
+  showSuggestions: false,
+  userInput: '',
 };
 
 // == Types
@@ -27,6 +34,7 @@ export const SUBMIT_SEARCH_FORM = 'SUBMIT_SEARCH_FORM';
 export const CHANGE_REGISTER_ERROR_MESSAGE = 'CHANGE_REGISTER_ERROR_MESSAGE';
 export const CHANGE_REGISTER_MESSAGE = 'CHANGE_REGISTER_MESSAGE';
 const CHANGE_PASSWORD_MESSAGE = 'CHANGE_PASSWORD_MESSAGE';
+const DISPLAY_SUGGESTION = 'DISPLAY_SUGGESTION';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -62,6 +70,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         displayPasswordErrorMessage: action.value,
       };
+    case DISPLAY_SUGGESTION:
+      // eslint-disable-next-line default-case
+      return {
+        ...state,
+        showSuggestions: true,
+        filteredSuggestions: action.filter,
+        userInput: action.userInput,
+      };
     default:
       return state;
   }
@@ -95,13 +111,17 @@ export const changeRegisterErrorMessage = (value) => ({
 export const changeRegisterMessage = (value) => ({
   type: CHANGE_REGISTER_MESSAGE,
   value,
-
 });
 
 export const changeDisplayPasswordErrorMessage = (value) => ({
   type: CHANGE_PASSWORD_MESSAGE,
   value,
+});
 
+export const displaySuggestion = (userInput, filter) => ({
+  type: DISPLAY_SUGGESTION,
+  userInput,
+  filter,
 });
 
 // == Selectors

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 
 // == Import : local
+import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
 import './searchpage.scss';
 // == Composant
 const SearchPage = ({
@@ -66,6 +67,7 @@ const SearchPage = ({
                     value={searchValue} /* valeur du champ de recherche dans le state */
                     onChange={handleChange} /* écouteur d'evenement qui récupère la valeur du champs de recherche */
                   />
+                  <AutoComplete />
                 </div>
               </div>
 
@@ -77,6 +79,14 @@ const SearchPage = ({
             </div>
           </div>
         </form>
+
+        {/* 
+          TEST faire un autocomplete avec son propre container etc 
+          il faudrait que l'autocomplète ne soit qu'un input dans le formulaire de la searchPage
+          l'autocompletion doit avoir son propre container qui va lui transmettre le state. (on change surtout)
+          
+          */}
+        
 
         <div className="container container-results">
           <ul className="list-cards">
