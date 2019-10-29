@@ -207,7 +207,7 @@ const InscriptionPage = ({
                       onChange={handleChange}
                       required
                       minLength="8"
-                      maxLength="16"
+                      //maxLength="16"
                     />
                   </div>
                   <div className="col">
