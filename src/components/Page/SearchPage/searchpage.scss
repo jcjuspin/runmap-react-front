@@ -1,108 +1,26 @@
 
-.container-result-search{
-    height: 90vh;
-    
-    padding-top: 20px;
-
-    background: rgb(240, 238, 238);
-
-    .container-title-results{
-        text-transform: uppercase;
-        
-        margin-bottom: 40px;
-    }     
-
-}
-
-.container-searchbar{
-    margin-bottom: 1.5rem;
-    
-    .col-button button{
-        padding: 5px 50px
-    }
-}
-
-.container-results{
-    margin-bottom: 10px;
-}
-
-.city-card-desc{
-    display: flex;
-    flex-direction: row;
-    height: 150px;
-}
-
-.city-card-bg{
-    position: relative;
-
-    background: url('https://www.valdille-aubigne.fr/wp-content/uploads/2018/10/stade-athle.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    width: 15rem;
-
-    border-radius: 2px 0px 0px 2px;
-}
-
-.city-card-info-header{
+.result-card{
     text-align: start;
-    margin-left: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
-.city-card-infos{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.info-header-adress{
-    font-size: .6rem;
+.adresse-stade{
+    font-size: 10px;
     color: orange;
     text-transform: uppercase;
-    margin-bottom: .1rem;
 }
 
-.info-header-name{
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: .5rem;
+.info-horaires{
+    font-size: 10px;
+    color: grey;
 }
 
-.city-card-infoClock{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    color: rgb(151, 153, 157);
-    font-size: .6rem;
+.avatar-stade{
+    min-width: 200px;
+    min-height: 150px;
 
-    li{
-        margin-right: .8rem;
-    }
-
-    span{
-        margin-left: .5rem;
-    }
-}
-
-.city-card-dashbord{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    width: 200px;
-    text-align: end;
-    padding-right: 1rem;
-
-    a{
-        margin-bottom: 1rem;
-        font-size: .9rem;
-        color: orange;
-    }
+    background: url("https://cdn.vox-cdn.com/thumbor/uHfVGxFNF9-mryuA5ipu7CNvR5o=/0x40:1000x790/920x613/filters:focal(0x40:1000x790)/cdn.vox-cdn.com/uploads/chorus_image/image/46889290/shutterstock_266758136.0.0.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     
 }
-
 
