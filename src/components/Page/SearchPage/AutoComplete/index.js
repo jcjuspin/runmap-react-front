@@ -86,7 +86,7 @@ export const Autocomplete = ({
     else {
       suggestionsListComponent = (
         <div className="no-suggestions">
-          <em>la ville n'est pas référencée ? <button type="button" className="btn btn-warning">ajoute là !</button></em>
+          <em>la ville n'est pas référencée ? <a href="#">ajoute là !</a></em>
         </div>
       );
     }
@@ -98,7 +98,7 @@ export const Autocomplete = ({
         id="exampleFormControlSelect1"
         className="form-control"
         type="search"
-        placeholder="la ville, ex: Nice"
+        placeholder="ex: Nice"
         aria-label="Search"
         onChange={onChange}
         value={userSearchInput}

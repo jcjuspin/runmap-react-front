@@ -19,7 +19,7 @@ const HeaderSection = () => (
       </Link>
       {/* FIN - RUNMAP */}
 
-      <div className="" id="">
+      <div className="ml-auto" id="">
 
         {/* Début - Bouton de connexion */}
         <form className="form-inline my-2 my-lg-0 ml-auto">
