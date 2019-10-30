@@ -3,6 +3,8 @@ import { places } from 'src/data/places';
 
 // == Initial State
 const initialState = {
+
+  // le formulaire d'inscription
   firstname: '',
   lastname: '',
   age: '',
@@ -15,10 +17,11 @@ const initialState = {
   displayPasswordErrorMessage: false,
   errorMessage: '',
   validationMessage: '',
+
+  // tableau pour contenir la liste des lieux
   places,
 
-  searchValue: '',
-
+  // gestion de l'autocomplétion
   suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],
   activeSuggestion: 0,
   filteredSuggestions: [],
@@ -29,7 +32,6 @@ const initialState = {
 // == Types
 const CHANGE_INSCRIPTION_INPUT_VALUE = 'CHANGE_INSCRIPTION_INPUT_VALUE';
 export const SUBMIT_INSCRIPTION_FORM = 'SUBMIT_INSCRIPTION_FORM';
-const CHANGE_SEARCH_INPUT_VALUE = 'CHANGE_SEARCH_INPUT_VALUE';
 export const SUBMIT_SEARCH_FORM = 'SUBMIT_SEARCH_FORM';
 export const CHANGE_REGISTER_ERROR_MESSAGE = 'CHANGE_REGISTER_ERROR_MESSAGE';
 export const CHANGE_REGISTER_MESSAGE = 'CHANGE_REGISTER_MESSAGE';
@@ -52,12 +54,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
-      };
-    case CHANGE_SEARCH_INPUT_VALUE:
-    // eslint-disable-next-line default-case
-      return {
-        ...state,
-        searchValue: action.value,
       };
     case CHANGE_REGISTER_ERROR_MESSAGE:
       // eslint-disable-next-line default-case
@@ -143,11 +139,6 @@ export const submitInscriptionForm = () => ({
   type: SUBMIT_INSCRIPTION_FORM,
 });
 
-export const changeSearchFormValue = (value) => ({
-  type: CHANGE_SEARCH_INPUT_VALUE,
-  value,
-});
-
 export const submitSearchForm = () => ({
   type: SUBMIT_SEARCH_FORM,
 });
@@ -206,7 +197,7 @@ export const changeSuggestions = (value) => ({
 export const changePlaces = (value) => ({
   type: CHANGE_PLACES,
   value,
-})
+});
 
 // == Selectors
 

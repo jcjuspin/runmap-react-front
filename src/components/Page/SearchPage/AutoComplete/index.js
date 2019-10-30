@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
-export const Autocomplete = ({ 
+export const Autocomplete = ({
   displaySuggestion,
   suggestions,
   activeSuggestion,
@@ -14,13 +14,13 @@ export const Autocomplete = ({
   activeSuggestionRemove,
   activeSuggestionAdd,
 }) => {
-
   /* Initial state
   activeSuggestion: 0,
   filteredSuggestions: [],
   showSuggestions: false,
   userInput: "",
     */
+  console.log('suggestions :', suggestions);
   const onChange = (event) => {
     // valeur dans l'input
     const userInput = event.currentTarget.value;
@@ -34,7 +34,6 @@ export const Autocomplete = ({
     displaySuggestion(userInput, varFilteredSuggestions);
   };
 
-  // TODO: passer à la fonction suivante
   // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
   // https://codesandbox.io/s/q8pn97y064?from-embed
 
@@ -86,7 +85,7 @@ export const Autocomplete = ({
     else {
       suggestionsListComponent = (
         <div className="no-suggestions">
-          <em>la ville n'est pas référencée ? <a href="#">ajoute là !</a></em>
+          <em>la ville n'a pas de lieu référencé ? <a href="#">ajoute là !</a></em>
         </div>
       );
     }
@@ -108,6 +107,27 @@ export const Autocomplete = ({
     </>
   );
 };
+
+Autocomplete.propTypes = {
+
+  displaySuggestion: PropTypes.func.isRequired,
+  suggestions: PropTypes.array.isRequired,
+  activeSuggestion: PropTypes.number.isRequired,
+  filteredSuggestions: PropTypes.array.isRequired,
+  showSuggestions: PropTypes.bool.isRequired,
+  userSearchInput: PropTypes.string,
+  choosenSuggestion: PropTypes.func.isRequired,
+  selectSuggestion: PropTypes.func.isRequired,
+  activeSuggestionRemove: PropTypes.func.isRequired,
+  activeSuggestionAdd: PropTypes.func.isRequired,
+};
+
+// la valeur du champs de recherche n'est pas obligatoire
+// cependant par défaut elle doit être undefined
+Autocomplete.defaultProps = {
+  userSearchInput: '',
+};
+
 
 export default Autocomplete;
 
