@@ -16,3 +16,5 @@ export const registerRoute = '/register';
 export const searchRoute = '/search/';
 
 export const citiesSearchRoute = '/city';
+
+export const placeDetails = '/place/';
