@@ -10,8 +10,7 @@ import './searchpage.scss';
 const SearchPage = ({
   places,
   numberOfPlaces,
-  searchValue,
-  changeSearchFormValue,
+  userSearchPlace,
   submitSearchForm,
   collectCities,
 }) => {
@@ -20,13 +19,6 @@ const SearchPage = ({
     collectCities();
 
   });
-
-  const handleChange = (event) => {
-    // récuperation de la valeur entrée dans l'input de recherche
-    const { value } = event.target;
-    // execution d'une action en vue de stockerdans le state la valeur de l'input . cf le reducer
-    changeSearchFormValue(value);
-  };
 
   const handleSubmit = (event) => {
     // annule l'action par défaut du formulaire
@@ -46,7 +38,7 @@ const SearchPage = ({
             <h2>Nous avons trouvé {numberOfPlaces}
               { (numberOfPlaces <= 1) && ' lieu ' }
               { (numberOfPlaces > 1) && ' lieux ' }
-              dans Lille
+              {userSearchPlace}
             </h2>
           </div>
         </div>
@@ -136,15 +128,15 @@ const SearchPage = ({
 SearchPage.propTypes = {
   places: PropTypes.arrayOf(PropTypes.object).isRequired,
   numberOfPlaces: PropTypes.number.isRequired,
-  searchValue: PropTypes.string,
-  changeSearchFormValue: PropTypes.func.isRequired,
   submitSearchForm: PropTypes.func.isRequired,
+  userSearchPlace: PropTypes.string,
+  collectCities: PropTypes.func.isRequired,
 };
 
 // la valeur du champs de recherche n'est pas obligatoire
 // cependant par défaut elle doit être undefined
 SearchPage.defaultProps = {
-  searchValue: '',
+  userSearchPlace: '',
 };
 
 // == Export

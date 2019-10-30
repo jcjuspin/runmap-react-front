@@ -127,7 +127,7 @@ const InscriptionPage = ({
                 <div className="row">
                   {/* AGE */}
                   <div className="col-3">
-                    <label for="age">
+                    <label htmlFor="age">
                       <FontAwesomeIcon
                         icon="birthday-cake"
                         color="#FFC107"
@@ -148,7 +148,7 @@ const InscriptionPage = ({
                   </div>
 
                   <div className="col-3">
-                    <label for="gender">
+                    <label htmlFor="gender">
                       <FontAwesomeIcon
                         icon="venus-mars"
                         color="#FFC107"
@@ -170,7 +170,7 @@ const InscriptionPage = ({
 
                   {/* VILLE */}
                   <div className="col">
-                    <label for="city">
+                    <label htmlFor="city">
                       <FontAwesomeIcon
                         icon="map-marked-alt"
                         color="#FFC107"

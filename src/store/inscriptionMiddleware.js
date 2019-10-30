@@ -8,7 +8,7 @@ import axios from 'axios';
 import { baseUri, registerRoute } from 'src/store/vars_route';
 
 const inscriptionMiddleware = (store) => (next) => (action) => {
-  console.log('Je suis le inscriptionMiddleware, et je laisse passer cette action: ', action);
+  // console.log('Je suis le inscriptionMiddleware, et je laisse passer cette action: ', action);
   next(action);
 
   // eslint-disable-next-line default-case

@@ -1,15 +1,22 @@
 import axios from 'axios';
 
-import { SUBMIT_SEARCH_FORM, COLLECT_CITIES, changeSuggestions, changePlaces } from 'src/store/reducer';
+import {
+  SUBMIT_SEARCH_FORM,
+  COLLECT_CITIES,
+  changeSuggestions,
+  changePlaces,
+} from 'src/store/reducer';
 import { baseUri, searchRoute, citiesSearchRoute } from 'src/store/vars_route';
 
 const searchMiddleware = (store) => (next) => (action) => {
-  console.log('Je suis le searchMiddleware, et je laisse passer cette action: ', action);
+  // console.log('Je suis le searchMiddleware, et je laisse passer cette action: ', action);
   next(action);
 
   // eslint-disable-next-line default-case
   switch (action.type) {
+    // récuperation des lieux présents dans ville séléctionnée
     case SUBMIT_SEARCH_FORM: {
+      // récuperation, dans le state du reducer, de la valeur à soumettre.
       const state = store.getState();
       const searchedCity = state.userSearchInput;
 
@@ -18,14 +25,19 @@ const searchMiddleware = (store) => (next) => (action) => {
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
       axios.get(`${baseUri}${searchRoute}${searchedCity}`)
         .then((response) => {
-          console.log(`La liste des lieux à ${searchedCity} : `, response.data);
-          console.log('Le type de la réponse : ', typeof response.data);
-          // si ça ne trouve pas la ville : "Cette ville n'existe pas ou ne contient auccun lieu référencé à l'intérieur"
-          // faire une action différente. if response.data === object  action A, si response.data === string action B
-          // la console (ou javascript) reconnait le tableau comme un object quand des lieux existe.
-          // la console reconnait qu'il s'agit d'un string quand il n'y a pas de lieu
+          // console.log(`La liste des lieux à ${searchedCity} : `, response.data);
+          // console.log('Le type de la réponse : ', typeof response.data);
+
+          // on dispatch l'action dans le reducer pour modifier le state.
           const actionCollectPlaces = changePlaces(response.data);
-          store.dispatch(actionCollectPlaces);
+          if (typeof response.data === 'object') {
+            store.dispatch(actionCollectPlaces);
+          }
+          else if (typeof response.data === 'string') {
+            console.log('la ville n\' a pas de lieu référencé');
+            // TODO: recuperer la valeur pour bloquer le bouton recherche,
+            // si elle n'est pas présente dans la BDD.
+          }
         })
         .catch((error) => {
           console.log('Apparement ça marche pas', error);
@@ -34,6 +46,7 @@ const searchMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
+    // récuperation des villes présentes dans la BDD
     case COLLECT_CITIES: {
       console.log('Requete envoyée pour récuperer la liste des villes');
 
@@ -41,16 +54,26 @@ const searchMiddleware = (store) => (next) => (action) => {
       axios.get(`${baseUri}${citiesSearchRoute}`)
         .then((response) => {
           console.log('La liste des villes présente dans la BDD : ', response.data);
-          // TODO: demander au back que cela arrive sous forme de tableau si possible.
-          const actionCollectCitiesList = changeSuggestions(response.data);
+
+          // tableau qui va contenir la liste des villes
+          const citiesArray = [];
+          // on reçoit un tableau d'objets contenant le nom des villes.
+          // On veut extraire ce nom de chaque objet pour n'avoir q'un tableau avec des string.
+          response.data.forEach((city) => (
+            citiesArray.push(city.name)
+          ));
+
+          // on envoit citiesArray au reducer
+          const actionCollectCitiesList = changeSuggestions(citiesArray);
           store.dispatch(actionCollectCitiesList);
         })
         .catch((error) => {
-          console.log('Apparement ça marche pas');
+          console.log('Apparement ça ne marche pas : ', error);
         })
         .finally(() => {
         });
     }
+    // TODO: ajouter une requete pour afficher une page.
   }
 };
 
