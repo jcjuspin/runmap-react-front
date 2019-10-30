@@ -49,7 +49,7 @@ const SearchPage = ({
         >
           <div className="container container-searchbar">
             <div className="row justify-content-center">
-              <div className="col-3 col-search">
+              <div className="col-sm col-search">
                 <div className="form-group">
                   <select className="form-control" id="exampleFormControlSelect1">
                     <option>Course à pied</option>
@@ -57,13 +57,13 @@ const SearchPage = ({
                 </div>
               </div>
 
-              <div className="col-3 col-search">
+              <div className="col-sm col-search">
                 <div className="form-group">
                   <AutoComplete />
                 </div>
               </div>
 
-              <div className="col-3 col-button">
+              <div className="col-sm col-button">
                 <div className="form-group">
                   <button type="submit" className="btn btn-warning">Rechercher</button>
                 </div>
@@ -72,54 +72,32 @@ const SearchPage = ({
           </div>
         </form>
 
-        <div className="container container-results">
-          <ul className="list-cards">
 
-            {/*
-              création d'une liste de résultats,
-              en fonction des données récupérés suite à la requête
-            */}
-            { places.map((place) => (
-              <li key={place.id} className="result-card">
-                <article className="card city-card">
-                  <div className="city-card-desc">
-                    <div className="city-card-bg">
-                      {/* image stade */}
-                    </div>
-                    <div className="city-card-infos">
-                      <header className="city-card-info-header">
-                        <h4 className="info-header-adress">
-                          <span> {place.adress} </span>
-                        </h4>
-                        <h3 className="info-header-name"> {place.name} </h3>
-                        <ul className="city-card-infoClock">
-                          <li className="infoClock-week">
-                            <span>
-                              <FontAwesomeIcon
-                                icon="clock"
-                              />
-                            </span>
-                            <span>{place.schedule}</span>
-                          </li>
-                        </ul>
-                      </header>
-                      <div className="city-card-dashbord">
-                        <a href="#">
-                          <FontAwesomeIcon icon="comment" />
-                        </a>
-                        <a href="#">
-                          <FontAwesomeIcon icon="cog" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-            ))}
+        {/*
+          création d'une liste de résultats,
+          en fonction des données récupérés suite à la requête
+        */}
+        { places.map((place) => (
+          <div key={place.id} className="container card result-card mb-2">
 
-          </ul>
-        </div>
+            <div className="row">
+              <div className="col-lg-2 avatar-stade"></div>
+              <div className="col-md header">
+                <h3 className="info-header-name"> {place.name} </h3>
+                <p className="adresse-stade"> {place.adress} </p>
+                <p className="info-horaires">{place.schedule}</p>
+              </div>
+              <div className="dashboard-stade">
+                <FontAwesomeIcon icon="comment" className="m-2" />
+                <FontAwesomeIcon icon="cog" className="m-2" />
+              </div>
+            </div>
+
+          </div>
+        ))}
+
       </div>
+
     </>
   );
 };
