@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 // == FontAwesome > 1/ Importer la librairie,
 import { library } from '@fortawesome/fontawesome-svg-core';
 // == FontAwesome > 2/ Importer les icons nécéssaire,
-import { 
+import {
   faCog,
   faComment,
   faClock,

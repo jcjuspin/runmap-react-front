@@ -1,14 +1,16 @@
 // == Import : npm
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { baseUri, placeDetails } from 'src/store/vars_route';
+import Rater from 'react-rater';
 
 // == Import : local
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
+import 'react-rater/lib/react-rater.css';
 import './searchpage.scss';
 // == Composant
 const SearchPage = ({
@@ -69,7 +71,6 @@ const SearchPage = ({
   //   console.log(event.target);
 
   // };
-
 
   return (
     <>
@@ -157,11 +158,10 @@ const SearchPage = ({
                   RUE PIERRE MAUROY - VILLENEUVE D'ASCQ
                 </div>
                 <div className="stade-avis">
-                  <FontAwesomeIcon icon="running" className="pr-1 mt-1" color="orange" />
-                  <FontAwesomeIcon icon="running" className="pr-1 mt-1" color="orange" />
-                  <FontAwesomeIcon icon="running" className="pr-1 mt-1" color="orange" />
-                  <FontAwesomeIcon icon="running" className="pr-1 mt-1" color="grey" />
-                  <FontAwesomeIcon icon="running" className="pr-1 mt-1" color="grey" />
+                  <Rater
+                    rating={0}
+                    total={5}
+                  />
                   <span className="text-muted infos-avis ml-1">2O avis</span>
                 </div>
               </div>
