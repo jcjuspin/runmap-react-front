@@ -1,14 +1,16 @@
 // == Import : npm
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { baseUri, placeDetails } from 'src/store/vars_route';
+import Rater from 'react-rater';
 
 // == Import : local
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
+import 'react-rater/lib/react-rater.css';
 import './searchpage.scss';
 // == Composant
 const SearchPage = ({
@@ -69,7 +71,6 @@ const SearchPage = ({
   //   console.log(event.target);
 
   // };
-
 
   return (
     <>
@@ -147,15 +148,48 @@ const SearchPage = ({
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Stade Pierre Mauroy</Modal.Title>
+            <Modal.Title>
+
+              <div className="container header-modal">
+                <div className="info-header-name">
+                  Stade Pierre Mauroy
+                </div>
+                <div className="adresse-stade">
+                  RUE PIERRE MAUROY - VILLENEUVE D'ASCQ
+                </div>
+                <div className="stade-avis">
+                  <Rater
+                    rating={0}
+                    total={5}
+                  />
+                  <span className="text-muted infos-avis ml-1">2O avis</span>
+                </div>
+              </div>
+
+              <div className="informations-stade">
+                <h6 className="titre-infos-stade">
+                  <FontAwesomeIcon
+                    icon="info-circle"
+                    color="orange"
+                  /> <b>Informations complémentaire :</b>
+                </h6>
+                <p>Le club de foot privatise le stade pour ses entrainements.</p>
+              </div>
+              
+            </Modal.Title>
           </Modal.Header>
-          <h5>RUE PIERRE MAUROY - VILLENEUVE D'ASCQ</h5>
-          <h6>Week-end: 9h-12h Fermé de : 12h - 14h</h6>
-          <p>informations complémentaire</p>
           <Modal.Body>
-            <Button variant="primary" onClick={handleClose}>
-            Ajouter un commentaire
-            </Button>
+            <div className="">
+              <textarea
+                className="form-control"
+                placeholder="Écrivez votre commentaire"
+                id="exampleFormControlTextarea1"
+                rows="3"
+              />
+              <Button className="btn-warning btn-ajout" onClick={handleClose}>
+                Ajouter
+              </Button>
+            </div>
             <ul className="list-group list-group-flush">
               <li className="list-group-item">
                 <p>Author</p>
@@ -171,11 +205,12 @@ const SearchPage = ({
               </li>
             </ul>
           </Modal.Body>
-          <Modal.Footer>
+          {/* Inutile car il y a la petite croix dans le header */}
+          {/* <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
             Fermer
             </Button>
-          </Modal.Footer>
+          </Modal.Footer> */}
         </Modal>
 
       </div>
