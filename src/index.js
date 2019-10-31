@@ -15,6 +15,8 @@ import {
   faBirthdayCake,
   faVenusMars,
   faMapMarkedAlt,
+  faInfoCircle,
+  faRunning,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -32,6 +34,8 @@ library.add(
   faBirthdayCake,
   faVenusMars,
   faMapMarkedAlt,
+  faInfoCircle,
+  faRunning,
 );
 
 // == Render
