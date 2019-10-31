@@ -1,5 +1,6 @@
 import {
   SUBMIT_ADD_PLACE_FORM,
+  changeRegisterMessage,
 } from 'src/store/reducer';
 import axios from 'axios';
 
@@ -14,7 +15,7 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
     case SUBMIT_ADD_PLACE_FORM: {
       const state = store.getState();
    
-      const addPlaceFormData = {
+      let addPlaceFormData = {
         city: {
           name: state.cityName,
           postalcode: state.postalCode,
@@ -27,16 +28,33 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
         },
       };
 
+      addPlaceFormData = {
+        city: {
+          name: 'Villeneuve-La-Garenne',
+          postalcode: 92390,
+        },
+        place: {
+          name: 'Stade Gaston Bouillant',
+          adress: 'Avenue Pierre de Coubertin',
+          schedule: 'de 9h à 12h',
+          complement_info: 'pas d\'info complementaire',
+        },
+      };
+
       console.log('L\'objet qui est envoyé dans la requête :', addPlaceFormData);
 
       // envoi du contenu du formulaire à l'api symfony
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
       axios.post(`${baseUri}${createPlace}`, {
-        // ...inscriptionFormData,
+        ...addPlaceFormData,
       })
         .then((response) => {
           console.log('réponse de mr API : ', response.data);
-
+          if (typeof response.data === 'string') {
+            const registerMessage = 'nouveau lieu créé';
+            const actionRegisterMessage = changeRegisterMessage(registerMessage);
+            store.dispatch(actionRegisterMessage);
+          }
           // si la réponse attendu correspond
           // alors on confirme la création du compte à l'utilisateur
           // if (typeof response.data === 'string') {
@@ -47,7 +65,7 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('Apparement ça marche pas', error.response);
-          console.log('contrainte(s) sur le formulaire : ', error.response.data);
+          // console.log('contrainte(s) sur le formulaire : ', error.response.data);
 
           // let errorMessageToDisplay = '';
           // // on verifie le type de la réponse reçu

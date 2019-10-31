@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 // import './inscriptionpage.scss';
 // == Composant
 // TODO: par sécurité il faudrait que le formulaire affiche ou réactive les inputs en fonction de la ville tappée etc (avec info recuperé par l'api du gouvernement)
+// TODO: mettre en place une autocomplétion qui va chercher dans la base de donnée si le stade existe déja. Si il existe déja, une infos qui prévient et faut bloquer le formulaire.
 const AddPlacePage = ({
   errorMessageAlert,
   validationMessage,
