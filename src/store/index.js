@@ -5,6 +5,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import reducer from 'src/store/reducer';
 import inscriptionMiddleware from './inscriptionMiddleware';
 import searchMiddleware from './searchMiddleware';
+import addPlaceMiddleware from './addPlaceMiddleware';
 
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -13,6 +14,7 @@ const enhancers = composeEnhancers(
   applyMiddleware(
     inscriptionMiddleware,
     searchMiddleware,
+    addPlaceMiddleware,
   ),
 );
 

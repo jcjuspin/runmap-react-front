@@ -9,6 +9,8 @@ import UserPage from 'src/components/Page/UserPage';
 import SearchPage from 'src/containers/Page/SearchPage';
 import InscriptionPage from 'src/containers/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
+import AddPlacePage from 'src/containers/Page/AddPlacePage';
+import AProposPage from 'src/components/Page/AProposPage';
 
 // == Composant
 const Page = ({
@@ -41,6 +43,15 @@ const Page = ({
       <Route path="/contact" exact>
         <ContactPage />
       </Route>
+
+      <Route path="/ajouter" exact>
+        <AddPlacePage />
+      </Route>
+
+      <Route path="/apropos" exact> {/* Page avec nos photo (l'idée de Kevin) */}
+        <AProposPage />
+      </Route>
+
     </Switch>
   </>
 );
