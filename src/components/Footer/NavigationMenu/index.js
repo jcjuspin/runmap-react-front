@@ -12,9 +12,9 @@ const NavigationMenu = () => {
     <>
       <ul className="list-nav">
         <li> <NavLink to="/contact" exact>Fonctionnalités</NavLink> </li>
-        <li> <NavLink to="/contact" exact>À propos</NavLink> </li>
-        <li> <NavLink to="/contact" exact>Professionnel</NavLink> </li>
-        <li> <NavLink to="/contact" exact>Conditons</NavLink> </li>
+        <li> <NavLink to="/apropos" exact>À propos</NavLink> </li>
+        <li> <NavLink to="/" exact>Professionnel</NavLink> </li>
+        <li> <NavLink to="/" exact>Conditons</NavLink> </li>
       </ul>
     </>
   )

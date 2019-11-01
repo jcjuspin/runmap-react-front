@@ -23,7 +23,7 @@ const ContactPage = () => (
             <div className="row">
 
               {/* PRÉNOM */}
-              <div className="col-3 input-names">
+              <div className="col-sm input-names">
                 <input
                   className="form-control input-firstname"
                   id="first-name"
@@ -33,7 +33,7 @@ const ContactPage = () => (
               </div>
 
               {/* NOM */}
-              <div className="col-3 input-names">
+              <div className="col-sm input-names">
                 <input
                   className="form-control input-lastname"
                   id="last-name"
@@ -43,7 +43,7 @@ const ContactPage = () => (
               </div>
 
               {/* ADRESSE MAIL */}
-              <div className="col-6 input-names">
+              <div className="col-sm-6 input-names">
                 <input
                   className="form-control input-email"
                   id="email-adress"

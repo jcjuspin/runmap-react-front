@@ -17,6 +17,7 @@ import {
   faMapMarkedAlt,
   faInfoCircle,
   faRunning,
+  faAt,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -36,6 +37,7 @@ library.add(
   faMapMarkedAlt,
   faInfoCircle,
   faRunning,
+  faAt,
 );
 
 // == Render

@@ -28,6 +28,7 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
         },
       };
 
+
       // test
       // addPlaceFormData = {
       //   city: {
@@ -47,7 +48,7 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
       // envoi du contenu du formulaire à l'api symfony
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
       axios.post(`${baseUri}${createPlace}`, {
-        
+       
           city: {
             name: state.cityName,
             postalcode: Number(state.postalCode),
@@ -58,7 +59,6 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
             schedule: state.schedule,
             complement_info: state.additionalInfo,
           },
-        
       })
         .then((response) => {
           console.log('réponse de mr API : ', response.data);
