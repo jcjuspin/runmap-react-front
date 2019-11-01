@@ -20,6 +20,8 @@ const SearchPage = ({
   submitSearchForm,
   collectCities,
 }) => {
+  console.log('voici la liste des stades : ', places);
+
   useEffect(() => {
     console.log('coucou');
     collectCities();
@@ -224,7 +226,7 @@ const SearchPage = ({
 
 // Validation de types des props du composant
 SearchPage.propTypes = {
-  places: PropTypes.arrayOf(PropTypes.object).isRequired,
+  places: PropTypes.arrayOf(PropTypes.object),
   numberOfPlaces: PropTypes.number.isRequired,
   submitSearchForm: PropTypes.func.isRequired,
   userSearchPlace: PropTypes.string,
@@ -235,6 +237,7 @@ SearchPage.propTypes = {
 // cependant par défaut elle doit être undefined
 SearchPage.defaultProps = {
   userSearchPlace: '',
+  places: '',
 };
 
 // == Export

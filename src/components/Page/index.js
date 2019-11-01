@@ -12,6 +12,7 @@ import ContactPage from 'src/components/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
 
+
 // == Composant
 const Page = ({
   searchFormData,
@@ -47,10 +48,11 @@ const Page = ({
       <Route path="/ajouter" exact>
         <AddPlacePage />
       </Route>
-
+  
       <Route path="/apropos" exact> {/* Page avec nos photo (l'idée de Kevin) */}
         <AProposPage />
       </Route>
+
 
     </Switch>
   </>
