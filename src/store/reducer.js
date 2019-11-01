@@ -1,5 +1,5 @@
 
-import { places } from 'src/data/places';
+// import { places } from 'src/data/places';
 
 // == Initial State
 const initialState = {
@@ -27,7 +27,7 @@ const initialState = {
   additionalInfo: '',
 
   // tableau pour contenir la liste des lieux
-  places,
+  places: [],
 
   // gestion de l'autocomplétion
   suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],

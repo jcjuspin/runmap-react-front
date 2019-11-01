@@ -10,7 +10,7 @@
 //export const baseUri = 'http://localhost/Apotheose/RunBack/public';
 
 // depuis mon localhost (JC)
-//export const baseUri = 'http://localhost/projet-Runmap/public';
+export const baseUri = 'http://localhost/projet-Runmap/public';
 
 // Routes
 export const registerRoute = '/register';

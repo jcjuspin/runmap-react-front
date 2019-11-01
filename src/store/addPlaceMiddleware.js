@@ -18,7 +18,7 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
       let addPlaceFormData = {
         city: {
           name: state.cityName,
-          postalcode: state.postalCode,
+          postalcode: Number(state.postalCode),
         },
         place: {
           name: state.placeName,
@@ -28,25 +28,37 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
         },
       };
 
-      addPlaceFormData = {
-        city: {
-          name: 'Villeneuve-La-Garenne',
-          postalcode: 92390,
-        },
-        place: {
-          name: 'Stade Gaston Bouillant',
-          adress: 'Avenue Pierre de Coubertin',
-          schedule: 'de 9h à 12h',
-          complement_info: 'pas d\'info complementaire',
-        },
-      };
+      // test
+      // addPlaceFormData = {
+      //   city: {
+      //     name: 'Villeneuve-La-Garenne',
+      //     postalcode: 92390,
+      //   },
+      //   place: {
+      //     name: 'Stade Gaston Bouillant',
+      //     adress: 'Avenue Pierre de Coubertin',
+      //     schedule: 'de 9h à 12h',
+      //     complement_info: 'pas d\'info complementaire',
+      //   },
+      // };
 
       console.log('L\'objet qui est envoyé dans la requête :', addPlaceFormData);
 
       // envoi du contenu du formulaire à l'api symfony
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
       axios.post(`${baseUri}${createPlace}`, {
-        ...addPlaceFormData,
+        
+          city: {
+            name: state.cityName,
+            postalcode: Number(state.postalCode),
+          },
+          place: {
+            name: state.placeName,
+            adress: state.adress,
+            schedule: state.schedule,
+            complement_info: state.additionalInfo,
+          },
+        
       })
         .then((response) => {
           console.log('réponse de mr API : ', response.data);
