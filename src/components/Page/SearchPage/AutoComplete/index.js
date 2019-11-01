@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 export const Autocomplete = ({
@@ -85,7 +86,7 @@ export const Autocomplete = ({
     else {
       suggestionsListComponent = (
         <div className="no-suggestions">
-          <em>la ville n'a pas de lieu référencé ? <a href="#">ajoute là !</a></em>
+          <em>la ville n'a pas de lieu référencé ? <Link to="/ajouter">ajoute là !</Link></em>
         </div>
       );
     }

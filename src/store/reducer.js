@@ -18,6 +18,14 @@ const initialState = {
   errorMessage: '',
   validationMessage: '',
 
+  // le formulaire d'ajout d'un lieu
+  cityName: '',
+  postalCode: '',
+  placeName: '',
+  adress: '',
+  schedule: '',
+  additionalInfo: '',
+
   // tableau pour contenir la liste des lieux
   places,
 
@@ -44,6 +52,9 @@ const ADD_ACTIVE_SUGGESTION = 'ADD_ACTIVE_SUGGESTION';
 export const COLLECT_CITIES = 'COLLECT_CITIES';
 const CHANGE_SUGGESTIONS = 'CHANGE_SUGGESTIONS';
 const CHANGE_PLACES = 'CHANGE_PLACES';
+
+const CHANGE_ADD_PLACE_FORM_VALUE = 'CHANGE_ADD_PLACE_FORM_VALUE';
+export const SUBMIT_ADD_PLACE_FORM = 'SUBMIT_ADD_PLACE_FORM';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -123,6 +134,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         places: action.value,
       };
+    case CHANGE_ADD_PLACE_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
     default:
       return state;
   }
@@ -197,6 +214,16 @@ export const changeSuggestions = (value) => ({
 export const changePlaces = (value) => ({
   type: CHANGE_PLACES,
   value,
+});
+
+export const changeAddPlaceFormValue = (value, name) => ({
+  type: CHANGE_ADD_PLACE_FORM_VALUE,
+  value,
+  name,
+});
+
+export const submitAddPlaceForm = () => ({
+  type: SUBMIT_ADD_PLACE_FORM,
 });
 
 // == Selectors
