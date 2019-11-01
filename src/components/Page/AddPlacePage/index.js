@@ -54,7 +54,7 @@ const AddPlacePage = ({
 
               {/* VILLE */}
               <div className="form-group">
-
+              <label class="text-warning" for="city">Ville</label>
                 <input
                   className="form-control"
                   type="text"
@@ -69,7 +69,7 @@ const AddPlacePage = ({
 
               {/* CODE POSTALE */}
               <div className="form-group">
-
+              <label class="text-warning" for="postal-code">Code postal</label>
                 <input
                   className="form-control"
                   type="text"
@@ -84,7 +84,7 @@ const AddPlacePage = ({
 
               {/* NOM DU LIEU */}
               <div className="form-group">
-
+              <label class="text-warning" for="name">Nom du lieu</label>
                 <input
                   className="form-control"
                   type="text"
@@ -99,7 +99,7 @@ const AddPlacePage = ({
 
               {/* ADRESSE DU LIEU */}
               <div className="form-group">
-
+              <label class="text-warning" for="adress">Adresse</label>
                 <input
                   className="form-control"
                   type="text"
@@ -114,7 +114,7 @@ const AddPlacePage = ({
 
               {/* LES HORAIRES */}
               <div className="form-group">
-
+              <label class="text-warning" for="schedule">Horaire</label>
                 <input
                   className="form-control"
                   type="text"
@@ -129,7 +129,7 @@ const AddPlacePage = ({
 
               {/* COMPLEMENTS D'INFOS */}
               <div className="form-group">
-
+              <label class="text-warning" for="information">Informations</label>
                 <input
                   className="form-control"
                   type="text"
