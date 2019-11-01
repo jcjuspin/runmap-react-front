@@ -138,7 +138,10 @@ const SearchPage = ({
                 <p className="info-horaires">{place.schedule}</p>
               </div>
               <div className="dashboard-stade">
-                <FontAwesomeIcon icon="comment" className="m-2" />
+                <FontAwesomeIcon
+                  icon="comment"
+                  className="m-2"
+                />
                 <FontAwesomeIcon icon="cog" className="m-2" />
               </div>
             </div>

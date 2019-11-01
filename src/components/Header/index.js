@@ -1,6 +1,7 @@
 // == Import : npm
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import ModalHeader from 'src/components/Header/ModalHeader';
 
 
 // == Composant
@@ -23,13 +24,7 @@ const HeaderSection = () => (
 
         {/* Début - Bouton de connexion */}
         <form className="form-inline my-2 my-lg-0 ml-auto">
-          <button
-            className="btn btn-warning my-2 my-sm-0"
-            type="submit"
-            href="#"
-          >
-          Connexion
-          </button>
+          <ModalHeader />
         </form>
         {/* Fin - Bouton de connexion */}
 
