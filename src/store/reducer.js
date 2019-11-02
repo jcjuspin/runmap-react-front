@@ -35,6 +35,10 @@ const initialState = {
   filteredSuggestions: [],
   showSuggestions: false,
   userSearchInput: '',
+
+  // coordonées d'une ville
+  longitude: '',
+  latitude: '',
 };
 
 // == Types
@@ -55,6 +59,7 @@ const CHANGE_PLACES = 'CHANGE_PLACES';
 
 const CHANGE_ADD_PLACE_FORM_VALUE = 'CHANGE_ADD_PLACE_FORM_VALUE';
 export const SUBMIT_ADD_PLACE_FORM = 'SUBMIT_ADD_PLACE_FORM';
+const CHANGE_CITY_COORDINATES = 'CHANGE_CITY_COORDINATES';
 
 // == Reducer
 const reducer = (state = initialState, action = {}) => {
@@ -140,6 +145,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         [action.name]: action.value,
       };
+    case CHANGE_CITY_COORDINATES:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        latitude: action.latitude,
+        longitude: action.longitude,
+      };
     default:
       return state;
   }
@@ -224,6 +236,12 @@ export const changeAddPlaceFormValue = (value, name) => ({
 
 export const submitAddPlaceForm = () => ({
   type: SUBMIT_ADD_PLACE_FORM,
+});
+
+export const changeCityCoordinates = (latitude, longitude) => ({
+  type: CHANGE_CITY_COORDINATES,
+  latitude,
+  longitude,
 });
 
 // == Selectors

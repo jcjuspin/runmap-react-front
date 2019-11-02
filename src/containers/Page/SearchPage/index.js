@@ -21,7 +21,9 @@ import {
 const mapStateToProps = (state, ownProps) => ({
   places: state.places,
   numberOfPlaces: state.places.length,
-  userSearchPlace: state.userSearchPlace,
+  userSearchInput: state.userSearchInput,
+  longitude: state.longitude,
+  latitude: state.latitude,
 });
 
 /* === Actions ===

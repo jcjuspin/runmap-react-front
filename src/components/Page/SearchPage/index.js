@@ -10,15 +10,18 @@ import Rater from 'react-rater';
 
 // == Import : local
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
+import Mapbox from 'src/components/Page/SearchPage/Mapbox';
 import 'react-rater/lib/react-rater.css';
 import './searchpage.scss';
 // == Composant
 const SearchPage = ({
   places,
   numberOfPlaces,
-  userSearchPlace,
+  userSearchInput,
   submitSearchForm,
   collectCities,
+  longitude,
+  latitude,
 }) => {
   console.log('voici la liste des stades : ', places);
 
@@ -85,7 +88,7 @@ const SearchPage = ({
             <h2>Nous avons trouvé {numberOfPlaces}
               { (numberOfPlaces <= 1) && ' lieu ' }
               { (numberOfPlaces > 1) && ' lieux ' }
-              {userSearchPlace}
+              {userSearchInput}
             </h2>
           </div>
         </div>
@@ -215,6 +218,8 @@ const SearchPage = ({
           </Modal.Footer> */}
         </Modal>
 
+        <Mapbox submitSearchForm={submitSearchForm} longitude={longitude} latitude={latitude} userSearchInput={userSearchInput} />
+
       </div>
 
     </>
@@ -226,14 +231,14 @@ SearchPage.propTypes = {
   places: PropTypes.arrayOf(PropTypes.object),
   numberOfPlaces: PropTypes.number.isRequired,
   submitSearchForm: PropTypes.func.isRequired,
-  userSearchPlace: PropTypes.string,
+  userSearchInput: PropTypes.string,
   collectCities: PropTypes.func.isRequired,
 };
 
 // la valeur du champs de recherche n'est pas obligatoire
 // cependant par défaut elle doit être undefined
 SearchPage.defaultProps = {
-  userSearchPlace: '',
+  userSearchInput: '',
   places: '',
 };
 
