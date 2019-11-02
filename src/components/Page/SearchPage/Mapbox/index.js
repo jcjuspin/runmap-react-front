@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 
 // import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import MapGL, { Marker, Popup, NavigationControl, FullscreenControl, FlyToInterpolator } from 'react-map-gl';
+import MapGL, { Marker, FlyToInterpolator } from 'react-map-gl';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import PlacePin from './PlacePin';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 const MapBox = ({ submitSearchForm, userSearchInput }) => {
@@ -19,8 +22,6 @@ const MapBox = ({ submitSearchForm, userSearchInput }) => {
     latitude: 48.98806,
     longitude: 2.23056,
     zoom: 5,
-    // transitionInterpolator: new FlyToInterpolator({speed: 2}),
-    // transitionDuration: 'auto',
     //bearing:0,
     //pitch:0,
   })
@@ -35,7 +36,7 @@ const MapBox = ({ submitSearchForm, userSearchInput }) => {
       ...viewport,
       latitude,
       longitude,
-      zoom: 11,
+      zoom: 15,
       transitionInterpolator: new FlyToInterpolator({speed: 2}),
       // transitionDuration: 'auto',
     });
@@ -59,6 +60,16 @@ const MapBox = ({ submitSearchForm, userSearchInput }) => {
       });
   };
 
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Title as="h3">Popover right</Popover.Title>
+      <Popover.Content>
+        And here's some <strong>amazing</strong> content. It's very engaging.
+        right?
+      </Popover.Content>
+    </Popover>
+  );
+
   return (
     <>
       <MapGL
@@ -68,16 +79,21 @@ const MapBox = ({ submitSearchForm, userSearchInput }) => {
         onViewportChange={(viewPort) => setViewport({ ...viewPort })}
         mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
       >
-        {/* <Geocoder
-          mapRef={mapRef}
-          onResult={handleOnResult}
-          onViewportChange={handleGeocoderViewportChange}
-          mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
-          position="top-left"
-        />
-        <DeckGL {...viewport} layers={[searchResultLayer]} /> */}
         <button type="button" onClick={handleSubmit}>RECHERCHER</button>
-        {/* <Marker longitude={48.930115} latitude={2.328606} /> */}
+        <Marker
+          latitude={48.98806}
+          longitude={2.23056}
+          offsetLeft={-20}
+          offsetTop={-10}
+        >
+          <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+            <img
+              src="../assets/yellowmarker.png"
+              alt="marker"
+            />
+          </OverlayTrigger>
+        </Marker>
+
       </MapGL>
     </>
   );
