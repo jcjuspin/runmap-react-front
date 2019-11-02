@@ -28,6 +28,7 @@ const initialState = {
 
   // tableau pour contenir la liste des lieux
   places: [],
+  allPlaces: '',
 
   // gestion de l'autocomplétion
   suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],
@@ -56,6 +57,8 @@ const CHANGE_PLACES = 'CHANGE_PLACES';
 
 const CHANGE_ADD_PLACE_FORM_VALUE = 'CHANGE_ADD_PLACE_FORM_VALUE';
 export const SUBMIT_ADD_PLACE_FORM = 'SUBMIT_ADD_PLACE_FORM';
+export const COLLECT_PLACES = 'COLLECT_PLACES';
+export const LIST_PLACES = 'LIST_PLACES';
 
 
 // == Reducer
@@ -141,6 +144,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+    case LIST_PLACES:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        allPlaces: action.places,
       };
     default:
       return state;
@@ -228,8 +237,16 @@ export const submitAddPlaceForm = () => ({
   type: SUBMIT_ADD_PLACE_FORM,
 });
 
-// == Selectors
+export const collectPlaces = () => ({
+  type: COLLECT_PLACES,
+});
 
+export const placesWithGeoData = (places) => ({
+  type: LIST_PLACES,
+  places,
+});
+
+// == Selectors
 
 // == Export
 export default reducer;

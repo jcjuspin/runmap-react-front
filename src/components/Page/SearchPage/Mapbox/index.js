@@ -70,6 +70,12 @@ const MapBox = ({ submitSearchForm, userSearchInput }) => {
     </Popover>
   );
 
+  // TODO: 
+  // 1. récuperer toutes les places.
+  // 2. modifier le contenu avec map() pour avoir pour chaque place la longitude et la lattitude grace au nom de la rue et la ville.
+  // 3. faire un forEach pour chaque marqueur en injectant la longitude et la lattitude
+  // 4 injecter dans le overlay les infos de surface au sujet du stade
+  // 5 quand on double click sur le marqueur ou le overlay, on affiche une modale avec les détails du lieu
   return (
     <>
       <MapGL

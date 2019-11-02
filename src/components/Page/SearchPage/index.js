@@ -20,13 +20,22 @@ const SearchPage = ({
   userSearchInput,
   submitSearchForm,
   collectCities,
+  collectPlaces,
+  allPlaces,
 }) => {
-  console.log('voici la liste des stades : ', places);
+  console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
   useEffect(() => {
-    console.log('coucou');
+     console.log('coucou');
+   });
+
+  const [start, setStart] = useState(true);
+
+  if (start) {
+    collectPlaces();
     collectCities();
-  });
+    setStart(false);
+  }
 
   // ------ gestion de la modale ---------
   const [show, setShow] = useState(false);
