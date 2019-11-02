@@ -20,8 +20,6 @@ const SearchPage = ({
   userSearchInput,
   submitSearchForm,
   collectCities,
-  longitude,
-  latitude,
 }) => {
   console.log('voici la liste des stades : ', places);
 
@@ -218,7 +216,7 @@ const SearchPage = ({
           </Modal.Footer> */}
         </Modal>
 
-        <Mapbox submitSearchForm={submitSearchForm} longitude={longitude} latitude={latitude} userSearchInput={userSearchInput} />
+        <Mapbox submitSearchForm={submitSearchForm} userSearchInput={userSearchInput} />
 
       </div>
 

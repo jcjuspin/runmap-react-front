@@ -5,7 +5,6 @@ import {
   COLLECT_CITIES,
   changeSuggestions,
   changePlaces,
-  changeCityCoordinates,
 } from 'src/store/reducer';
 import { baseUri, searchRoute, citiesSearchRoute } from 'src/store/vars_route';
 
@@ -45,9 +44,6 @@ const searchMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
         });
-
-      // éxecution d'une requête pour récuperer les coordonées de la ville.
-
 
       break;
     }
