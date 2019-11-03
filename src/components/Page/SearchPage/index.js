@@ -23,11 +23,9 @@ const SearchPage = ({
   collectPlaces,
   allPlaces,
 }) => {
-  console.log('voici la liste des stades pour le lieu séléctionné : ', places);
+  // console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
-  useEffect(() => {
-     console.log('coucou');
-   });
+  
 
   const [start, setStart] = useState(true);
 
@@ -225,7 +223,11 @@ const SearchPage = ({
           </Modal.Footer> */}
         </Modal>
 
-        <Mapbox submitSearchForm={submitSearchForm} userSearchInput={userSearchInput} />
+        <Mapbox
+          submitSearchForm={submitSearchForm}
+          userSearchInput={userSearchInput}
+          allPlaces={allPlaces}
+        />
 
       </div>
 

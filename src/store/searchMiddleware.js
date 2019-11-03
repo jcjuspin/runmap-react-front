@@ -23,7 +23,7 @@ const searchMiddleware = (store) => (next) => (action) => {
       const state = store.getState();
       const searchedCity = state.userSearchInput;
 
-      console.log('La ville qui est envoyé dans la requête ', searchedCity);
+      // console.log('La ville qui est envoyé dans la requête ', searchedCity);
 
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
       axios.get(`${baseUri}${searchRoute}${searchedCity}`)
@@ -52,7 +52,7 @@ const searchMiddleware = (store) => (next) => (action) => {
     }
     // récuperation des villes présentes dans la BDD
     case COLLECT_CITIES: {
-      console.log('Requete envoyée pour récuperer la liste des villes');
+      // console.log('Requete envoyée pour récuperer la liste des villes');
 
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
       axios.get(`${baseUri}${citiesSearchRoute}`)
@@ -82,27 +82,29 @@ const searchMiddleware = (store) => (next) => (action) => {
 
       axios.get(`${baseUri}/`)
         .then((response) => {
-          console.log('la liste des lieux : ', ...response.data);
-          store.dispatch(placesWithGeoData(response.data));
-          response.data.map((place) => {
-            const adress = place.adress;
-            const city = place.city.name;
-            axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${adress} ${city}.json?access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g&cachebuster=1572711922131&autocomplete=false&types=place%2Caddress&limit=1`)
-              .then((geocoderResponse) => {
-                // console.log('COORDONNEE : ', response.data.features[0].center);
-                const latitude = geocoderResponse.data.features[0].center[1];
-                const longitude = geocoderResponse.data.features[0].center[0];
-                place.latitude = latitude;
-                place.longitude = longitude;
-              })
-              .catch((error) => {
-                console.log(error);
-              })
-              .finally(() => {
-              });
-          });
+          // console.log('la liste des lieux : ', ...response.data);
+          const allPlaces = response.data;
+          // allPlaces.map((place) => {
+          //   const adress = place.adress;
+          //   const city = place.city.name;
+          //   axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${adress} ${city}.json?access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g&cachebuster=1572711922131&autocomplete=false&types=place%2Caddress&limit=1`)
+          //     .then((geocoderResponse) => {
+          //       // console.log('COORDONNEE : ', response.data.features[0].center);
+          //       const latitude = geocoderResponse.data.features[0].center[1];
+          //       const longitude = geocoderResponse.data.features[0].center[0];
+          //       place.latitude = latitude;
+          //       place.longitude = longitude;
+
+          //     })
+          //     .catch((error) => {
+          //       console.log(error);
+          //     })
+          //     .finally(() => {
+          //     });
+          // });
+          store.dispatch(placesWithGeoData(allPlaces));
           // return('PLACES : ', places);
-          console.log('RESPONSE DATA : ', ...response.data);
+          // console.log('RESPONSE DATA : ', response.data);
         })
         .catch((error) => {
           console.log('Apparement ça ne marche pas : ', error);
