@@ -89,54 +89,27 @@ const SearchPage = ({
 
   return (
     <>
-      <div className="container-fluid container-result-search">
+      <div className="container-result-search">
 
         {/* TITRE */}
         <div className="container container-title-results">
           <div className="title-result">
             {/* affichage du nombre lieux trouvées */}
-            <h2>Nous avons trouvé {numberOfPlaces}
+            {/* <h2>Nous avons trouvé {numberOfPlaces}
               { (numberOfPlaces <= 1) && ' lieu ' }
               { (numberOfPlaces > 1) && ' lieux ' }
               {userSearchInput}
-            </h2>
+            </h2> */}
           </div>
         </div>
 
         {/* SEARCHBAR */}
-        <form
-          onSubmit={handleSubmit} /* écouteur d'evenement sur la soumission du formulaire */
-        >
-          <div className="container container-searchbar">
-            <div className="row justify-content-center">
-              <div className="col-sm col-search">
-                <div className="form-group">
-                  <select className="form-control" id="exampleFormControlSelect1">
-                    <option>Course à pied</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-sm col-search">
-                <div className="form-group">
-                  <AutoComplete />
-                </div>
-              </div>
-
-              <div className="col-sm col-button">
-                <div className="form-group">
-                  <button type="submit" className="btn btn-warning">Rechercher</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
 
         {/*
           création d'une liste de résultats,
           en fonction des données récupérés suite à la requête
         */}
-        { places.map((place) => (
+        {/* { places.map((place) => (
           <div
             key={place.id}
             className="container card result-card mb-2"
@@ -159,7 +132,7 @@ const SearchPage = ({
             </div>
 
           </div>
-        ))}
+        ))} */}
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -227,8 +200,10 @@ const SearchPage = ({
             </Button>
           </Modal.Footer> */}
         </Modal>
-
+          <div className="container row-no-padding"></div>
+     
         <Mapbox
+          className="row"
           submitSearchForm={submitSearchForm}
           userSearchInput={userSearchInput}
           allPlaces={allPlaces}
@@ -237,8 +212,8 @@ const SearchPage = ({
           latlong={latlong}
           allPlacesWithGeocode={allPlacesWithGeocode}
           allPlacesGeocode={allPlacesGeocode}
+          places={places}
         />
-
       </div>
 
     </>
