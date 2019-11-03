@@ -25,6 +25,8 @@ const SearchPage = ({
   changeLatLong,
   collectLatLong,
   latlong,
+  allPlacesWithGeocode,
+  allPlacesGeocode,
 }) => {
   // console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
@@ -233,6 +235,8 @@ const SearchPage = ({
           changeLatLong={changeLatLong}
           collectLatLong={collectLatLong}
           latlong={latlong}
+          allPlacesWithGeocode={allPlacesWithGeocode}
+          allPlacesGeocode={allPlacesGeocode}
         />
 
       </div>

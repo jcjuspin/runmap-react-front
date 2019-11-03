@@ -11,6 +11,7 @@ import {
   placesWithGeoData,
   changeLatLong,
   collectLatLong,
+  allPlacesWithGeocode,
 } from 'src/store/reducer';
 
 // Action Creators
@@ -28,6 +29,7 @@ const mapStateToProps = (state, ownProps) => ({
   userSearchInput: state.userSearchInput,
   allPlaces: state.allPlaces,
   latlong: state.latlong,
+  allPlacesGeocode: state.allPlacesGeocode,
 });
 
 /* === Actions ===
@@ -64,6 +66,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   collectLatLong: () => {
     dispatch(collectLatLong());
   },
+
+  allPlacesWithGeocode: (value) => {
+    dispatch(allPlacesWithGeocode(value));
+  }
   
 });
 // Container

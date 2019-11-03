@@ -11,7 +11,7 @@ import Popover from 'react-bootstrap/Popover';
 import PlacePin from './PlacePin';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
-const MapBox = ({ submitSearchForm, userSearchInput, allPlaces, changeLatLong, collectLatLong, latlong }) => {
+const MapBox = ({ submitSearchForm, userSearchInput, allPlaces, changeLatLong, collectLatLong, latlong, allPlacesWithGeocode, allPlacesGeocode }) => {
   // TODO: lors de la requete la réponse que j'obtiens c'est d'abord la longitude puis latitude
   // du coup je dois faire une requete vers l'api pour une ville pour avoir ces coordonnées.
   // je dois injecter sur la map les coordonées de tous les places présents dans la bdd sous forme de marqueur
@@ -115,15 +115,20 @@ const MapBox = ({ submitSearchForm, userSearchInput, allPlaces, changeLatLong, c
     console.log('allPlaces : ', allPlaces);
     const huhu = allPlaces.forEach((place) => console.log("huhu"));
     for (let i = 0; i < allPlaces.length; i++) {
-      console.log ('je suis une place : ', allPlaces[i].name);
-      console.log ('je suis une geo : ', latlong[i]);
+      // console.log ('je suis une place : ', allPlaces[i].name);
+      // console.log ('je suis une geo : ', latlong[i]);
       allPlaces[i].latitude = latlong[i].latitude;
       allPlaces[i].longitude = latlong[i].longitude;
     }
-    console.log(allPlaces);
+    // console.log('allPlacesGeocode, ' ,allPlaces);
+    // allPlacesWithGeocode(allPlaces);
+    console.log(allPlaces) 
   }
 
+  console.log(allPlaces) 
 
+  const a = 48.98806;
+  const b = 2.23056;
 
   return (
     <>
@@ -139,8 +144,8 @@ const MapBox = ({ submitSearchForm, userSearchInput, allPlaces, changeLatLong, c
           console.log('je suis une place : ', place);
         })} */}
         <Marker
-          latitude={48.98806}
-          longitude={2.23056}
+          latitude={a}
+          longitude={b}
           offsetLeft={-20}
           offsetTop={-10}
         >
@@ -152,22 +157,23 @@ const MapBox = ({ submitSearchForm, userSearchInput, allPlaces, changeLatLong, c
           </OverlayTrigger>
         </Marker>
 
-        {/* BOUCLE AVEC LES MARKERS */}
-        
-        <Marker
-          latitude={48.98806}
-          longitude={2.23056}
-          offsetLeft={-20}
-          offsetTop={-10}
-        >
-          <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-            <img
-              src="../assets/yellowmarker.png"
-              alt="marker"
-            />
-          </OverlayTrigger>
-        </Marker>
-
+        { allPlaces && latlong && allPlaces.map((place) => (
+          <div>
+            <Marker
+              latitude={place.latitude}
+              longitude={place.longitude}
+              offsetLeft={-20}
+              offsetTop={-10}
+            >
+              <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+                <img
+                  src="../assets/yellowmarker.png"
+                  alt="marker"
+                />
+              </OverlayTrigger>
+            </Marker>
+          </div>
+        ))}
 
       </MapGL>
     </>
