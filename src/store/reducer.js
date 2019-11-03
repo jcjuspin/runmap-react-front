@@ -37,6 +37,9 @@ const initialState = {
   showSuggestions: false,
   userSearchInput: '',
 
+  // liste des longitudes, lattitudes des places
+  latlong: undefined,
+
 };
 
 // == Types
@@ -59,6 +62,8 @@ const CHANGE_ADD_PLACE_FORM_VALUE = 'CHANGE_ADD_PLACE_FORM_VALUE';
 export const SUBMIT_ADD_PLACE_FORM = 'SUBMIT_ADD_PLACE_FORM';
 export const COLLECT_PLACES = 'COLLECT_PLACES';
 export const LIST_PLACES = 'LIST_PLACES';
+export const LIST_LAT_LONG_PLACES = 'LIST_LAT_LONG_PLACES';
+export const COLLECT_LAT_LANG = 'COLLECT_LAT_LANG';
 
 
 // == Reducer
@@ -150,6 +155,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         allPlaces: action.places,
+      };
+    case LIST_LAT_LONG_PLACES:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        latlong: action.value,
       };
     default:
       return state;
@@ -245,6 +256,18 @@ export const placesWithGeoData = (places) => ({
   type: LIST_PLACES,
   places,
 });
+
+export const changeLatLong = (value) => ({
+  type: LIST_LAT_LONG_PLACES,
+  value,
+});
+
+export const collectLatLong = () => ({
+  type: COLLECT_LAT_LANG,
+});
+
+
+
 
 // == Selectors
 

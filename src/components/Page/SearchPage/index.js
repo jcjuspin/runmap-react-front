@@ -22,6 +22,9 @@ const SearchPage = ({
   collectCities,
   collectPlaces,
   allPlaces,
+  changeLatLong,
+  collectLatLong,
+  latlong,
 }) => {
   // console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
@@ -227,6 +230,9 @@ const SearchPage = ({
           submitSearchForm={submitSearchForm}
           userSearchInput={userSearchInput}
           allPlaces={allPlaces}
+          changeLatLong={changeLatLong}
+          collectLatLong={collectLatLong}
+          latlong={latlong}
         />
 
       </div>

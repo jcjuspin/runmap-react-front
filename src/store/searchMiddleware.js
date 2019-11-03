@@ -7,9 +7,11 @@ import {
   changeSuggestions,
   changePlaces,
   placesWithGeoData,
+  COLLECT_LAT_LANG,
+  changeLatLong,
 } from 'src/store/reducer';
 import { baseUri, searchRoute, citiesSearchRoute } from 'src/store/vars_route';
-import { AST_Exit } from 'terser';
+// import { AST_Exit } from 'terser';
 
 const searchMiddleware = (store) => (next) => (action) => {
   // console.log('Je suis le searchMiddleware, et je laisse passer cette action: ', action);
@@ -111,6 +113,64 @@ const searchMiddleware = (store) => (next) => (action) => {
         })
         .finally(() => {
         });
+      break;
+    }
+    case COLLECT_LAT_LANG: {
+      const state = store.getState();
+      const { allPlaces } = state;
+      let geoLocateArray = [];
+
+      const handleGeoLocate = (latitude, longitude) => {
+        let c = { latitude, longitude, prout: 'prout' };
+        return (c);
+      };
+
+      const prout = (lat, long) => {
+        geoLocateArray.push(handleGeoLocate(lat, long));
+      };
+      const longLat = (latLong) => {
+        console.log('HUHU', latLong);
+      };
+
+      const Proutard = (lat=10,long=20 ) => {
+        prout(lat, long);
+      };
+
+      allPlaces.forEach((place) => {
+        const adress = place.adress;
+        const city = place.city.name;
+        axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${adress} ${city}.json?access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g&cachebuster=1572711922131&autocomplete=false&types=place%2Caddress&limit=1`)
+          .then((geocoderResponse) => {
+            // console.log('COORDONNEE : ', response.data.features[0].center);
+            const latitude = geocoderResponse.data.features[0].center[1];
+            const longitude = geocoderResponse.data.features[0].center[0];
+
+            Proutard(latitude, longitude);
+            console.log('GeoLocateArray : ', geoLocateArray);
+            
+            // console.log('GeoLocateArray 0 latitude : ', geoLocateArray[0].latitude);
+            // place.latitude = latitude;
+            // place.longitude = longitude;
+            // handleGeoLocate(latitude, longitude);
+            // prout(latitude, longitude);
+            // Proutard(10, 20);
+            // Proutard();
+            console.log('GeoLocateArray marche encore ? : ', geoLocateArray);
+            if (geoLocateArray.length === allPlaces.length) {
+              store.dispatch(changeLatLong(geoLocateArray));
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+          .finally(() => {
+            // console.log('GeoLocateArray finally : ', geoLocateArray);
+            
+            // console.log('GeoLocateArray marche encore ? : ', geoLocateArray);
+            // longLat(geoLocateArray)
+          });
+          
+      });
       break;
     }
   }
