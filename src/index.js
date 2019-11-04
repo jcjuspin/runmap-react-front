@@ -18,6 +18,7 @@ import {
   faInfoCircle,
   faRunning,
   faAt,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -39,6 +40,7 @@ library.add(
   faInfoCircle,
   faRunning,
   faAt,
+  faUser,
 );
 
 // == Render
