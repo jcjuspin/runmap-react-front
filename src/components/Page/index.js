@@ -11,6 +11,7 @@ import InscriptionPage from 'src/containers/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
+import FonctionsPages from 'src/components/Page/FonctionsPage';
 import AdminPage from 'src/components/Page/AdminPage';
 
 
@@ -52,6 +53,10 @@ const Page = ({
   
       <Route path="/apropos" exact> {/* Page avec nos photo (l'idée de Kevin) */}
         <AProposPage />
+      </Route>
+
+      <Route path="/features" exact>
+        <FonctionsPages />
       </Route>
 
       <Route path="/admin" exact>
