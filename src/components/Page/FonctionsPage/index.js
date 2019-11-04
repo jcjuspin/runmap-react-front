@@ -95,10 +95,6 @@ const FonctionsPage = () => (
       </div>
     </div>
 
-
-
-
-
   </>
 );
 
