@@ -51,7 +51,7 @@ const AProposPage = () => (
         </blockquote>
       </Card>
 
-      <Card className="text-center p-3">
+      <Card border="warning" className="text-center p-3">
         <blockquote className="blockquote mb-0 card-body">
           <p>
             On ne te demande pas de montrer ta lune MDR.
@@ -77,7 +77,7 @@ const AProposPage = () => (
         </blockquote>
       </Card>
 
-      <Card className="text-center p-3">
+      <Card border="warning" className="text-center p-3">
         <blockquote className="blockquote mb-0 card-body">
           <p>
             <b>Les gars</b> j'ai tout perdu, j'ai une page blanche maintenant ...
@@ -118,19 +118,19 @@ const AProposPage = () => (
     </blockquote>
   </Card>
 
-      <Card>
-        <Card.Img variant="top" src="src/components/Page/AProposPage/coderr.jpg" />
-        <Card.Body>
-          <Card.Title><span className="text-monospace">Miguel : Project Owner .. ASKIP!</span>
-            <div className="">
-              <p className="text-muted text-descript">Il en avait marre de payer une licence, alors il a voulu créer RunMap !</p>
-            </div>
-          </Card.Title>
-          <Card.Text>
-            -
-          </Card.Text>
-        </Card.Body>
-      </Card>
+  <Card>
+  <Card.Img variant="top" src="src/components/Page/AProposPage/Miguel.png" />
+  <Card.Body>
+    <Card.Title><span className="text-monospace">Miguel : Project Owner .. ASKIP!</span>
+      <div className="">
+        <p className="text-muted text-descript">Il en avait marre de payer une licence, alors il a voulu créer RunMap !</p>
+      </div>
+    </Card.Title>
+    <Card.Text>
+      -
+    </Card.Text>
+  </Card.Body>
+</Card>
 
       <Card border="warning" className="text-center p-3">
         <blockquote className="blockquote mb-0 card-body">
