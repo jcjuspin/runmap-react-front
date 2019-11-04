@@ -11,7 +11,7 @@ import InscriptionPage from 'src/containers/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
-import AdminPage from 'src/components/Page/AdminPage';
+import AdminPage from 'src/containers/Page/AdminPage';
 
 
 // == Composant
