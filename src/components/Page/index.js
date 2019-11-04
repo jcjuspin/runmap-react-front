@@ -12,6 +12,7 @@ import ContactPage from 'src/components/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
 import FonctionsPages from 'src/components/Page/FonctionsPage';
+import BusinessPage from 'src/components/Page/BusinessPage';
 import AdminPage from 'src/components/Page/AdminPage';
 
 
@@ -57,6 +58,10 @@ const Page = ({
 
       <Route path="/features" exact>
         <FonctionsPages />
+      </Route>
+
+      <Route path="/business" exact>
+        <BusinessPage />
       </Route>
 
       <Route path="/admin" exact>
