@@ -11,7 +11,11 @@ import InscriptionPage from 'src/containers/Page/InscriptionPage';
 import ContactPage from 'src/components/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
+
 import AdminPage from 'src/containers/Page/AdminPage';
+import FonctionsPages from 'src/components/Page/FonctionsPage';
+
+
 
 
 // == Composant
@@ -52,6 +56,10 @@ const Page = ({
   
       <Route path="/apropos" exact> {/* Page avec nos photo (l'idée de Kevin) */}
         <AProposPage />
+      </Route>
+
+      <Route path="/features" exact>
+        <FonctionsPages />
       </Route>
 
       <Route path="/admin" exact>
