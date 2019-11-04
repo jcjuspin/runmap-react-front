@@ -5,13 +5,17 @@ import React, { useState } from 'react';
 // == Import : local
 import './adminpage.scss';
 // == Composant
-const AdminPage = ({ collectUsersData, usersData }) => {
+const AdminPage = ({ collectUsersData, usersData, deleteUser }) => {
   const [start, setStart] = useState(true);
 
   if (start) {
     collectUsersData();
     setStart(false);
   }
+
+  const handleClick = (id) => {
+    deleteUser(id);
+  };
 
   let oulala = '';
   if (typeof usersData === 'object') {
@@ -28,7 +32,6 @@ const AdminPage = ({ collectUsersData, usersData }) => {
                 <hr />
                 <p>{user.firstname}</p>
               </div>
-      
               <div className="col-lg-5">
                 <hr />
                 <p> id : {user.id}</p>
@@ -39,11 +42,16 @@ const AdminPage = ({ collectUsersData, usersData }) => {
               </div>
       
               <div className="col-lg-2">
-                <p>Supprimer</p>
+                <p>
+                  Supprimer
+                </p>
                 <hr />
-                <a href="#">
+                <button onClick={() => {
+                  handleClick(user.id);
+                }}
+                >
                   <img className="img-admin" src="src/components/Page/AdminPage/trash.svg" alt="trash" />
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -51,6 +59,8 @@ const AdminPage = ({ collectUsersData, usersData }) => {
       </>
     )));
   }
+
+  
 
   return (
 

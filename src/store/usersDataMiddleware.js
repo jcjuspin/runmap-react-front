@@ -1,11 +1,10 @@
 import {
   COLLECT_USERS_DATA,
+  DELETE_USER,
   changeUsersData,
 } from 'src/store/reducer';
 import axios from 'axios';
-
-import { baseUri, allUsers } from 'src/store/vars_route';
-import { dispatch } from 'rxjs/internal/observable/pairs';
+import { baseUri, allUsers, deleteUser } from 'src/store/vars_route';
 
 const usersDataMiddleware = (store) => (next) => (action) => {
   console.log('Je suis le usersDataMiddleware, et je laisse passer cette action: ', action);
@@ -21,6 +20,20 @@ const usersDataMiddleware = (store) => (next) => (action) => {
           store.dispatch(changeUsersData(response.data));
         })
         .catch((error) => {
+        })
+        .finally(() => {
+        });
+    }
+    break;
+    case DELETE_USER: {
+      const state = store.getState();
+      const id = state.userId;
+      axios.post(`${baseUri}${deleteUser}${id}`)
+        .then((response) => {
+          console.log('réponse de mr API : ', response.data);
+        })
+        .catch((error) => {
+          console.log(error.response);
         })
         .finally(() => {
         });

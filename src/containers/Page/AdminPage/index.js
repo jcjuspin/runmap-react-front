@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // == Import : local
 import AdminPage from 'src/components/Page/AdminPage';
-import { collectUsersData, changeUsersData } from 'src/store/reducer';
+import { collectUsersData, changeUsersData, deleteUser } from 'src/store/reducer';
 
 // Action Creators
 
@@ -33,7 +33,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
   changeUsersData: (value) => {
     dispatch(changeUsersData(value));
-  }
+  },
+
+  deleteUser: (value) => {
+    dispatch(deleteUser(value));
+  },
 
 });
 

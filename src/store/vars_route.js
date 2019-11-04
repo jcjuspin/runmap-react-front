@@ -25,4 +25,4 @@ export const createPlace = '/create/place';
 
 export const allUsers = '/allUsers';
 
-export const deleteUser = '/admin/delete';
+export const deleteUser = '/admin/delete/user/';

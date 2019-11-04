@@ -43,6 +43,7 @@ const initialState = {
 
   // identitée des utilisateurs
   usersData: '',
+  userId: '',
 
 };
 
@@ -71,6 +72,7 @@ export const COLLECT_LAT_LANG = 'COLLECT_LAT_LANG';
 const ALL_PLACES_GEOCODE = 'ALL_PLACES_GEOCODE';
 export const COLLECT_USERS_DATA = 'COLLECT_USERS_DATA';
 const CHANGE_USERS_DATA = 'CHANGE_USERS_DATA';
+export const DELETE_USER = 'DELETE_USER';
 
 
 // == Reducer
@@ -180,6 +182,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         usersData: action.value,
+      };
+      case DELETE_USER:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        userId: action.value,
       };
     default:
       return state;
@@ -296,6 +304,11 @@ export const collectUsersData = () => ({
 
 export const changeUsersData = (value) => ({
   type: CHANGE_USERS_DATA,
+  value,
+})
+
+export const deleteUser = (value) => ({
+  type: DELETE_USER,
   value,
 })
 
