@@ -10,22 +10,35 @@ import Rater from 'react-rater';
 
 // == Import : local
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
+import Mapbox from 'src/components/Page/SearchPage/Mapbox';
 import 'react-rater/lib/react-rater.css';
 import './searchpage.scss';
 // == Composant
 const SearchPage = ({
   places,
   numberOfPlaces,
-  userSearchPlace,
+  userSearchInput,
   submitSearchForm,
   collectCities,
+  collectPlaces,
+  allPlaces,
+  changeLatLong,
+  collectLatLong,
+  latlong,
+  allPlacesWithGeocode,
+  allPlacesGeocode,
 }) => {
-  console.log('voici la liste des stades : ', places);
+  // console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
-  useEffect(() => {
-    console.log('coucou');
+  
+
+  const [start, setStart] = useState(true);
+
+  if (start) {
+    collectPlaces();
     collectCities();
-  });
+    setStart(false);
+  }
 
   // ------ gestion de la modale ---------
   const [show, setShow] = useState(false);
@@ -76,54 +89,27 @@ const SearchPage = ({
 
   return (
     <>
-      <div className="container-fluid container-result-search">
+      <div className="container-result-search">
 
         {/* TITRE */}
         <div className="container container-title-results">
           <div className="title-result">
             {/* affichage du nombre lieux trouvées */}
-            <h2>Nous avons trouvé {numberOfPlaces}
+            {/* <h2>Nous avons trouvé {numberOfPlaces}
               { (numberOfPlaces <= 1) && ' lieu ' }
               { (numberOfPlaces > 1) && ' lieux ' }
-              {userSearchPlace}
-            </h2>
+              {userSearchInput}
+            </h2> */}
           </div>
         </div>
 
         {/* SEARCHBAR */}
-        <form
-          onSubmit={handleSubmit} /* écouteur d'evenement sur la soumission du formulaire */
-        >
-          <div className="container container-searchbar">
-            <div className="row justify-content-center">
-              <div className="col-sm col-search">
-                <div className="form-group">
-                  <select className="form-control" id="exampleFormControlSelect1">
-                    <option>Course à pied</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="col-sm col-search">
-                <div className="form-group">
-                  <AutoComplete />
-                </div>
-              </div>
-
-              <div className="col-sm col-button">
-                <div className="form-group">
-                  <button type="submit" className="btn btn-warning">Rechercher</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
 
         {/*
           création d'une liste de résultats,
           en fonction des données récupérés suite à la requête
         */}
-        { places.map((place) => (
+        {/* { places.map((place) => (
           <div
             key={place.id}
             className="container card result-card mb-2"
@@ -149,7 +135,7 @@ const SearchPage = ({
             </div>
 
           </div>
-        ))}
+        ))} */}
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -217,7 +203,20 @@ const SearchPage = ({
             </Button>
           </Modal.Footer> */}
         </Modal>
-
+          <div className="container row-no-padding"></div>
+     
+        <Mapbox
+          className="row"
+          submitSearchForm={submitSearchForm}
+          userSearchInput={userSearchInput}
+          allPlaces={allPlaces}
+          changeLatLong={changeLatLong}
+          collectLatLong={collectLatLong}
+          latlong={latlong}
+          allPlacesWithGeocode={allPlacesWithGeocode}
+          allPlacesGeocode={allPlacesGeocode}
+          places={places}
+        />
       </div>
 
     </>
@@ -229,14 +228,14 @@ SearchPage.propTypes = {
   places: PropTypes.arrayOf(PropTypes.object),
   numberOfPlaces: PropTypes.number.isRequired,
   submitSearchForm: PropTypes.func.isRequired,
-  userSearchPlace: PropTypes.string,
+  userSearchInput: PropTypes.string,
   collectCities: PropTypes.func.isRequired,
 };
 
 // la valeur du champs de recherche n'est pas obligatoire
 // cependant par défaut elle doit être undefined
 SearchPage.defaultProps = {
-  userSearchPlace: '',
+  userSearchInput: '',
   places: '',
 };
 

@@ -28,6 +28,7 @@ const mapStateToProps = (state, ownProps) => ({
   filteredSuggestions: state.filteredSuggestions,
   showSuggestions: state.showSuggestions,
   userSearchInput: state.userSearchInput,
+
 });
 
 /* === Actions ===

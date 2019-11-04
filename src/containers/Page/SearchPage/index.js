@@ -7,6 +7,11 @@ import {
   submitSearchForm,
   collectCities,
   changePlaces,
+  collectPlaces,
+  placesWithGeoData,
+  changeLatLong,
+  collectLatLong,
+  allPlacesWithGeocode,
 } from 'src/store/reducer';
 
 // Action Creators
@@ -21,7 +26,10 @@ import {
 const mapStateToProps = (state, ownProps) => ({
   places: state.places,
   numberOfPlaces: state.places.length,
-  userSearchPlace: state.userSearchPlace,
+  userSearchInput: state.userSearchInput,
+  allPlaces: state.allPlaces,
+  latlong: state.latlong,
+  allPlacesGeocode: state.allPlacesGeocode,
 });
 
 /* === Actions ===
@@ -42,6 +50,27 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   changePlaces: (value) => {
     dispatch(changePlaces(value));
   },
+
+  collectPlaces: () => {
+    dispatch(collectPlaces());
+  },
+
+  placesWithGeoData: (places) => {
+    dispatch(placesWithGeoData(places));
+  },
+
+  changeLatLong: (value) => {
+    dispatch(changeLatLong(value));
+  },
+
+  collectLatLong: () => {
+    dispatch(collectLatLong());
+  },
+
+  allPlacesWithGeocode: (value) => {
+    dispatch(allPlacesWithGeocode(value));
+  }
+  
 });
 // Container
 const SearchPageContainer = connect(
