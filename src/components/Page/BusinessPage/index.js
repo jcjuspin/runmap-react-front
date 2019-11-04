@@ -7,9 +7,11 @@ const BusinessPage = () => (
   <>
 
     <div className="business-header">
-      <div className="container container-business-header">
-        <div className="header-business-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, in! Fugit, minima magnam quod optio repellat obcaecati unde sint laborum!</p>
+      <div className="background-header-black">
+        <div className="container container-business-header">
+          <div className="header-business-content">
+            <p>Dynamisez votre entreprise, motivez vos collaborateurs grâce à nos solutions pour les professionnel et associations</p>
+          </div>
         </div>
       </div>
     </div>
@@ -35,6 +37,60 @@ const BusinessPage = () => (
           <div className="counter-descript">Lieux référencé</div>
         </div>
         
+      </div>
+    </div>
+
+    {/* Solutions clubs */}
+    <div className="container business-club container-solutions">
+      <div className="row col-business-club">
+        <div className="col-sm col-business col-text-club">
+          <div className="text-club-title text-title">
+            <p className="header-title">Solution Clubs</p>
+            <h4>Vos adhérents deviennent des ambassadeurs...</h4>
+          </div>
+          <div className="text-club-content text-content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum repudiandae nam iste perferendis omnis ullam, eum eius a neque blanditiis.</p>
+          </div>
+        </div>
+        <div className="col-sm col-business col-img">
+            Image
+        </div>
+      </div>
+    </div>
+
+    {/* Solutions entreprises */}
+    <div className="container business-work container-solutions">
+      <div className="row col-business-work">
+      <div className="col-sm col-business col-img">
+        Image
+      </div>
+        <div className="col-sm col-business col-text-work">
+          <div className="text-work-title text-title">
+            <p className="header-title">Solution Entreprises</p>
+            <h4>Sportivement collaborateur</h4>
+          </div>
+          <div className="text-club-content text-content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum repudiandae nam iste perferendis omnis ullam, eum eius a neque blanditiis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Solutions professionnel */}
+    <div className="container business-pro container-solutions">
+      <div className="row col-business-pro">
+        <div className="col-sm col-business col-text-pro">
+          <div className="text-pro-title text-title">
+            <p className="header-title">Solution Pro</p>
+            <h4>Élargir sa visibilitée</h4>
+          </div>
+          <div className="text-club-content text-content">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum repudiandae nam iste perferendis omnis ullam, eum eius a neque blanditiis.</p>
+          </div>
+        </div>
+        <div className="col-sm col-business col-img">
+            Image
+        </div>
       </div>
     </div>
 
