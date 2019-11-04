@@ -1,0 +1,32 @@
+
+.business-header{
+    height: 50vh;
+
+    background: red;
+}
+
+.motivation-content{
+    padding: 2rem;
+
+        p{
+            font-weight: 200;
+        }
+}
+
+.business-counter{
+    margin-bottom: 1rem;
+}
+
+.col-counter-devider{
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.counter-number{
+    font-size: 3rem;
+}
+
+.counter-descript{
+    font-size: .8rem;
+    margin-top: -.5rem;
+}
