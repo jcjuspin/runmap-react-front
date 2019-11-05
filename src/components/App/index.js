@@ -26,7 +26,7 @@ const App = () => {
       <AutoComplete />
       <FrontGetJson />
       <Header />
-      <HeaderMember />
+      {/* <HeaderMember /> */}
       <Page
         searchFormData={searchFormData}
         setSearchFormData={setSearchFormData}

@@ -8,15 +8,17 @@ const initialState = {
   firstname: '',
   lastname: '',
   age: '',
-  gender: 'man',
+  gender: '',
   email: '',
   city: '',
   password: '',
-
+  logged: false, // Ajouter par Miguel.
+  
   passwordConfirmation: '',
   displayPasswordErrorMessage: false,
   errorMessage: '',
   validationMessage: '',
+  
 
   // le formulaire d'ajout d'un lieu
   cityName: '',
@@ -31,7 +33,7 @@ const initialState = {
   allPlaces: '',
 
   // gestion de l'autocomplétion
-  suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],
+  suggestions: ['Lille', 'Paris', 'Lyon', 'Marseille', 'Tour', 'Renne', 'Nice'],
   activeSuggestion: 0,
   filteredSuggestions: [],
   showSuggestions: false,
@@ -91,6 +93,8 @@ const CHANGE_CONTACT_FORM_VALUE = 'CHANGE_CONTACT_FORM_VALUE';
 export const SUBMIT_CONTACT_FORM_VALUE = 'SUBMIT_CONTACT_FORM_VALUE';
 const CHANGE_SUCCESS_MESSAGE = 'CHANGE_SUCCESS_MESSAGE';
 const INVERT_SUCCESS_MESSSAGE = 'INVERT_SUCCESS_MESSSAGE';
+
+const SAVE_USER = 'SAVE_USER'; // Ajouter par Miguel.
 
 
 // == Reducer
@@ -207,6 +211,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         userId: action.value,
       };
+
+      case SAVE_USER: // Ajouter par Miguel.
+      return {
+        ...state,
+        username: action.username,
+        password: action.password,
+        logged: true,
+
       case CHANGE_SIGNIN_FORM_VALUE:
     // eslint-disable-next-line default-case
       return {
@@ -338,21 +350,28 @@ export const collectLatLong = () => ({
 export const allPlacesWithGeocode = (value) => ({
   type: ALL_PLACES_GEOCODE,
   value,
-})
+});
 
 export const collectUsersData = () => ({
   type: COLLECT_USERS_DATA,
-})
+});
 
 export const changeUsersData = (value) => ({
   type: CHANGE_USERS_DATA,
   value,
-})
+});
 
 export const deleteUser = (value) => ({
   type: DELETE_USER,
   value,
-})
+});
+
+// Ajouter par Miguel.
+export const saveUser = (username, password) => ({
+  type: SAVE_USER,
+  username,
+  password,
+});
 
 export const changeSignInFormValue = (value, name) => ({
   type: CHANGE_SIGNIN_FORM_VALUE,
