@@ -19,6 +19,7 @@ const AdminPage = ({ collectUsersData, usersData, deleteUser }) => {
 
   let oulala = '';
   if (typeof usersData === 'object') {
+    console.log('les users : ', usersData[0].email);
     oulala = usersData.map(((user) => (
       <>
         <h1>{user.firstname}</h1>
@@ -26,22 +27,27 @@ const AdminPage = ({ collectUsersData, usersData, deleteUser }) => {
           <div className="jumbotron">
             <div className="row">
               <div className="col-lg-5">
-                <p>{user.email}</p>
-                <hr />
+                {/* <p>{user.email}</p>
+                <hr /> */}
                 <p>{user.lastname}</p>
                 <hr />
                 <p>{user.firstname}</p>
               </div>
               <div className="col-lg-5">
+                {/* <hr /> */}
+                {/* <p> id : {user.id}</p> */}
                 <hr />
-                <p> id : {user.id}</p>
+                <p>age: {user.age}</p>
                 <hr />
-                {/* <p>Genre: Homme</p>
+                <p>genre: {user.gender}</p>
                 <hr />
-                <p>Age: 24 ans</p> */}
+                <p>ville: {user.city}</p>
+                <hr />
+                <p>créé le: {user.createdAt}</p>
               </div>
       
               <div className="col-lg-2">
+              <hr />
                 <p>
                   Supprimer
                 </p>
