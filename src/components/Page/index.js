@@ -8,7 +8,7 @@ import HomePage from 'src/components/Page/HomePage';
 import UserPage from 'src/components/Page/UserPage';
 import SearchPage from 'src/containers/Page/SearchPage';
 import InscriptionPage from 'src/containers/Page/InscriptionPage';
-import ContactPage from 'src/components/Page/ContactPage';
+import ContactPage from 'src/containers/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
 

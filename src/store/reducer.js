@@ -47,6 +47,18 @@ const initialState = {
   usersData: '',
   userId: '',
 
+  // Sign in
+  signInEmail: '',
+  signInPassword: '',
+
+  // contact
+  contactFirstname: '',
+  contactLastname: '',
+  contactEmail: '',
+  contactSubject: '',
+  contactBody: '',
+
+
 };
 
 // == Types
@@ -75,6 +87,10 @@ const ALL_PLACES_GEOCODE = 'ALL_PLACES_GEOCODE';
 export const COLLECT_USERS_DATA = 'COLLECT_USERS_DATA';
 const CHANGE_USERS_DATA = 'CHANGE_USERS_DATA';
 export const DELETE_USER = 'DELETE_USER';
+const CHANGE_SIGNIN_FORM_VALUE = 'CHANGE_SIGNIN_FORM_VALUE';
+export const SUBMIT_SIGNIN_FORM = 'SUBMIT_SIGNIN_FORM';
+const CHANGE_CONTACT_FORM_VALUE = 'CHANGE_CONTACT_FORM_VALUE';
+export const SUBMIT_CONTACT_FORM_VALUE = 'SUBMIT_CONTACT_FORM_VALUE';
 
 const SAVE_USER = 'SAVE_USER'; // Ajouter par Miguel.
 
@@ -193,12 +209,25 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         userId: action.value,
       };
+
       case SAVE_USER: // Ajouter par Miguel.
       return {
         ...state,
         username: action.username,
         password: action.password,
         logged: true,
+
+      case CHANGE_SIGNIN_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+      case CHANGE_CONTACT_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
       };
     default:
       return state;
@@ -329,6 +358,26 @@ export const saveUser = (username, password) => ({
   username,
   password,
 });
+
+export const changeSignInFormValue = (value, name) => ({
+  type: CHANGE_SIGNIN_FORM_VALUE,
+  value,
+  name,
+})
+
+export const submitSignInForm = () => ({
+  type: SUBMIT_SIGNIN_FORM,
+})
+
+export const changeContactFormValue = (value,name) => ({
+  type: CHANGE_CONTACT_FORM_VALUE,
+  value,
+  name,
+})
+
+export const submitContactForm = () => ({
+  type: SUBMIT_CONTACT_FORM_VALUE,
+})
 
 // == Selectors
 

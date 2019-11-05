@@ -53,7 +53,7 @@ const BusinessPage = () => (
           </div>
         </div>
         <div className="col-sm col-business col-img">
-            Image
+            <div className="col-img-club"></div>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ const BusinessPage = () => (
     <div className="container business-work container-solutions">
       <div className="row col-business-work">
       <div className="col-sm col-business col-img">
-        Image
+      <div className="col-img-work"></div>
       </div>
         <div className="col-sm col-business col-text-work">
           <div className="text-work-title text-title">
@@ -89,7 +89,7 @@ const BusinessPage = () => (
           </div>
         </div>
         <div className="col-sm col-business col-img">
-            Image
+          <div className="col-img-pro"></div>
         </div>
       </div>
     </div>

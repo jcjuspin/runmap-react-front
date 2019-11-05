@@ -1,9 +1,11 @@
 // == Import : npm
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import ModalHeader from 'src/components/Header/ModalHeader';
+
 import DropdownHeader from 'src/components/Header/DropdownHeader';
 import PropTypes from 'prop-types';
+import ModalHeader from 'src/containers/Header/ModalHeader';
+
 
 
 // == Composant
