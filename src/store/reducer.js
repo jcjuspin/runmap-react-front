@@ -12,11 +12,12 @@ const initialState = {
   email: '',
   city: '',
   password: '',
-
+  
   passwordConfirmation: '',
   displayPasswordErrorMessage: false,
   errorMessage: '',
   validationMessage: '',
+  
 
   // le formulaire d'ajout d'un lieu
   cityName: '',
@@ -31,7 +32,7 @@ const initialState = {
   allPlaces: '',
 
   // gestion de l'autocomplétion
-  suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],
+  suggestions: ['Lille', 'Paris', 'Lyon', 'Marseille', 'Tour', 'Renne', 'Nice'],
   activeSuggestion: 0,
   filteredSuggestions: [],
   showSuggestions: false,
@@ -296,21 +297,23 @@ export const collectLatLong = () => ({
 export const allPlacesWithGeocode = (value) => ({
   type: ALL_PLACES_GEOCODE,
   value,
-})
+});
 
 export const collectUsersData = () => ({
   type: COLLECT_USERS_DATA,
-})
+});
 
 export const changeUsersData = (value) => ({
   type: CHANGE_USERS_DATA,
   value,
-})
+});
 
 export const deleteUser = (value) => ({
   type: DELETE_USER,
   value,
-})
+});
+
+
 
 // == Selectors
 
