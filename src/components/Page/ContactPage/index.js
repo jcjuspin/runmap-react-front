@@ -13,11 +13,14 @@ const ContactPage = ({
   contactSubject,
   contactBody,
   submitContactForm,
+  successMessage,
+  changeSuccessMessage,
 }) => {
 
   const handleChange = (event) => {
     let { value } = event.target;
     const { name } = event.target;
+    changeSuccessMessage();
     changeContactFormValue(value, name);
   };
 
@@ -127,6 +130,12 @@ const ContactPage = ({
               >
                 Envoyer
               </button>
+              <hr/>
+              {successMessage && (
+              <div className="alert alert-success" role="alert">
+                Votre message est envoyé.
+              </div>
+            )}
 
             </div>
           </div>

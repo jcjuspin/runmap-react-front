@@ -6,6 +6,8 @@ import ContactPage from 'src/components/Page/ContactPage';
 import {
   changeContactFormValue,
   submitContactForm,
+  SuccessSendMessage,
+  changeSuccessMessage,
 } from 'src/store/reducer';
 
 // Action Creators
@@ -23,6 +25,7 @@ const mapStateToProps = (state, ownProps) => ({
   contactEmail: state.contactEmail,
   contactSubject: state.contactSubject,
   contactBody: state.contactBody,
+  successMessage: state.successMessage,
 });
 
 /* === Actions ===
@@ -34,11 +37,20 @@ const mapStateToProps = (state, ownProps) => ({
  */
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
-  changeContactFormValue:(value, name) => {
-    dispatch(changeContactFormValue(value, name))
+  changeContactFormValue: (value, name) => {
+    dispatch(changeContactFormValue(value, name));
   },
-  submitContactForm:() => {
+
+  submitContactForm: () => {
     dispatch(submitContactForm());
+  },
+
+  SuccessSendMessage: () => {
+    dispatch(SuccessSendMessage());
+  },
+
+  changeSuccessMessage: () => {
+    dispatch(changeSuccessMessage());
   }
 });
 

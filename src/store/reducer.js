@@ -55,7 +55,7 @@ const initialState = {
   contactEmail: '',
   contactSubject: '',
   contactBody: '',
-
+  successMessage: false,
 
 };
 
@@ -89,6 +89,8 @@ const CHANGE_SIGNIN_FORM_VALUE = 'CHANGE_SIGNIN_FORM_VALUE';
 export const SUBMIT_SIGNIN_FORM = 'SUBMIT_SIGNIN_FORM';
 const CHANGE_CONTACT_FORM_VALUE = 'CHANGE_CONTACT_FORM_VALUE';
 export const SUBMIT_CONTACT_FORM_VALUE = 'SUBMIT_CONTACT_FORM_VALUE';
+const CHANGE_SUCCESS_MESSAGE = 'CHANGE_SUCCESS_MESSAGE';
+const INVERT_SUCCESS_MESSSAGE = 'INVERT_SUCCESS_MESSSAGE';
 
 
 // == Reducer
@@ -216,6 +218,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         [action.name]: action.value,
+      };
+      case CHANGE_SUCCESS_MESSAGE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        successMessage: true,
+      };
+      case INVERT_SUCCESS_MESSSAGE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        successMessage: false,
       };
     default:
       return state;
@@ -360,6 +374,13 @@ export const submitContactForm = () => ({
   type: SUBMIT_CONTACT_FORM_VALUE,
 })
 
+export const SuccessSendMessage = () => ({
+  type: CHANGE_SUCCESS_MESSAGE,
+})
+
+export const changeSuccessMessage = () => ({
+  type: INVERT_SUCCESS_MESSSAGE,
+})
 // == Selectors
 
 // == Export

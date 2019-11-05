@@ -1,5 +1,6 @@
 import {
-  SUBMIT_CONTACT_FORM_VALUE
+  SUBMIT_CONTACT_FORM_VALUE,
+  SuccessSendMessage,
 } from 'src/store/reducer';
 import axios from 'axios';
 
@@ -34,9 +35,8 @@ const contactMiddleware = (store) => (next) => (action) => {
           // si la réponse attendu correspond
           // alors on confirme la création du compte à l'utilisateur
           if (typeof response.data === 'string') {
-            // const registerMessage = 'votre compte est créé';
-            // const actionRegisterMessage = changeRegisterMessage(registerMessage);
-            // store.dispatch(actionRegisterMessage);
+            // const successMessage = 'votre message est envoyé';
+            store.dispatch(SuccessSendMessage());
           }
         })
         .catch((error) => {
