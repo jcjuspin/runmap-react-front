@@ -218,6 +218,7 @@ const reducer = (state = initialState, action = {}) => {
         username: action.username,
         password: action.password,
         logged: true,
+      };
 
       case CHANGE_SIGNIN_FORM_VALUE:
     // eslint-disable-next-line default-case
