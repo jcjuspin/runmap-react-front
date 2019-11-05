@@ -14,8 +14,7 @@ import AProposPage from 'src/components/Page/AProposPage';
 
 import AdminPage from 'src/containers/Page/AdminPage';
 import FonctionsPages from 'src/components/Page/FonctionsPage';
-
-
+import BusinessPage from 'src/components/Page/BusinessPage';
 
 
 // == Composant
@@ -60,6 +59,10 @@ const Page = ({
 
       <Route path="/features" exact>
         <FonctionsPages />
+      </Route>
+
+      <Route path="/business" exact>
+        <BusinessPage />
       </Route>
 
       <Route path="/admin" exact>
