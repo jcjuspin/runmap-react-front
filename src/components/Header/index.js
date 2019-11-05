@@ -1,7 +1,7 @@
 // == Import : npm
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import ModalHeader from 'src/components/Header/ModalHeader';
+import ModalHeader from 'src/containers/Header/ModalHeader';
 
 
 // == Composant
