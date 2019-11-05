@@ -51,6 +51,7 @@ export const signInRoute = '/api/login_check';
 // /create/place
 
 // pour contacter
+export const contactRoute = '/contact';
 // /contact
 
 // pour voir toutes les villes

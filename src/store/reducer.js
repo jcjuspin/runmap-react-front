@@ -49,6 +49,13 @@ const initialState = {
   signInEmail: '',
   signInPassword: '',
 
+  // contact
+  contactFirstname: '',
+  contactLastname: '',
+  contactEmail: '',
+  contactSubject: '',
+  contactBody: '',
+
 
 };
 
@@ -80,6 +87,8 @@ const CHANGE_USERS_DATA = 'CHANGE_USERS_DATA';
 export const DELETE_USER = 'DELETE_USER';
 const CHANGE_SIGNIN_FORM_VALUE = 'CHANGE_SIGNIN_FORM_VALUE';
 export const SUBMIT_SIGNIN_FORM = 'SUBMIT_SIGNIN_FORM';
+const CHANGE_CONTACT_FORM_VALUE = 'CHANGE_CONTACT_FORM_VALUE';
+export const SUBMIT_CONTACT_FORM_VALUE = 'SUBMIT_CONTACT_FORM_VALUE';
 
 
 // == Reducer
@@ -197,6 +206,12 @@ const reducer = (state = initialState, action = {}) => {
         userId: action.value,
       };
       case CHANGE_SIGNIN_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+      case CHANGE_CONTACT_FORM_VALUE:
     // eslint-disable-next-line default-case
       return {
         ...state,
@@ -333,6 +348,16 @@ export const changeSignInFormValue = (value, name) => ({
 
 export const submitSignInForm = () => ({
   type: SUBMIT_SIGNIN_FORM,
+})
+
+export const changeContactFormValue = (value,name) => ({
+  type: CHANGE_CONTACT_FORM_VALUE,
+  value,
+  name,
+})
+
+export const submitContactForm = () => ({
+  type: SUBMIT_CONTACT_FORM_VALUE,
 })
 
 // == Selectors

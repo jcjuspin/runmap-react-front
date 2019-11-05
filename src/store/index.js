@@ -8,6 +8,7 @@ import searchMiddleware from './searchMiddleware';
 import addPlaceMiddleware from './addPlaceMiddleware';
 import usersDataMiddleware from './usersDataMiddleware';
 import authMiddleware from './authMiddleware';
+import contactMiddleware from './contactMiddleware';
 // == Store
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,6 +19,7 @@ const enhancers = composeEnhancers(
     addPlaceMiddleware,
     usersDataMiddleware,
     authMiddleware,
+    contactMiddleware,
   ),
 );
 
