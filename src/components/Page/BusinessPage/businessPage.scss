@@ -21,7 +21,8 @@
 
 .header-business-content p{
     font-size: 3rem;
-    color: white
+    color: white;
+    font-weight: bold;
 }
 
 .motivation-content{
@@ -85,10 +86,36 @@
     padding-right: 4rem;
 }
 
-.col-img{
-    padding: 4rem;
+.col-img-club{
+    background: url('https://www.kalenji.fr/sites/kalenji/files/equipe_kalenji.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    background: rgba(128, 128, 128, 0.514);
-    
+    height: 70vh;
+
+    box-shadow: 0px 0px 43px 15px rgba(199,197,199,1);
+}
+
+.col-img-work{
+    background: url('https://www.inverseteams.com/sites/default/files/profesionales/galeria/inverse_trail_running_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 70vh;
+
+    box-shadow: 0px 0px 43px 15px rgba(199,197,199,1);
+}
+
+.col-img-pro{
+    background: url('https://miro.medium.com/max/2862/1*tAkPQ1FBthfHfHw1HGRRwQ.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    height: 70vh;
+
+    box-shadow: 0px 0px 43px 15px rgba(199,197,199,1);
 }
 
