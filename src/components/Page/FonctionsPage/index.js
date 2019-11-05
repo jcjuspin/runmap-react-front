@@ -10,14 +10,12 @@ const FonctionsPage = () => (
       <div className="container">
         <div className="row row-container align-items-center">
           <div className="col-sm col-text">
-            <h2 className="text-uppercase text-left font-weight-bold">
+            <h2 className="text-uppercase  font-weight-bold">
               Demain j'irais courir sur piste grâce à la <span className="text-warning">RunMap Family</span>
             </h2>
           </div>
-          <div className="col-3">
-            <h2 className="text-uppercase text-center font-weight-bold bg-warning text-white pt-3 pr-3 pl-3 pb-3">
-              Viens courir avec nous !
-            </h2>
+          <div className="col-sm">
+            {/* Laisser vide */}
           </div>
         </div>
       </div>
