@@ -77,7 +77,7 @@ const BusinessPage = () => (
     </div>
 
     {/* Solutions professionnel */}
-    <div className="container business-pro container-solutions mb-5">
+    <div className="container business-pro container-solutions">
       <div className="row col-business-pro">
         <div className="col-sm col-business col-text-pro">
           <div className="text-pro-title text-title">
