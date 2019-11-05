@@ -1,15 +1,16 @@
 // == Import : npm
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ModalHeader from 'src/components/Header/ModalHeader';
 import DropdownHeader from 'src/components/Header/DropdownHeader';
 import PropTypes from 'prop-types';
 
 
+
 // == Composant
 const HeaderSection = ({ logged }) => (
-  <>
-    <nav
+  
+  <nav
       className="navbar navbar-expand-lg navbar-light bg-light"
     >
 
@@ -26,7 +27,9 @@ const HeaderSection = ({ logged }) => (
 
         {/* Début - Bouton de connexion */}
         <form className="form-inline my-2 my-lg-0 ml-auto">
-          <ModalHeader />
+          {!logged && (
+            <ModalHeader />
+          )}
 
           {logged && (
             <DropdownHeader />
@@ -37,7 +40,7 @@ const HeaderSection = ({ logged }) => (
 
       </div>
     </nav>
-  </>
+
 );
 
 HeaderSection.PropTypes = {
