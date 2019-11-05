@@ -45,6 +45,11 @@ const initialState = {
   usersData: '',
   userId: '',
 
+  // Sign in
+  signInEmail: '',
+  signInPassword: '',
+
+
 };
 
 // == Types
@@ -73,6 +78,8 @@ const ALL_PLACES_GEOCODE = 'ALL_PLACES_GEOCODE';
 export const COLLECT_USERS_DATA = 'COLLECT_USERS_DATA';
 const CHANGE_USERS_DATA = 'CHANGE_USERS_DATA';
 export const DELETE_USER = 'DELETE_USER';
+const CHANGE_SIGNIN_FORM_VALUE = 'CHANGE_SIGNIN_FORM_VALUE';
+export const SUBMIT_SIGNIN_FORM = 'SUBMIT_SIGNIN_FORM';
 
 
 // == Reducer
@@ -188,6 +195,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         userId: action.value,
+      };
+      case CHANGE_SIGNIN_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
       };
     default:
       return state;
@@ -310,6 +323,16 @@ export const changeUsersData = (value) => ({
 export const deleteUser = (value) => ({
   type: DELETE_USER,
   value,
+})
+
+export const changeSignInFormValue = (value, name) => ({
+  type: CHANGE_SIGNIN_FORM_VALUE,
+  value,
+  name,
+})
+
+export const submitSignInForm = () => ({
+  type: SUBMIT_SIGNIN_FORM,
 })
 
 // == Selectors
