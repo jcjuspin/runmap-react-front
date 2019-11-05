@@ -8,10 +8,11 @@ const initialState = {
   firstname: '',
   lastname: '',
   age: '',
-  gender: 'man',
+  gender: '',
   email: '',
   city: '',
   password: '',
+  logged: false, // Ajouter par Miguel.
   
   passwordConfirmation: '',
   displayPasswordErrorMessage: false,
@@ -74,6 +75,8 @@ const ALL_PLACES_GEOCODE = 'ALL_PLACES_GEOCODE';
 export const COLLECT_USERS_DATA = 'COLLECT_USERS_DATA';
 const CHANGE_USERS_DATA = 'CHANGE_USERS_DATA';
 export const DELETE_USER = 'DELETE_USER';
+
+const SAVE_USER = 'SAVE_USER'; // Ajouter par Miguel.
 
 
 // == Reducer
@@ -189,6 +192,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         userId: action.value,
+      };
+      case SAVE_USER: // Ajouter par Miguel.
+      return {
+        ...state,
+        username: action.username,
+        password: action.password,
+        logged: true,
       };
     default:
       return state;
@@ -313,7 +323,12 @@ export const deleteUser = (value) => ({
   value,
 });
 
-
+// Ajouter par Miguel.
+export const saveUser = (username, password) => ({
+  type: SAVE_USER,
+  username,
+  password,
+});
 
 // == Selectors
 
