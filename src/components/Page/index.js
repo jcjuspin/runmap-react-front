@@ -15,6 +15,7 @@ import AProposPage from 'src/components/Page/AProposPage';
 import AdminPage from 'src/containers/Page/AdminPage';
 import FonctionsPages from 'src/components/Page/FonctionsPage';
 import BusinessPage from 'src/components/Page/BusinessPage';
+import Footer from 'src/components/Footer';
 
 
 // == Composant
@@ -29,6 +30,7 @@ const Page = ({
           searchFormData={searchFormData}
           setSearchFormData={setSearchFormData}
         />
+        <Footer />
       </Route>
 
       <Route path="/inscription" exact>

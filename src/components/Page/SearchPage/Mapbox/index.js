@@ -154,7 +154,7 @@ const MapBox = ({
     <>
       <MapGL
         width="500"
-        height="91vh"
+        height="93vh"
         mapRef={mapRef}
         {...viewport}
         mapStyle={style}

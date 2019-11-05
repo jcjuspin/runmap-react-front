@@ -23,15 +23,15 @@ const App = () => {
 
   return (
     <div id="app">
-      <AutoComplete />
-      <FrontGetJson />
       <Header />
-      <HeaderMember />
+      {/* <HeaderMember /> */}
       <Page
         searchFormData={searchFormData}
         setSearchFormData={setSearchFormData}
       />
-      <Footer />
+      {/* <Footer /> */}
+      <AutoComplete />
+      <FrontGetJson />
     </div>
   );
 };
