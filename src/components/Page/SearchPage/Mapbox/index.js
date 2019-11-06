@@ -18,7 +18,14 @@ import PlacePin from './PlacePin';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 const MapBox = ({
-  submitSearchForm, userSearchInput, allPlaces, changeLatLong, collectLatLong, latlong, allPlacesWithGeocode, allPlacesGeocode,
+  submitSearchForm, 
+  userSearchInput, 
+  allPlaces, 
+  changeLatLong, 
+  collectLatLong, 
+  latlong, 
+  // allPlacesWithGeocode,
+  // allPlacesGeocode,
 }) => {
   // TODO: lors de la requete la réponse que j'obtiens c'est d'abord la longitude puis latitude
   // du coup je dois faire une requete vers l'api pour une ville pour avoir ces coordonnées.
@@ -108,25 +115,25 @@ const MapBox = ({
   // .push({ ...GeoLocateArray[i] });
   // }
 
-  if (typeof allPlaces === 'object') {
-    if (latlong === undefined) {
-      collectLatLong();
-    }
-  }
+  // if (typeof allPlaces === 'object') {
+  //   if (latlong === undefined) {
+  //     collectLatLong();
+  //   }
+  // }
 
-  if (typeof allPlaces === 'object' && typeof latlong === 'object') {
-    console.log('allPlaces : ', allPlaces);
-    const huhu = allPlaces.forEach((place) => console.log('huhu'));
-    for (let i = 0; i < allPlaces.length; i++) {
-      // console.log ('je suis une place : ', allPlaces[i].name);
-      // console.log ('je suis une geo : ', latlong[i]);
-      allPlaces[i].latitude = latlong[i].latitude;
-      allPlaces[i].longitude = latlong[i].longitude;
-    }
-    // console.log('allPlacesGeocode, ' ,allPlaces);
-    // allPlacesWithGeocode(allPlaces);
-    console.log(allPlaces);
-  }
+  // if (typeof allPlaces === 'object' && typeof latlong === 'object') {
+  //   console.log('allPlaces : ', allPlaces);
+  //   const huhu = allPlaces.forEach((place) => console.log('huhu'));
+  //   for (let i = 0; i < allPlaces.length; i++) {
+  //     // console.log ('je suis une place : ', allPlaces[i].name);
+  //     // console.log ('je suis une geo : ', latlong[i]);
+  //     allPlaces[i].latitude = latlong[i].latitude;
+  //     allPlaces[i].longitude = latlong[i].longitude;
+  //   }
+  //   // console.log('allPlacesGeocode, ' ,allPlaces);
+  //   // allPlacesWithGeocode(allPlaces);
+  //   console.log(allPlaces);
+  // }
 
   console.log(allPlaces);
 
@@ -241,7 +248,12 @@ const MapBox = ({
           </Modal.Footer> */}
         </Modal>
 
-        { allPlaces && latlong && allPlaces.map((place) => (
+        { 
+          allPlaces
+          &&
+          // latlong
+          // &&
+        allPlaces.map((place) => (
           <div>
             <Marker
               latitude={place.latitude}
