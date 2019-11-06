@@ -9,12 +9,14 @@ import {
   placesWithGeoData,
   COLLECT_LAT_LANG,
   changeLatLong,
+  SUBMIT_REVIEW,
+  
 } from 'src/store/reducer';
-import { baseUri, searchRoute, citiesSearchRoute, placesRoute } from 'src/store/vars_route';
+import { baseUri, searchRoute, citiesSearchRoute, placesRoute, createReviewRoute } from 'src/store/vars_route';
 // import { AST_Exit } from 'terser';
 
 const searchMiddleware = (store) => (next) => (action) => {
-  // console.log('Je suis le searchMiddleware, et je laisse passer cette action: ', action);
+  console.log('Je suis le searchMiddleware, et je laisse passer cette action: ', action);
   next(action);
 
   // eslint-disable-next-line default-case
@@ -172,6 +174,35 @@ const searchMiddleware = (store) => (next) => (action) => {
           });
           
       });
+      break;
+    }
+    case SUBMIT_REVIEW: {
+
+      const state = store.getState();
+      const reviewData = {
+        user: state.userId,
+        place: action.value,
+        title: 'oim',
+        commentary: state.reviewContent,
+        rate: 5,
+      }
+
+      axios.post(`${baseUri}${createReviewRoute}`, {
+        ...reviewData,
+      })
+        .then((response) => {
+          console.log('réponse au review envoyé: ', response.data);
+         
+
+         // TODO: mettre en place une action pour avoir un message qui indique que c'est envoyé. Et reload des reviews
+         // store.dispatch(placesWithGeoData(allPlaces));
+          
+        })
+        .catch((error) => {
+          console.log('Apparement ça ne marche pas : ', error);
+        })
+        .finally(() => {
+        });
       break;
     }
   }

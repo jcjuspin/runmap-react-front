@@ -12,6 +12,8 @@ import {
   changeLatLong,
   collectLatLong,
   allPlacesWithGeocode,
+  changeUserReview,
+  reviewSubmit,
 } from 'src/store/reducer';
 
 // Action Creators
@@ -30,6 +32,7 @@ const mapStateToProps = (state, ownProps) => ({
   allPlaces: state.allPlaces,
   latlong: state.latlong,
   allPlacesGeocode: state.allPlacesGeocode,
+  reviewContent: state.reviewContent,
 });
 
 /* === Actions ===
@@ -69,7 +72,14 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
   allPlacesWithGeocode: (value) => {
     dispatch(allPlacesWithGeocode(value));
-  }
+  },
+
+  changeUserReview: (value) => {
+    dispatch(changeUserReview(value));
+  },
+  reviewSubmit: (value) => {
+    dispatch(reviewSubmit(value));
+  },
   
 });
 // Container

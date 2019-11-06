@@ -27,6 +27,9 @@ const SearchPage = ({
   latlong,
   allPlacesWithGeocode,
   allPlacesGeocode,
+  reviewContent,
+  changeUserReview,
+  reviewSubmit,
 }) => {
   // console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
@@ -216,6 +219,9 @@ const SearchPage = ({
           allPlacesWithGeocode={allPlacesWithGeocode}
           allPlacesGeocode={allPlacesGeocode}
           places={places}
+          reviewContent={reviewContent}
+          changeUserReview={changeUserReview}
+          reviewSubmit={reviewSubmit}
         />
       </div>
 

@@ -59,6 +59,11 @@ const initialState = {
   contactBody: '',
   successMessage: false,
 
+  // User review
+  reviewContent: '',
+  reviewPlaceId: '',
+  userID: '',
+
 };
 
 // == Types
@@ -95,6 +100,9 @@ const CHANGE_SUCCESS_MESSAGE = 'CHANGE_SUCCESS_MESSAGE';
 const INVERT_SUCCESS_MESSSAGE = 'INVERT_SUCCESS_MESSSAGE';
 
 const SAVE_USER = 'SAVE_USER'; // Ajouter par Miguel.
+
+const CHANGE_USER_REVIEW = 'CHANGE_USER_REVIEW';
+export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
 
 
 // == Reducer
@@ -243,6 +251,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         successMessage: false,
+      };
+      case CHANGE_USER_REVIEW:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        reviewContent: action.value,
+      };
+      case SUBMIT_REVIEW:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        reviewPlaceId: action.value,
       };
     default:
       return state;
@@ -400,6 +420,16 @@ export const SuccessSendMessage = () => ({
 
 export const changeSuccessMessage = () => ({
   type: INVERT_SUCCESS_MESSSAGE,
+})
+
+export const changeUserReview = (value) => ({
+  type: CHANGE_USER_REVIEW,
+  value,
+})
+
+export const reviewSubmit = (value) => ({
+  type: SUBMIT_REVIEW,
+  value,
 })
 // == Selectors
 
