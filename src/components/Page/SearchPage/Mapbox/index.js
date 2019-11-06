@@ -13,8 +13,8 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import PlacePin from './PlacePin';
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
+import PlacePin from './PlacePin';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 const MapBox = ({
@@ -42,7 +42,7 @@ const MapBox = ({
     longitude: 2.23056,
     zoom: 5,
     // bearing:0,
-    pitch:0,
+    pitch: 0,
   });
 
   const [style, setStyle] = useState('mapbox://styles/jean-christophe97/ck2gcjj6t0x3v1cqq0228w5v3');
@@ -57,7 +57,7 @@ const MapBox = ({
       longitude,
       zoom: 11,
       transitionInterpolator: new FlyToInterpolator({ speed: 2 }),
-      transitionDuration: 'auto',
+      transitionDuration: '3000',
     });
   };
 
@@ -139,16 +139,14 @@ const MapBox = ({
   const handleClose = () => {
     setShow(false);
     setPlaceData('');
-  }
+  };
 
   const handleShow = (place) => {
-
     setPlaceData(place);
     console.log('PLAAAAAACE', place);
     setShow(true);
-    
-  }
-  
+  };
+
 
   return (
     <>
@@ -161,20 +159,20 @@ const MapBox = ({
         onViewportChange={(viewPort) => setViewport({ ...viewPort })}
         mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
       >
-      <div 
+        <div
         className="container w-25 p-2  ml-0 mt-0"
       >
-          <form>
+        <form>
             <AutoComplete />
-            <button 
-              type="submit" 
-              onClick={handleSubmit} 
+            <button
+              type="submit"
+              onClick={handleSubmit}
               className="btn btn-warning"
             >
               Rechercher
-            </button> 
+            </button>
           </form>
-        </div>
+      </div>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -205,7 +203,7 @@ const MapBox = ({
                 </h6>
                 <p>Le club de foot privatise le stade pour ses entrainements.</p>
               </div>
-              
+
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -251,7 +249,9 @@ const MapBox = ({
               offsetLeft={-20}
               offsetTop={-10}
             >
-              <OverlayTrigger  trigger="click" placement="top" overlay={(
+              <OverlayTrigger trigger="click"
+placement="top"
+overlay={(
                 <Popover
                   
                   id="popover-basic">
@@ -271,9 +271,9 @@ const MapBox = ({
                 />
               </OverlayTrigger>
             </Marker>
-            
+
           </div>
-            
+
         ))}
       </MapGL>
     </>
