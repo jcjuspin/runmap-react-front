@@ -12,11 +12,12 @@ const authMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case SUBMIT_SIGNIN_FORM: {
       const state = store.getState();
-      const username = state.signInEmail;
+      const email = state.signInEmail;
       const password = state.signInPassword;
       axios.post(`${baseUri}${signInRoute}`, {
-        username,
+        email,
         password,
+        username: 'jean@gmail.com',
       },
       {
         headers: {

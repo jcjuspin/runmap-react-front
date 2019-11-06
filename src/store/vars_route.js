@@ -27,7 +27,7 @@ export const allUsers = '/allUsers';
 
 export const deleteUser = '/admin/delete/user/';
 
-export const signInRoute = '/api/login_check';
+export const signInRoute = '/login';
 
 // creation d'utilisateur
 // /create/user
