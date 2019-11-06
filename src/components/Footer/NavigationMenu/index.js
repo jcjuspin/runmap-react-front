@@ -11,9 +11,9 @@ const NavigationMenu = () => {
   return (
     <>
       <ul className="list-nav">
-        <li> <NavLink to="/contact" exact>Fonctionnalités</NavLink> </li>
+        <li> <NavLink to="/features" exact>Fonctionnalités</NavLink> </li>
         <li> <NavLink to="/apropos" exact>À propos</NavLink> </li>
-        <li> <NavLink to="/" exact>Professionnel</NavLink> </li>
+        <li> <NavLink to="/business" exact>Professionnel</NavLink> </li>
         <li> <NavLink to="/" exact>Conditons</NavLink> </li>
       </ul>
     </>

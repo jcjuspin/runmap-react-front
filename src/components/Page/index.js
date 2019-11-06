@@ -8,10 +8,14 @@ import HomePage from 'src/components/Page/HomePage';
 import UserPage from 'src/components/Page/UserPage';
 import SearchPage from 'src/containers/Page/SearchPage';
 import InscriptionPage from 'src/containers/Page/InscriptionPage';
-import ContactPage from 'src/components/Page/ContactPage';
+import ContactPage from 'src/containers/Page/ContactPage';
 import AddPlacePage from 'src/containers/Page/AddPlacePage';
 import AProposPage from 'src/components/Page/AProposPage';
-import AdminPage from 'src/components/Page/AdminPage';
+
+import AdminPage from 'src/containers/Page/AdminPage';
+import FonctionsPages from 'src/components/Page/FonctionsPage';
+import BusinessPage from 'src/components/Page/BusinessPage';
+import Footer from 'src/components/Footer';
 
 
 // == Composant
@@ -26,6 +30,7 @@ const Page = ({
           searchFormData={searchFormData}
           setSearchFormData={setSearchFormData}
         />
+        <Footer />
       </Route>
 
       <Route path="/inscription" exact>
@@ -52,6 +57,14 @@ const Page = ({
   
       <Route path="/apropos" exact> {/* Page avec nos photo (l'idée de Kevin) */}
         <AProposPage />
+      </Route>
+
+      <Route path="/features" exact>
+        <FonctionsPages />
+      </Route>
+
+      <Route path="/business" exact>
+        <BusinessPage />
       </Route>
 
       <Route path="/admin" exact>

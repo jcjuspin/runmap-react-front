@@ -8,15 +8,17 @@ const initialState = {
   firstname: '',
   lastname: '',
   age: '',
-  gender: 'man',
+  gender: '',
   email: '',
   city: '',
   password: '',
-
+  logged: false, // Ajouter par Miguel.
+  
   passwordConfirmation: '',
   displayPasswordErrorMessage: false,
   errorMessage: '',
   validationMessage: '',
+  
 
   // le formulaire d'ajout d'un lieu
   cityName: '',
@@ -31,7 +33,7 @@ const initialState = {
   allPlaces: '',
 
   // gestion de l'autocomplétion
-  suggestions: ['White', 'Black', 'Green', 'Blue', 'Yellow', 'Red', 'Nice'],
+  suggestions: ['Lille', 'Paris', 'Lyon', 'Marseille', 'Tour', 'Renne', 'Nice'],
   activeSuggestion: 0,
   filteredSuggestions: [],
   showSuggestions: false,
@@ -40,6 +42,22 @@ const initialState = {
   // liste des longitudes, lattitudes des places
   latlong: undefined,
   placesGeocode: '',
+
+  // identitée des utilisateurs
+  usersData: '',
+  userId: '',
+
+  // Sign in
+  signInEmail: '',
+  signInPassword: '',
+
+  // contact
+  contactFirstname: '',
+  contactLastname: '',
+  contactEmail: '',
+  contactSubject: '',
+  contactBody: '',
+  successMessage: false,
 
 };
 
@@ -66,6 +84,17 @@ export const LIST_PLACES = 'LIST_PLACES';
 export const LIST_LAT_LONG_PLACES = 'LIST_LAT_LONG_PLACES';
 export const COLLECT_LAT_LANG = 'COLLECT_LAT_LANG';
 const ALL_PLACES_GEOCODE = 'ALL_PLACES_GEOCODE';
+export const COLLECT_USERS_DATA = 'COLLECT_USERS_DATA';
+const CHANGE_USERS_DATA = 'CHANGE_USERS_DATA';
+export const DELETE_USER = 'DELETE_USER';
+const CHANGE_SIGNIN_FORM_VALUE = 'CHANGE_SIGNIN_FORM_VALUE';
+export const SUBMIT_SIGNIN_FORM = 'SUBMIT_SIGNIN_FORM';
+const CHANGE_CONTACT_FORM_VALUE = 'CHANGE_CONTACT_FORM_VALUE';
+export const SUBMIT_CONTACT_FORM_VALUE = 'SUBMIT_CONTACT_FORM_VALUE';
+const CHANGE_SUCCESS_MESSAGE = 'CHANGE_SUCCESS_MESSAGE';
+const INVERT_SUCCESS_MESSSAGE = 'INVERT_SUCCESS_MESSSAGE';
+
+const SAVE_USER = 'SAVE_USER'; // Ajouter par Miguel.
 
 
 // == Reducer
@@ -169,6 +198,51 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         allPlacesGeocode: action.value,
+      };
+      case CHANGE_USERS_DATA:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        usersData: action.value,
+      };
+      case DELETE_USER:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        userId: action.value,
+      };
+
+      case SAVE_USER: // Ajouter par Miguel.
+      return {
+        ...state,
+        username: action.username,
+        password: action.password,
+        logged: true,
+      };
+
+      case CHANGE_SIGNIN_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+      case CHANGE_CONTACT_FORM_VALUE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        [action.name]: action.value,
+      };
+      case CHANGE_SUCCESS_MESSAGE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        successMessage: true,
+      };
+      case INVERT_SUCCESS_MESSSAGE:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        successMessage: false,
       };
     default:
       return state;
@@ -277,8 +351,56 @@ export const collectLatLong = () => ({
 export const allPlacesWithGeocode = (value) => ({
   type: ALL_PLACES_GEOCODE,
   value,
+});
+
+export const collectUsersData = () => ({
+  type: COLLECT_USERS_DATA,
+});
+
+export const changeUsersData = (value) => ({
+  type: CHANGE_USERS_DATA,
+  value,
+});
+
+export const deleteUser = (value) => ({
+  type: DELETE_USER,
+  value,
+});
+
+// Ajouter par Miguel.
+export const saveUser = (username, password) => ({
+  type: SAVE_USER,
+  username,
+  password,
+});
+
+export const changeSignInFormValue = (value, name) => ({
+  type: CHANGE_SIGNIN_FORM_VALUE,
+  value,
+  name,
 })
 
+export const submitSignInForm = () => ({
+  type: SUBMIT_SIGNIN_FORM,
+})
+
+export const changeContactFormValue = (value,name) => ({
+  type: CHANGE_CONTACT_FORM_VALUE,
+  value,
+  name,
+})
+
+export const submitContactForm = () => ({
+  type: SUBMIT_CONTACT_FORM_VALUE,
+})
+
+export const SuccessSendMessage = () => ({
+  type: CHANGE_SUCCESS_MESSAGE,
+})
+
+export const changeSuccessMessage = () => ({
+  type: INVERT_SUCCESS_MESSSAGE,
+})
 // == Selectors
 
 // == Export

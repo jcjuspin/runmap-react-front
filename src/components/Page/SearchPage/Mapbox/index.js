@@ -13,12 +13,20 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import PlacePin from './PlacePin';
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
+import PlacePin from './PlacePin';
+import './mapbox.scss';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 const MapBox = ({
-  submitSearchForm, userSearchInput, allPlaces, changeLatLong, collectLatLong, latlong, allPlacesWithGeocode, allPlacesGeocode,
+  submitSearchForm,
+  userSearchInput,
+  allPlaces,
+  changeLatLong,
+  collectLatLong,
+  latlong,
+  // allPlacesWithGeocode,
+  // allPlacesGeocode,
 }) => {
   // TODO: lors de la requete la réponse que j'obtiens c'est d'abord la longitude puis latitude
   // du coup je dois faire une requete vers l'api pour une ville pour avoir ces coordonnées.
@@ -42,7 +50,7 @@ const MapBox = ({
     longitude: 2.23056,
     zoom: 5,
     // bearing:0,
-    pitch:0,
+    pitch: 0,
   });
 
   const [style, setStyle] = useState('mapbox://styles/jean-christophe97/ck2gcjj6t0x3v1cqq0228w5v3');
@@ -57,7 +65,7 @@ const MapBox = ({
       longitude,
       zoom: 11,
       transitionInterpolator: new FlyToInterpolator({ speed: 2 }),
-      transitionDuration: 'auto',
+      transitionDuration: '3000',
     });
   };
 
@@ -108,25 +116,25 @@ const MapBox = ({
   // .push({ ...GeoLocateArray[i] });
   // }
 
-  if (typeof allPlaces === 'object') {
-    if (latlong === undefined) {
-      collectLatLong();
-    }
-  }
+  // if (typeof allPlaces === 'object') {
+  //   if (latlong === undefined) {
+  //     collectLatLong();
+  //   }
+  // }
 
-  if (typeof allPlaces === 'object' && typeof latlong === 'object') {
-    console.log('allPlaces : ', allPlaces);
-    const huhu = allPlaces.forEach((place) => console.log('huhu'));
-    for (let i = 0; i < allPlaces.length; i++) {
-      // console.log ('je suis une place : ', allPlaces[i].name);
-      // console.log ('je suis une geo : ', latlong[i]);
-      allPlaces[i].latitude = latlong[i].latitude;
-      allPlaces[i].longitude = latlong[i].longitude;
-    }
-    // console.log('allPlacesGeocode, ' ,allPlaces);
-    // allPlacesWithGeocode(allPlaces);
-    console.log(allPlaces);
-  }
+  // if (typeof allPlaces === 'object' && typeof latlong === 'object') {
+  //   console.log('allPlaces : ', allPlaces);
+  //   const huhu = allPlaces.forEach((place) => console.log('huhu'));
+  //   for (let i = 0; i < allPlaces.length; i++) {
+  //     // console.log ('je suis une place : ', allPlaces[i].name);
+  //     // console.log ('je suis une geo : ', latlong[i]);
+  //     allPlaces[i].latitude = latlong[i].latitude;
+  //     allPlaces[i].longitude = latlong[i].longitude;
+  //   }
+  //   // console.log('allPlacesGeocode, ' ,allPlaces);
+  //   // allPlacesWithGeocode(allPlaces);
+  //   console.log(allPlaces);
+  // }
 
   console.log(allPlaces);
 
@@ -135,39 +143,46 @@ const MapBox = ({
 
   const [show, setShow] = useState(false);
   const [placeData, setPlaceData] = useState('');
+  const [displayPlaceData, setDisplayPlaceData] = useState(false);
 
   const handleClose = () => {
     setShow(false);
     setPlaceData('');
-  }
+    setDisplayPlaceData(false);
+  };
 
   const handleShow = (place) => {
-
-    setPlaceData(place);
-    console.log('PLAAAAAACE', place);
     setShow(true);
-    
-  }
-  
+    console.log(place);
+    setPlaceData(place);
+    console.log('PLACE', place);
+    console.log('PLACE.REVIEWS', place.reviews);
+    // console.log('PLACE.REVIEWS.commentary', place.reviews[0].commentary);
+    setDisplayPlaceData(true);
+  };
+
 
   return (
     <>
       <MapGL
         width="500"
-        height="91vh"
+        height="93vh"
         mapRef={mapRef}
         {...viewport}
         mapStyle={style}
         onViewportChange={(viewPort) => setViewport({ ...viewPort })}
         mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
       >
-      <div className="container w-25 p-2 bg-dark text-white ml-0 mt-0">
+        <div className="container w-25 p-2  ml-0 mt-0">
           <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="course à pied"/>
-            </div>
             <AutoComplete />
-            <button type="submit" onClick={handleSubmit} class="btn btn-warning">Rechercher</button>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="btn btn-warning d-none"
+            >
+              Rechercher
+            </button>
           </form>
         </div>
 
@@ -182,13 +197,15 @@ const MapBox = ({
                 <div className="adresse-stade">
                   {placeData.adress}
                 </div>
-                <div className="stade-avis">
+
+                {/* en commentaire pour le moment le temps de la présentation */}
+                {/* <div className="stade-avis">
                   <Rater
                     rating={0}
                     total={5}
                   />
                   <span className="text-muted infos-avis ml-1">2O avis</span>
-                </div>
+                </div> */}
               </div>
 
               <div className="informations-stade">
@@ -198,9 +215,9 @@ const MapBox = ({
                     color="orange"
                   /> <b>Informations complémentaire :</b>
                 </h6>
-                <p>Le club de foot privatise le stade pour ses entrainements.</p>
+                <p>{placeData.complementInfo}</p>
               </div>
-              
+
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -216,18 +233,28 @@ const MapBox = ({
               </Button>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">
-                <p>Author</p>
-                <p>note sur 5</p>
-                <p>created_at</p>
-                <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-              </li>
-              <li className="list-group-item">
-                <p>Author</p>
-                <p>note sur 5</p>
-                <p>created_at</p>
-                <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-              </li>
+              { displayPlaceData && placeData.reviews.map((review) => {
+                if (placeData.reviews) {
+                  return (
+                    <li className="list-group-item">
+                      <Rater
+                        rating={review.rate}
+                        total={5}
+                        interactive={false}
+                      />
+                      <p>{review.user.firstname}</p>
+                      <p>{review.title}</p>
+                      <p>{review.commentary}</p>
+                    </li>
+                  );
+                } if (placeData.reviews === undefined) {
+                  return (
+                    <li>
+                      <p>Sois le premier à mettre un commentaire !</p>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           </Modal.Body>
           {/* Inutile car il y a la petite croix dans le header */}
@@ -238,7 +265,12 @@ const MapBox = ({
           </Modal.Footer> */}
         </Modal>
 
-        { allPlaces && latlong && allPlaces.map((place) => (
+        {
+          allPlaces
+          &&
+          // latlong
+          // &&
+        allPlaces.map((place) => (
           <div>
             <Marker
               latitude={place.latitude}
@@ -246,15 +278,16 @@ const MapBox = ({
               offsetLeft={-20}
               offsetTop={-10}
             >
-              <OverlayTrigger  trigger="click" placement="top" overlay={(
-                <Popover
-                  
-                  id="popover-basic">
-                  <Popover.Title as="h3">{place.name}</Popover.Title>
-                  <Popover.Content>
-                    {place.adress} <strong>{place.city.name}</strong>
-                  </Popover.Content>
-                </Popover>
+              <OverlayTrigger
+                trigger="click"
+                placement="top"
+                overlay={(
+                  <Popover id="popover-basic">
+                    <Popover.Title as="h3">{place.name}</Popover.Title>
+                    <Popover.Content>
+                      {place.adress} <strong>{place.city.name}</strong>
+                    </Popover.Content>
+                  </Popover>
               )}
               >
                 <img
@@ -266,10 +299,11 @@ const MapBox = ({
                 />
               </OverlayTrigger>
             </Marker>
-            
+
           </div>
-            
-        ))}
+
+        ))
+}
       </MapGL>
     </>
   );

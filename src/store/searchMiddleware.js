@@ -10,7 +10,7 @@ import {
   COLLECT_LAT_LANG,
   changeLatLong,
 } from 'src/store/reducer';
-import { baseUri, searchRoute, citiesSearchRoute } from 'src/store/vars_route';
+import { baseUri, searchRoute, citiesSearchRoute, placesRoute } from 'src/store/vars_route';
 // import { AST_Exit } from 'terser';
 
 const searchMiddleware = (store) => (next) => (action) => {
@@ -34,15 +34,16 @@ const searchMiddleware = (store) => (next) => (action) => {
           // console.log('Le type de la réponse : ', typeof response.data);
 
           // on dispatch l'action dans le reducer pour modifier le state.
-          const actionCollectPlaces = changePlaces(response.data);
-          if (typeof response.data === 'object') {
-            store.dispatch(actionCollectPlaces);
-          }
-          else if (typeof response.data === 'string') {
-            console.log('la ville n\' a pas de lieu référencé');
+          // const actionCollectPlaces = changePlaces(response.data);
+          // if (typeof response.data === 'object') {
+          //  store.dispatch(actionCollectPlaces);
+          // }
+          // else 
+          // if (typeof response.data === 'string') {
+          //  console.log('la ville n\' a pas de lieu référencé');
             // TODO: recuperer la valeur pour bloquer le bouton recherche,
             // si elle n'est pas présente dans la BDD.
-          }
+          // }
         })
         .catch((error) => {
           console.log('Apparement ça marche pas', error);
@@ -53,7 +54,7 @@ const searchMiddleware = (store) => (next) => (action) => {
       break;
     }
     // récuperation des villes présentes dans la BDD
-    case COLLECT_CITIES: {
+    case COLLECT_CITIES: { // NE PLUS TOUCHER.
       // console.log('Requete envoyée pour récuperer la liste des villes');
 
       // cf doc axios sur son fonctionnement https://github.com/axios/axios
@@ -80,12 +81,12 @@ const searchMiddleware = (store) => (next) => (action) => {
         });
       break;
     }
-    case COLLECT_PLACES: {
-
-      axios.get(`${baseUri}/`)
+    case COLLECT_PLACES: { // NE PLUS TOUCHER.
+      axios.get(`${baseUri}${placesRoute}`)
         .then((response) => {
           // console.log('la liste des lieux : ', ...response.data);
           const allPlaces = response.data;
+          console.log('Je récupère toutes les places : ', allPlaces);
           // allPlaces.map((place) => {
           //   const adress = place.adress;
           //   const city = place.city.name;
