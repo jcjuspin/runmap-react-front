@@ -23,7 +23,7 @@ export const placeDetails = '/place/';
 
 export const createPlace = '/create/place';
 
-export const allUsers = '/allUsers';
+export const allUsers = '/admin/users';
 
 export const deleteUser = '/admin/delete/user/';
 
