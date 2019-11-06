@@ -166,20 +166,18 @@ const MapBox = ({
         onViewportChange={(viewPort) => setViewport({ ...viewPort })}
         mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
       >
-        <div
-        className="container w-25 p-2  ml-0 mt-0"
-      >
-        <form>
+        <div className="container w-25 p-2  ml-0 mt-0">
+          <form>
             <AutoComplete />
             <button
               type="submit"
               onClick={handleSubmit}
-              className="btn btn-warning"
+              className="btn btn-warning d-none"
             >
               Rechercher
             </button>
           </form>
-      </div>
+        </div>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
