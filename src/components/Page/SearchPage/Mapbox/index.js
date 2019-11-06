@@ -29,6 +29,7 @@ const MapBox = ({
   changeUserReview,
   reviewSubmit,
   createReviewRoute,
+  userId,
   // allPlacesWithGeocode,
   // allPlacesGeocode,
 }) => {

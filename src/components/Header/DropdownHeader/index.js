@@ -11,10 +11,10 @@ const DropdownHeader = () => (
     </Dropdown.Toggle>
     <Dropdown.Menu>
       <Dropdown.Item eventKey="1"><NavLink to="/ajouter" exact>Ajouter un lieu</NavLink></Dropdown.Item>
-      <Dropdown.Item eventKey="2"><NavLink to="/contact" exact>Modifier un lieu</NavLink></Dropdown.Item>
-      <Dropdown.Item eventKey="3"><NavLink to="/user" exact>Profil</NavLink></Dropdown.Item>
+      <Dropdown.Item eventKey="2"><a>Modifier un lieu</a></Dropdown.Item>
+      <Dropdown.Item eventKey="3"><a>Profil</a></Dropdown.Item>
       <Dropdown.Divider />
-      <Dropdown.Item eventKey="4"><NavLink to="/" exact>Deconnexion</NavLink></Dropdown.Item>
+      <Dropdown.Item eventKey="4"><a>Deconnexion</a></Dropdown.Item>
     </Dropdown.Menu>
   </Dropdown>
 );

@@ -282,7 +282,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         reviewPlaceId: action.value,
-
+      }
       case CHANGE_USER:
     // eslint-disable-next-line default-case
       return {
@@ -470,8 +470,6 @@ export const reviewSubmit = (value) => ({
   type: SUBMIT_REVIEW,
   value,
 })
-
-});
 
 
 export const changeUser = (value) => ({

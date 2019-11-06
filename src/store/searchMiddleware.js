@@ -180,7 +180,7 @@ const searchMiddleware = (store) => (next) => (action) => {
 
       const state = store.getState();
       const reviewData = {
-        user: state.userId,
+        user: state.user.id,
         place: action.value,
         title: 'oim',
         commentary: state.reviewContent,

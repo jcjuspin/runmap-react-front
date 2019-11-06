@@ -33,6 +33,7 @@ const mapStateToProps = (state, ownProps) => ({
   latlong: state.latlong,
   allPlacesGeocode: state.allPlacesGeocode,
   reviewContent: state.reviewContent,
+  userId: state.user.id,
 });
 
 /* === Actions ===

@@ -30,6 +30,7 @@ const SearchPage = ({
   reviewContent,
   changeUserReview,
   reviewSubmit,
+  userId,
 }) => {
   // console.log('voici la liste des stades pour le lieu séléctionné : ', places);
 
@@ -222,6 +223,7 @@ const SearchPage = ({
           reviewContent={reviewContent}
           changeUserReview={changeUserReview}
           reviewSubmit={reviewSubmit}
+          userId={userId}
         />
       </div>
 
