@@ -15,15 +15,16 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import AutoComplete from 'src/containers/Page/SearchPage/AutoComplete';
 import PlacePin from './PlacePin';
+import './mapbox.scss';
 
 // https://programmingwithmosh.com/react/simple-react-autocomplete-component/
 const MapBox = ({
-  submitSearchForm, 
-  userSearchInput, 
-  allPlaces, 
-  changeLatLong, 
-  collectLatLong, 
-  latlong, 
+  submitSearchForm,
+  userSearchInput,
+  allPlaces,
+  changeLatLong,
+  collectLatLong,
+  latlong,
   // allPlacesWithGeocode,
   // allPlacesGeocode,
 }) => {
@@ -142,16 +143,22 @@ const MapBox = ({
 
   const [show, setShow] = useState(false);
   const [placeData, setPlaceData] = useState('');
+  const [displayPlaceData, setDisplayPlaceData] = useState(false);
 
   const handleClose = () => {
     setShow(false);
     setPlaceData('');
+    setDisplayPlaceData(false);
   };
 
   const handleShow = (place) => {
-    setPlaceData(place);
-    console.log('PLAAAAAACE', place);
     setShow(true);
+    console.log(place);
+    setPlaceData(place);
+    console.log('PLACE', place);
+    console.log('PLACE.REVIEWS', place.reviews);
+    // console.log('PLACE.REVIEWS.commentary', place.reviews[0].commentary);
+    setDisplayPlaceData(true);
   };
 
 
@@ -190,13 +197,15 @@ const MapBox = ({
                 <div className="adresse-stade">
                   {placeData.adress}
                 </div>
-                <div className="stade-avis">
+
+                {/* en commentaire pour le moment le temps de la présentation */}
+                {/* <div className="stade-avis">
                   <Rater
                     rating={0}
                     total={5}
                   />
                   <span className="text-muted infos-avis ml-1">2O avis</span>
-                </div>
+                </div> */}
               </div>
 
               <div className="informations-stade">
@@ -206,7 +215,7 @@ const MapBox = ({
                     color="orange"
                   /> <b>Informations complémentaire :</b>
                 </h6>
-                <p>Le club de foot privatise le stade pour ses entrainements.</p>
+                <p>{placeData.complementInfo}</p>
               </div>
 
             </Modal.Title>
@@ -224,18 +233,28 @@ const MapBox = ({
               </Button>
             </div>
             <ul className="list-group list-group-flush">
-              <li className="list-group-item">
-                <p>Author</p>
-                <p>note sur 5</p>
-                <p>created_at</p>
-                <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-              </li>
-              <li className="list-group-item">
-                <p>Author</p>
-                <p>note sur 5</p>
-                <p>created_at</p>
-                <p>Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.</p>
-              </li>
+              { displayPlaceData && placeData.reviews.map((review) => {
+                if (placeData.reviews) {
+                  return (
+                    <li className="list-group-item">
+                      <Rater
+                        rating={review.rate}
+                        total={5}
+                        interactive={false}
+                      />
+                      <p>{review.user.firstname}</p>
+                      <p>{review.title}</p>
+                      <p>{review.commentary}</p>
+                    </li>
+                  );
+                } if (placeData.reviews === undefined) {
+                  return (
+                    <li>
+                      <p>Sois le premier à mettre un commentaire !</p>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           </Modal.Body>
           {/* Inutile car il y a la petite croix dans le header */}
@@ -246,7 +265,7 @@ const MapBox = ({
           </Modal.Footer> */}
         </Modal>
 
-        { 
+        {
           allPlaces
           &&
           // latlong
@@ -259,17 +278,16 @@ const MapBox = ({
               offsetLeft={-20}
               offsetTop={-10}
             >
-              <OverlayTrigger trigger="click"
-placement="top"
-overlay={(
-                <Popover
-                  
-                  id="popover-basic">
-                  <Popover.Title as="h3">{place.name}</Popover.Title>
-                  <Popover.Content>
-                    {place.adress} <strong>{place.city.name}</strong>
-                  </Popover.Content>
-                </Popover>
+              <OverlayTrigger
+                trigger="click"
+                placement="top"
+                overlay={(
+                  <Popover id="popover-basic">
+                    <Popover.Title as="h3">{place.name}</Popover.Title>
+                    <Popover.Content>
+                      {place.adress} <strong>{place.city.name}</strong>
+                    </Popover.Content>
+                  </Popover>
               )}
               >
                 <img
@@ -284,7 +302,8 @@ overlay={(
 
           </div>
 
-        ))}
+        ))
+}
       </MapGL>
     </>
   );
