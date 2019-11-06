@@ -12,7 +12,6 @@ const initialState = {
   email: '',
   city: '',
   password: '',
-  logged: false, // Ajouter par Miguel.
   
   passwordConfirmation: '',
   displayPasswordErrorMessage: false,
@@ -59,6 +58,10 @@ const initialState = {
   contactBody: '',
   successMessage: false,
 
+  // Gestion des sessions (Ajouté par Miguel)
+  logged: false, // Ajouté par Miguel.
+  loggedAdmin: false, // Ajouté par Miguel.
+
 };
 
 // == Types
@@ -94,7 +97,8 @@ export const SUBMIT_CONTACT_FORM_VALUE = 'SUBMIT_CONTACT_FORM_VALUE';
 const CHANGE_SUCCESS_MESSAGE = 'CHANGE_SUCCESS_MESSAGE';
 const INVERT_SUCCESS_MESSSAGE = 'INVERT_SUCCESS_MESSSAGE';
 
-const SAVE_USER = 'SAVE_USER'; // Ajouter par Miguel.
+const SAVE_USER = 'SAVE_USER'; // Ajouté par Miguel.
+const SAVE_ADMIN_USER = "SAVE_ADMIN_USER"; // Ajouté par Miguel.
 
 
 // == Reducer
@@ -212,12 +216,20 @@ const reducer = (state = initialState, action = {}) => {
         userId: action.value,
       };
 
-      case SAVE_USER: // Ajouter par Miguel.
+      case SAVE_USER: // Ajouté par Miguel.
       return {
         ...state,
-        username: action.username,
+        username: action.email,
         password: action.password,
         logged: true,
+      };
+
+      case SAVE_ADMIN_USER: // Ajouté par Miguel.
+      return {
+        ...state,
+        username: action.email,
+        password: action.password,
+        loggedAdmin: true,
       };
 
       case CHANGE_SIGNIN_FORM_VALUE:
@@ -367,9 +379,16 @@ export const deleteUser = (value) => ({
   value,
 });
 
-// Ajouter par Miguel.
+// Ajouté par Miguel.
 export const saveUser = (username, password) => ({
   type: SAVE_USER,
+  username,
+  password,
+});
+
+// Ajouté par Miguel.
+export const saveAdminUser = (username, password) => ({
+  type: SAVE_ADMIN_USER,
   username,
   password,
 });
@@ -378,29 +397,30 @@ export const changeSignInFormValue = (value, name) => ({
   type: CHANGE_SIGNIN_FORM_VALUE,
   value,
   name,
-})
+});
 
 export const submitSignInForm = () => ({
   type: SUBMIT_SIGNIN_FORM,
-})
+});
 
 export const changeContactFormValue = (value,name) => ({
   type: CHANGE_CONTACT_FORM_VALUE,
   value,
   name,
-})
+});
 
 export const submitContactForm = () => ({
   type: SUBMIT_CONTACT_FORM_VALUE,
-})
+});
 
 export const SuccessSendMessage = () => ({
   type: CHANGE_SUCCESS_MESSAGE,
-})
+});
 
 export const changeSuccessMessage = () => ({
   type: INVERT_SUCCESS_MESSSAGE,
-})
+});
+
 // == Selectors
 
 // == Export
