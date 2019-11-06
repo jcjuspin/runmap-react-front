@@ -23,8 +23,6 @@ const App = () => {
   return (
     <div id="app">
 
-      <Header />
-
       <AutoComplete />
       <FrontGetJson />
       <Header logged={true} />
