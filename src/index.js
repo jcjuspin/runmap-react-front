@@ -25,7 +25,7 @@ import {
 
 
 // == Import : local
-import App from 'src/components/App';
+import App from 'src/containers/App';
 import store from 'src/store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mapbox-gl/dist/mapbox-gl.css';

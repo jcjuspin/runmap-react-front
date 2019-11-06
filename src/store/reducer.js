@@ -59,8 +59,10 @@ const initialState = {
   successMessage: false,
 
   // Gestion des sessions (Ajouté par Miguel)
-  logged: false, // Ajouté par Miguel.
-  loggedAdmin: false, // Ajouté par Miguel.
+  logged: '', // Ajouté par Miguel.
+  loggedAdmin: '', // Ajouté par Miguel.
+  // détails de l'utilisateur connecté
+  user: '',
 
 };
 
@@ -98,7 +100,9 @@ const CHANGE_SUCCESS_MESSAGE = 'CHANGE_SUCCESS_MESSAGE';
 const INVERT_SUCCESS_MESSSAGE = 'INVERT_SUCCESS_MESSSAGE';
 
 const SAVE_USER = 'SAVE_USER'; // Ajouté par Miguel.
-const SAVE_ADMIN_USER = "SAVE_ADMIN_USER"; // Ajouté par Miguel.
+const SAVE_ADMIN_USER = 'SAVE_ADMIN_USER'; // Ajouté par Miguel.
+export const CHANGE_USER = 'CHANGE_USER';
+const CHANGE_LOGGED = 'CHANGE_LOGGED';
 
 
 // == Reducer
@@ -255,6 +259,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         successMessage: false,
+      };
+      case CHANGE_USER:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        user: action.value,
+      };
+      case CHANGE_LOGGED:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        logged: true,
       };
     default:
       return state;
@@ -420,6 +436,16 @@ export const SuccessSendMessage = () => ({
 export const changeSuccessMessage = () => ({
   type: INVERT_SUCCESS_MESSSAGE,
 });
+
+export const changeUser = (value) => ({
+  type: CHANGE_USER,
+  value,
+
+})
+
+export const loggedSuccess = () => ({
+  type: CHANGE_LOGGED,
+})
 
 // == Selectors
 

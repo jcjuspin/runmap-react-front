@@ -1,5 +1,7 @@
 import {
   SUBMIT_SIGNIN_FORM,
+  changeUser,
+  loggedSuccess,
 } from 'src/store/reducer';
 import axios from 'axios';
 import { baseUri, signInRoute } from 'src/store/vars_route';
@@ -26,6 +28,11 @@ const authMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log('réponse de mr API : ', response.data);
+
+          if (typeof response.data === 'object') {
+            store.dispatch(changeUser(response.data))
+            store.dispatch(loggedSuccess())
+          }
         })
         .catch((error) => {
           console.log(error.response);

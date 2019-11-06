@@ -10,7 +10,10 @@ import { Link } from 'react-router-dom';
 
 
 // == Composant
-const HeaderSection = ({ logged, loggedAdmin }) => (
+const HeaderSection = ({ logged, loggedAdmin, user }) => {
+  console.log('USER :', user);
+  
+  return (
   
   <nav
     className="navbar navbar-expand-lg navbar-light bg-light"
@@ -37,7 +40,7 @@ const HeaderSection = ({ logged, loggedAdmin }) => (
           <DropdownHeader />
         )}
 
-        {loggedAdmin && (
+        {logged && (
           <ButtonAdmin />
         )}
 
@@ -47,7 +50,7 @@ const HeaderSection = ({ logged, loggedAdmin }) => (
     </div>
   </nav>
 
-);
+)};
 
 HeaderSection.PropTypes = {
   logged: PropTypes.bool.isRequired,
