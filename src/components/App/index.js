@@ -12,7 +12,7 @@ import './app.scss';
 
 
 // == Composant
-const App = () => {
+const App = ({ logged, user }) => {
   const [searchFormData, setSearchFormData] = useState(
     {
       sport: '',
@@ -26,8 +26,9 @@ const App = () => {
       <AutoComplete />
       <FrontGetJson />
       <Header
-        logged={true} // Utilisateur inscrit
-        loggedAdmin={true} // Compte administrateur => Accès page admin.
+        logged={logged}
+        user={user} // Utilisateur inscrit
+        loggedAdmin={false} // Compte administrateur => Accès page admin.
       />
 
       <Page
