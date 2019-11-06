@@ -86,6 +86,7 @@ const searchMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           // console.log('la liste des lieux : ', ...response.data);
           const allPlaces = response.data;
+          console.log('Je récupère toutes les places : ', allPlaces);
           // allPlaces.map((place) => {
           //   const adress = place.adress;
           //   const city = place.city.name;

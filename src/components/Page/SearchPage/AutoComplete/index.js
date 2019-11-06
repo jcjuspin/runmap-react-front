@@ -85,8 +85,13 @@ export const Autocomplete = ({
     }
     else {
       suggestionsListComponent = (
-        <div className="no-suggestions">
-          <em>la ville n'a pas de lieu référencé ? <Link to="/ajouter">ajoute là !</Link></em>
+        <div className="no-suggestions" style={{ marginTop: '1em'}}>
+          <p className="p-1 mb-2 bg-light text-dark">
+            la ville n'a pas de lieu référencé ? <br />
+          </p>
+          <button type="button" className="btn btn-warning text-dark anchor-style btn-lg">
+            <Link to="/ajouter" className="anchor-style" style={{ textDecoration: 'none', color: 'white', fontWeight: 'bold' }}>ajoute là !</Link>
+          </button>
         </div>
       );
     }
