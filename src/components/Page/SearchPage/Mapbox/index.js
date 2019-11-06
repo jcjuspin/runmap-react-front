@@ -22,9 +22,13 @@ const MapBox = ({
   submitSearchForm,
   userSearchInput,
   allPlaces,
+  reviewContent,
   changeLatLong,
   collectLatLong,
   latlong,
+  changeUserReview,
+  reviewSubmit,
+  createReviewRoute,
   // allPlacesWithGeocode,
   // allPlacesGeocode,
 }) => {
@@ -161,6 +165,19 @@ const MapBox = ({
     setDisplayPlaceData(true);
   };
 
+  // gestion de l'envoi d'un review
+  const handleChange = (event) => {
+    const { value } = event.target;
+    // id de la place actuelle
+    changeUserReview(value);
+    console.log('value', value);
+  };
+
+  const handleReviewSubmit = () => {
+
+    console.log('je soumets la review');
+    reviewSubmit(placeData.id);
+   }
 
   return (
     <>
@@ -222,13 +239,25 @@ const MapBox = ({
           </Modal.Header>
           <Modal.Body>
             <div className="">
+              <Rater
+                // TODO: mettre en place le rater
+                rating={5}
+                total={5}
+                interactive="true"
+                // onChange={handleChange}
+              />
               <textarea
+                value={reviewContent}
+                onChange={handleChange}
                 className="form-control"
                 placeholder="Écrivez votre commentaire"
                 id="exampleFormControlTextarea1"
                 rows="3"
               />
-              <Button className="btn-warning btn-ajout" onClick={handleClose}>
+              <Button className="btn-warning btn-ajout"
+                //onClick={handleClose, handleReview}
+                onClick={handleReviewSubmit}
+                >
                 Ajouter
               </Button>
             </div>

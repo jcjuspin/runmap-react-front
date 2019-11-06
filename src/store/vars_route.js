@@ -13,7 +13,7 @@
 export const baseUri = 'http://localhost/projet-Runmap/public';
 
 // Routes
-export const registerRoute = '/register';
+export const registerRoute = '/create/user';
 
 export const searchRoute = '/search/';
 
@@ -39,7 +39,7 @@ export const signInRoute = '/login';
 // /api/login
 
 // création de commentaire
-// /create/review
+export const createReviewRoute = '/create/review';
 
 // avoir la liste de toutes les place
 export const placesRoute = '/places';

@@ -58,11 +58,18 @@ const initialState = {
   contactBody: '',
   successMessage: false,
 
+
+  // User review
+  reviewContent: '',
+  reviewPlaceId: '',
+  userID: '',
+
   // Gestion des sessions (Ajouté par Miguel)
   logged: '', // Ajouté par Miguel.
   loggedAdmin: '', // Ajouté par Miguel.
   // détails de l'utilisateur connecté
   user: '',
+
 
 };
 
@@ -103,6 +110,9 @@ const SAVE_USER = 'SAVE_USER'; // Ajouté par Miguel.
 const SAVE_ADMIN_USER = 'SAVE_ADMIN_USER'; // Ajouté par Miguel.
 export const CHANGE_USER = 'CHANGE_USER';
 const CHANGE_LOGGED = 'CHANGE_LOGGED';
+
+const CHANGE_USER_REVIEW = 'CHANGE_USER_REVIEW';
+export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
 
 
 // == Reducer
@@ -260,6 +270,19 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         successMessage: false,
       };
+
+      case CHANGE_USER_REVIEW:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        reviewContent: action.value,
+      };
+      case SUBMIT_REVIEW:
+    // eslint-disable-next-line default-case
+      return {
+        ...state,
+        reviewPlaceId: action.value,
+
       case CHANGE_USER:
     // eslint-disable-next-line default-case
       return {
@@ -435,7 +458,21 @@ export const SuccessSendMessage = () => ({
 
 export const changeSuccessMessage = () => ({
   type: INVERT_SUCCESS_MESSSAGE,
+
+})
+
+export const changeUserReview = (value) => ({
+  type: CHANGE_USER_REVIEW,
+  value,
+})
+
+export const reviewSubmit = (value) => ({
+  type: SUBMIT_REVIEW,
+  value,
+})
+
 });
+
 
 export const changeUser = (value) => ({
   type: CHANGE_USER,
@@ -446,6 +483,7 @@ export const changeUser = (value) => ({
 export const loggedSuccess = () => ({
   type: CHANGE_LOGGED,
 })
+
 
 // == Selectors
 
