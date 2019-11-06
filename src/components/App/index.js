@@ -25,7 +25,10 @@ const App = () => {
 
       <AutoComplete />
       <FrontGetJson />
-      <Header logged={true} />
+      <Header
+        logged={true} // Utilisateur inscrit
+        loggedAdmin={true} // Compte administrateur => Accès page admin.
+      />
 
       <Page
         searchFormData={searchFormData}

@@ -20,6 +20,7 @@ import {
   faUser,
   faSearchLocation,
   faMapMarkerAlt,
+  faUserCog,
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -43,6 +44,7 @@ library.add(
   faUser,
   faSearchLocation,
   faMapMarkerAlt,
+  faUserCog,
 );
 
 // == Render
