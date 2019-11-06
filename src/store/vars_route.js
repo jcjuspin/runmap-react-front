@@ -42,7 +42,7 @@ export const signInRoute = '/api/login_check';
 // /create/review
 
 // avoir la liste de toutes les place
-// /places
+export const placesRoute = '/places';
 
 // avoir une place
 // /place/id

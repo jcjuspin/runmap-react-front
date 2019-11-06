@@ -154,20 +154,25 @@ const MapBox = ({
     <>
       <MapGL
         width="500"
-        height="91vh"
+        height="93vh"
         mapRef={mapRef}
         {...viewport}
         mapStyle={style}
         onViewportChange={(viewPort) => setViewport({ ...viewPort })}
         mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
       >
-      <div className="container w-25 p-2 bg-dark text-white ml-0 mt-0">
+      <div 
+        className="container w-25 p-2  ml-0 mt-0"
+      >
           <form>
-            <div class="form-group">
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="course à pied"/>
-            </div>
             <AutoComplete />
-            <button type="submit" onClick={handleSubmit} class="btn btn-warning">Rechercher</button>
+            <button 
+              type="submit" 
+              onClick={handleSubmit} 
+              className="btn btn-warning"
+            >
+              Rechercher
+            </button> 
           </form>
         </div>
 

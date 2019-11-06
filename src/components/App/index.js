@@ -22,14 +22,20 @@ const App = () => {
 
   return (
     <div id="app">
+
+      <Header />
+
       <AutoComplete />
       <FrontGetJson />
       <Header logged={true} />
+
       <Page
         searchFormData={searchFormData}
         setSearchFormData={setSearchFormData}
       />
-      <Footer />
+      {/* <Footer /> */}
+      <AutoComplete />
+      <FrontGetJson />
     </div>
   );
 };
