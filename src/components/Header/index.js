@@ -3,6 +3,7 @@ import React from 'react';
 import DropdownHeader from 'src/components/Header/DropdownHeader';
 import PropTypes from 'prop-types';
 import ModalHeader from 'src/containers/Header/ModalHeader';
+import ButtonAdmin from 'src/components/Header/ButtonAdmin';
 import { Link } from 'react-router-dom';
 
 
@@ -37,7 +38,7 @@ const HeaderSection = ({ logged, loggedAdmin }) => (
         )}
 
         {loggedAdmin && (
-          <div>Bonjour</div>
+          <ButtonAdmin />
         )}
 
       </form>
