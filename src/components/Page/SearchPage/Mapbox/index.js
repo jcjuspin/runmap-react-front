@@ -58,7 +58,7 @@ const MapBox = ({
     pitch: 0,
   });
 
-  const [style, setStyle] = useState('mapbox://styles/jean-christophe97/ck2gcjj6t0x3v1cqq0228w5v3');
+  const [style, setStyle] = useState('mapbox://styles/mapbox/outdoors-v10?optimize=true');
 
 
   const mapRef = React.createRef();
@@ -80,7 +80,7 @@ const MapBox = ({
     // execution d'une action en vue de faire une requete à l'api symfony
     submitSearchForm();
 
-    axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${userSearchInput}.json?access_token=pk.eyJ1IjoibWF0dGZpY2tlIiwiYSI6ImNqNnM2YmFoNzAwcTMzM214NTB1NHdwbnoifQ.Or19S7KmYPHW8YjRz82v6g&cachebuster=1572704013602&autocomplete=false&country=fr&types=place&limit=1`)
+    axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${userSearchInput}.json?access_token=pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2sybm1seDhhMG82MDNsbno3MzM0YnA1ayJ9.S2WLt5sQgh-5V_xYo6aPFg.dcfrdvAqRv1MshVt4ijgng.Or19S7KmYPHW8YjRz82v6g&cachebuster=1572704013602&autocomplete=false&country=fr&types=place&limit=1`)
       .then((response) => {
         const cityLatitude = response.data.features[0].center[1];
         const cityLongitude = response.data.features[0].center[0];
@@ -189,7 +189,7 @@ const MapBox = ({
         {...viewport}
         mapStyle={style}
         onViewportChange={(viewPort) => setViewport({ ...viewPort })}
-        mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2syMXNwNmRtMDI5NDNkcGdtMDltcGdyNCJ9.dcfrdvAqRv1MshVt4ijgng"
+        mapboxApiAccessToken="pk.eyJ1IjoiamVhbi1jaHJpc3RvcGhlOTciLCJhIjoiY2sybm1seDhhMG82MDNsbno3MzM0YnA1ayJ9.S2WLt5sQgh-5V_xYo6aPFg"
       >
         <div className="container w-25 p-2  ml-0 mt-0">
           <form>
