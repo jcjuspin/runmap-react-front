@@ -124,19 +124,16 @@ const searchMiddleware = (store) => (next) => (action) => {
       let geoLocateArray = [];
 
       const handleGeoLocate = (latitude, longitude) => {
-        let c = { latitude, longitude, prout: 'prout' };
+        let c = { latitude, longitude};
         return (c);
       };
 
-      const prout = (lat, long) => {
+      const executeHandleGeolocate = (lat, long) => {
         geoLocateArray.push(handleGeoLocate(lat, long));
       };
-      const longLat = (latLong) => {
-        console.log('HUHU', latLong);
-      };
 
-      const Proutard = (lat=10,long=20 ) => {
-        prout(lat, long);
+      const tard = (lat=10,long=20 ) => {
+        executeHandleGeolocate(lat, long);
       };
 
       allPlaces.forEach((place) => {
@@ -148,16 +145,8 @@ const searchMiddleware = (store) => (next) => (action) => {
             const latitude = geocoderResponse.data.features[0].center[1];
             const longitude = geocoderResponse.data.features[0].center[0];
 
-            Proutard(latitude, longitude);
+            tard(latitude, longitude);
             console.log('GeoLocateArray : ', geoLocateArray);
-            
-            // console.log('GeoLocateArray 0 latitude : ', geoLocateArray[0].latitude);
-            // place.latitude = latitude;
-            // place.longitude = longitude;
-            // handleGeoLocate(latitude, longitude);
-            // prout(latitude, longitude);
-            // Proutard(10, 20);
-            // Proutard();
             console.log('GeoLocateArray marche encore ? : ', geoLocateArray);
             if (geoLocateArray.length === allPlaces.length) {
               store.dispatch(changeLatLong(geoLocateArray));

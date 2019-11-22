@@ -55,7 +55,6 @@ const addPLaceMiddleware = (store) => (next) => (action) => {
           const latitude = geocoderResponse.data.features[0].center[1];
           const longitude = geocoderResponse.data.features[0].center[0];
 
-          // Proutard(latitude, longitude);
           console.log('longlat : ', latitude, longitude);
 
           addPlaceFormData.place.latitude = latitude;
